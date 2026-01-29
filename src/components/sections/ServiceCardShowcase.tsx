@@ -56,12 +56,12 @@ const CardVariantB = () => (
      </div>
      <div className="absolute inset-0 flex flex-col justify-between p-10">
          <div className="flex justify-between items-center border-b border-black pb-4">
-            <span className="text-xs font-serif italic text-gray-500">01. Service</span>
+            <span className="text-xs font-sans italic text-gray-500">01. Service</span>
             <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${service.color}`} />
          </div>
          
          <div className="mt-8">
-            <h3 className="text-5xl font-serif text-black leading-[0.9] mb-6">Technical<br/><span className="italic text-gray-400">Solutions</span></h3>
+            <h3 className="text-5xl font-sans text-black leading-[0.9] mb-6">Technical<br/><span className="italic text-gray-400">Solutions</span></h3>
             <p className="text-sm text-gray-600 font-sans leading-relaxed max-w-[200px]">End-to-end technical implementation for your immediate needs.</p>
          </div>
 
@@ -144,7 +144,7 @@ const CardVariantE = () => (
 
             <h3 className="text-2xl font-bold text-white mb-2 uppercase">Technical_Solutions</h3>
             <div className="h-px w-full bg-gray-800 mb-4" />
-            <p className="text-xs text-gray-400 mb-auto">> Executing end-to-end technical implementation...</p>
+            <p className="text-xs text-gray-400 mb-auto">&gt; Executing end-to-end technical implementation...</p>
 
             <div className="grid grid-cols-2 gap-2 mt-8">
                 {service.tags.map((tag, i) => (

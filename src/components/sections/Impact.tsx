@@ -1,7 +1,6 @@
 "use client"
 import { motion } from "framer-motion"
 import { Counter } from "@/components/ui/Counter"
-import { HandCircle, HandStar } from "@/components/ui/HandDrawn"
 
 const stats = [
   { label: "Projects Completed", value: 50, suffix: "+" },
@@ -12,34 +11,35 @@ const stats = [
 
 export function Impact() {
   return (
-    <section className="bg-white py-24 text-gray-900 font-sans relative" id="impact">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-24 text-[#4A4A46] relative overflow-hidden" id="impact">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <div className="text-center mb-20 max-w-3xl mx-auto relative">
-            <HandStar className="absolute top-0 right-10 w-12 h-12 text-[#FF0099] rotate-12 opacity-50 animate-pulse" />
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black">
-                Our Impact in <span className="relative inline-block text-[#D4FF00]">
-                    Numbers
-                     <HandCircle className="absolute -top-6 -right-6 w-[140%] h-[140%] text-[#000] rotate-[-5deg] opacity-100 -z-10" />
-                </span>
+        <div className="text-center mb-20 max-w-3xl mx-auto">
+            <span className="text-[#D44531] font-bold tracking-widest uppercase text-sm mb-4 block">Proven Results</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-6 text-[#4A4A46] tracking-tight">
+                Our Impact in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D44531] to-[#E65A45]">Numbers</span>
             </h2>
-            <p className="text-gray-500 text-lg font-medium">Delivering measurable results across our client portfolio.</p>
+            <p className="text-[#4A4A46]/70 text-lg leading-relaxed">
+                Delivering measurable value and sustainable growth across our entire client portfolio.
+            </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat, index) => (
                 <motion.div 
                     key={index}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1, duration: 0.5 }}
-                    className="flex flex-col items-center text-center p-8 rounded-[2rem] bg-white border-2 border-gray-100 hover:border-black shadow-sm hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1 group"
+                    className="flex flex-col items-center justify-center p-8 rounded-[2rem] bg-[#fafafa] border border-gray-100 hover:border-[#D44531]/30 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
                 >
-                    <div className="text-5xl md:text-6xl font-bold text-gray-900 mb-2 font-sans tracking-tight group-hover:text-[#00F0FF] transition-colors">
+                    <div className="text-5xl md:text-6xl font-bold font-heading text-[#4A4A46] mb-2 tracking-tight group-hover:text-[#D44531] transition-colors">
                         <Counter from={0} to={stat.value} duration={2} suffix={stat.suffix} />
                     </div>
-                    <p className="text-sm md:text-base font-bold text-gray-400 uppercase tracking-widest group-hover:text-black transition-colors">{stat.label}</p>
+                    <p className="text-sm font-bold text-[#4A4A46]/60 uppercase tracking-widest group-hover:text-[#D44531] transition-colors">
+                        {stat.label}
+                    </p>
                 </motion.div>
             ))}
         </div>

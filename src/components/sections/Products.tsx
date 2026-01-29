@@ -64,8 +64,8 @@ export function Products() {
         {/* Title Section */}
         <div className="absolute top-10 left-10 md:top-20 md:left-20 z-10 max-w-md">
             <h2 className="text-5xl md:text-7xl font-bold text-gray-900 tracking-tight relative">
-                Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">Products</span>
-                <HandCircle className="absolute -top-4 -right-12 w-24 h-24 text-purple-300 rotate-12 -z-10 opacity-50" />
+                Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D44531] to-[#E65A45]">Products</span>
+                <HandCircle className="absolute -top-4 -right-12 w-24 h-24 text-[#FCD2AD] rotate-12 -z-10 opacity-50" />
             </h2>
             <p className="mt-8 text-lg text-gray-500 font-medium">
                 Innovative digital solutions powered by cutting-edge technology to transform your workflow.
@@ -100,7 +100,7 @@ export function Products() {
 
                 {/* Decorative Number */}
                 <div className="absolute top-6 right-10 flex flex-col items-center">
-                    <span className="text-9xl font-bold text-gray-900/5 select-none font-serif font-italic">0{index + 1}</span>
+                    <span className="text-9xl font-bold text-gray-900/5 select-none font-sans italic">0{index + 1}</span>
                     <HandUnderline className="w-20 text-gray-900/10 -mt-4 opacity-50" />
                 </div>
             </div>

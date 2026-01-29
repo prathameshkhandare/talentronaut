@@ -1,117 +1,142 @@
-"use client"
-import { motion, useScroll, useTransform } from "framer-motion"
-import { Button } from "@/components/ui/Button"
-import { ArrowRight, Play } from "lucide-react"
-import { Rocket } from "@/components/illustrations/Rocket"
-import { Clouds, CloudFront } from "@/components/illustrations/Clouds"
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowRight, Globe, Zap, Shield } from "lucide-react";
+import Image from "next/image";
 
 export function Hero() {
-  const { scrollY } = useScroll()
-  
-  // Parallax Text
-  const textOpacity = useTransform(scrollY, [0, 300], [1, 0])
-  const textY = useTransform(scrollY, [0, 300], [0, -50])
-
-  // Rocket Moves Up on Scroll
-  const rocketY = useTransform(scrollY, [0, 800], [0, -400])
-  const rocketScale = useTransform(scrollY, [0, 800], [1, 0.8])
-
   return (
-    <section className="relative flex min-h-[120vh] flex-col items-center justify-start overflow-hidden bg-gradient-to-b from-indigo-50/40 via-purple-50/40 to-white px-4 pt-32 text-center">
-      
-      {/* --- LAYER 1: THE SUN (Background) --- */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-gradient-to-b from-rose-200 to-white blur-[80px] opacity-60 z-0 pointer-events-none" />
-
-      {/* --- LAYER 2: BACK CLOUDS --- */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 w-full h-[60vh] pointer-events-none">
-          <Clouds className="w-full h-full" />
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#fafafa] pt-20">
+      {/* Background Elements */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-[#FCD2AD]/30 rounded-full blur-[100px] animate-pulse" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#D44531]/10 rounded-full blur-[120px]" />
+        <div className="absolute top-[40%] left-[20%] w-[200px] h-[200px] bg-[#4A4A46]/5 rounded-full blur-[80px]" />
+        
+        {/* Grid Pattern Overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(74,74,70,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(74,74,70,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
       </div>
 
-      {/* --- CONTENT WRAPPER (Text) --- */}
-      <motion.div 
-        style={{ opacity: textOpacity, y: textY }}
-        className="relative z-30 flex flex-col items-center max-w-5xl mx-auto"
-      >
-          {/* Pill Toggle */}
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="mb-8 flex items-center gap-2 rounded-full border border-black/5 bg-white/60 px-2 py-1.5 backdrop-blur-md hover:bg-white/80 transition-colors cursor-pointer shadow-sm hover:shadow-md"
-          >
-            <span className="rounded-full bg-[#171717] px-3 py-1 text-[10px] font-semibold tracking-wide text-white uppercase">New</span>
-            <span className="px-2 text-xs font-medium text-gray-600">Talentronaut 2.0 is live</span>
-            <ArrowRight className="h-3 w-3 text-gray-400" />
-          </motion.div>
-
-          {/* Headline */}
-          <motion.h1
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-6xl font-light tracking-tight text-gray-900 sm:text-7xl md:text-8xl lg:text-9xl"
-          >
-            Start your <br />
-            <span className="font-serif italic text-gray-900 font-normal">Growth</span> journey
-          </motion.h1>
-
-          <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="mt-8 max-w-xl text-lg text-gray-600 sm:text-xl font-light"
-          >
-            Navigate your career with precision. Expert mentorship and personalized paths designed for your success.
-          </motion.p>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
-           {/* CTAs */}
+          {/* Text Content */}
           <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="mt-10 flex flex-col gap-4 sm:flex-row pb-12 z-40"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col gap-6"
           >
-            <Button variant="solidCharcoal" size="lg" className="rounded-full px-8">Start to Grow</Button>
-            <Button variant="transparentGhost" size="lg" className="group gap-2 rounded-full px-8">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-black/10 bg-white group-hover:bg-black/5 transition-colors">
-                    <Play className="h-3 w-3 fill-current ml-0.5" />
-                </span>
-                Explore Possibilities
-            </Button>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#FCD2AD] shadow-sm w-fit">
+              <span className="flex h-2 w-2 rounded-full bg-[#D44531] animate-ping" />
+              <span className="text-sm font-semibold text-[#4A4A46] tracking-wide">
+                Innovating the Future
+              </span>
+            </div>
+
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading text-[#4A4A46] leading-[1.1] tracking-tight">
+              Igniting <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D44531] to-[#E65A45]">
+                Digital Transformations
+              </span>
+            </h1>
+
+            <p className="text-lg md:text-xl text-[#4A4A46]/80 leading-relaxed max-w-lg">
+              We engineer end-to-end solutions in AI, Web3, SaaS, and Automation for forward-thinking enterprises ready to scale.
+            </p>
+
+            <div className="flex flex-wrap gap-4 mt-2">
+              <a
+                href="#services"
+                className="px-8 py-4 rounded-full bg-[#D44531] text-white font-bold text-lg hover:bg-[#c03e2b] hover:shadow-lg hover:-translate-y-1 transition-all flex items-center gap-2 group"
+              >
+                Our Services
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a
+                href="#contact"
+                className="px-8 py-4 rounded-full bg-white border border-[#4A4A46]/10 text-[#4A4A46] font-bold text-lg hover:border-[#D44531] hover:text-[#D44531] transition-all shadow-sm hover:shadow-md"
+              >
+                Let's Talk
+              </a>
+            </div>
+
+            <div className="mt-8 flex items-center gap-6 text-sm font-medium text-[#4A4A46]/60">
+              <div className="flex items-center gap-2">
+                <Globe size={18} className="text-[#D44531]" />
+                <span>Global Reach</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Zap size={18} className="text-[#D44531]" />
+                <span>Lightning Fast</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Shield size={18} className="text-[#D44531]" />
+                <span>Secure & Scalable</span>
+              </div>
+            </div>
           </motion.div>
-      </motion.div>
 
-      {/* --- LAYER 3: ROCKET (Middle-Top) --- */}
-      <motion.div
-        style={{ y: rocketY, scale: rocketScale }}
-        className="relative z-20 -mt-24 h-64 w-64 md:h-[450px] md:w-[450px]"
-        initial={{ y: 400, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut", delay: 0.5 }}
-      >
-         {/* Floating Animation Wrapper */}
-         <motion.div
-            animate={{ 
-                y: [-15, 0, -15],
-                rotate: [1, -1, 1]
-            }}
-            transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut"
-            }}
-            className="w-full h-full"
-         >
-             <Rocket className="h-full w-full drop-shadow-2xl" />
-         </motion.div>
-      </motion.div>
+          {/* Visual Content */}
+          <motion.div
+             initial={{ opacity: 0, scale: 0.9 }}
+             animate={{ opacity: 1, scale: 1 }}
+             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+             className="relative h-[500px] w-full flex items-center justify-center lg:justify-end"
+          >
+             <div className="relative w-full max-w-lg aspect-square">
+                {/* Main Glass Panel */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#D44531]/5 to-[#FCD2AD]/20 rounded-[40px] border border-white/50 backdrop-blur-sm transform rotate-3 scale-95" />
+                
+                <div className="absolute inset-4 bg-white/60 backdrop-blur-xl rounded-[32px] border border-white/60 shadow-2xl flex items-center justify-center overflow-hidden">
+                    {/* Abstract Digital Globe or Rocket */}
+                    <div className="relative w-full h-full flex items-center justify-center p-8">
+                       {/* Central Graphic */}
+                       <div className="w-40 h-40 bg-gradient-to-br from-[#D44531] to-[#E65A45] rounded-3xl transform rotate-12 shadow-2xl shadow-[#D44531]/30 flex items-center justify-center z-10">
+                          <Zap size={64} className="text-white drop-shadow-md" />
+                       </div>
+                       
+                       {/* Floating Cards */}
+                       <motion.div 
+                          animate={{ y: [0, -15, 0] }}
+                          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                          className="absolute top-12 left-8 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 z-20"
+                       >
+                          <div className="flex items-center gap-3">
+                             <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold">AI</div>
+                             <div>
+                                <div className="text-xs text-gray-400">Efficiency</div>
+                                <div className="text-sm font-bold text-gray-800">+150%</div>
+                             </div>
+                          </div>
+                       </motion.div>
 
-      {/* --- LAYER 4: FRONT CLOUDS (Top Layer) --- */}
-      <div className="absolute bottom-0 left-0 right-0 z-50 w-full h-[40vh] pointer-events-none">
-          <CloudFront className="w-full h-full" />
+                       <motion.div 
+                          animate={{ y: [0, 15, 0] }}
+                          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                          className="absolute bottom-12 right-8 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 z-20"
+                       >
+                          <div className="flex items-center gap-3">
+                             <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">
+                                <Globe size={20} />
+                             </div>
+                             <div>
+                                <div className="text-xs text-gray-400">Global Clients</div>
+                                <div className="text-sm font-bold text-gray-800">Worldwide</div>
+                             </div>
+                          </div>
+                       </motion.div>
+
+                       {/* Background Circles */}
+                       <div className="absolute w-[120%] h-[120%] border border-[#D44531]/10 rounded-full animate-[spin_20s_linear_infinite]" />
+                       <div className="absolute w-[80%] h-[80%] border border-[#FCD2AD]/30 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
+                    </div>
+                </div>
+             </div>
+          </motion.div>
+
+        </div>
       </div>
-
     </section>
-  )
+  );
 }
-

@@ -140,7 +140,7 @@ export function BentoGrid() {
             {/* Header: Why Us? */}
             <motion.div variants={rightVariant} initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex justify-end pr-4 pt-4">
                  <h2 className="text-6xl md:text-7xl lg:text-8xl tracking-tighter text-[#1A1A1A] font-bold">
-                    Why <span className="font-serif font-light text-[#D44531]">Us?</span>
+                    Why <span className="font-sans font-light text-[#D44531]">Us?</span>
                  </h2>
             </motion.div>
 
@@ -174,7 +174,7 @@ export function BentoGrid() {
                         <p className="text-xs font-bold uppercase tracking-wider text-[#80807D] mb-2">Driving Innovation</p>
                         <h3 className="text-3xl text-[#1A1A1A] leading-none tracking-tight">
                             Our Platform's<br/>
-                            Features <span className="font-serif italic font-light text-[#D44531]">Lead the Way</span>
+                            Features <span className="font-sans italic font-light text-[#D44531]">Lead the Way</span>
                         </h3>
                      </div>
                      

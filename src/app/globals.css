@@ -8,39 +8,62 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   
-  /* BrainwaveBoard Strict Palette */
+  /* Talentronaut Palette */
   --color-primary: #D44531;     /* Deep Orange-Red */
+  --color-primary-light: #E65A45;
   --color-secondary: #FCD2AD;   /* Peach */
-  --color-tertiary: #80807D;    /* Stone Gray */
+  --color-secondary-light: #FFF0E0;
+  --color-tertiary: #4A4A46;    /* Dark Charcoal */
+  --color-tertiary-light: #80807D;
   
-  --color-text-primary: #80807D; /* Swapped: Headings now Gray */
-  --color-text-secondary: #D44531; /* Swapped: Body now Orange */
-
-  --radius-card: 48px;
+  --color-text-primary: #1A1A1A; /* Main Text - Nearly Black for contrast */
+  --color-text-secondary: #4A4A46; /* Secondary Text - Charcoal */
+  --color-text-accent: #D44531;  /* Accent Text - Orange */
+  
+  --radius-card: 32px;
   --radius-pill: 9999px;
   
-  --font-sans: var(--font-sora), var(--font-inter), sans-serif;
-  --font-serif: ui-serif, Georgia, serif;
+  --font-sans: var(--font-inter), sans-serif;
+  --font-heading: var(--font-sora), sans-serif;
+  
+  --animate-blob: blob 7s infinite;
 }
 
-:root {
-  --background: #F9F9F9;
-  --foreground: #1A1A1A;
+@layer utilities {
+  .text-heading {
+    font-family: var(--font-heading);
+  }
+  
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-xl border border-white/50 shadow-lg;
+  }
+  
+  .glass-card {
+    @apply bg-white/40 backdrop-blur-lg border border-white/30 shadow-sm hover:shadow-md transition-all duration-300;
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-150%) translateY(0%) rotate(45deg); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateX(150%) translateY(0%) rotate(45deg); opacity: 0; }
 }
 
 @layer base {
   body {
     background-color: var(--background);
-    color: var(--color-text-secondary); /* Forced #D44531 (Orange) */
+    color: var(--color-text-primary);
     font-family: var(--font-sans);
     font-weight: 400;
     line-height: 1.6;
+    overflow-x: hidden;
   }
   
   h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
     font-weight: 600;
     letter-spacing: -0.02em;
-    color: var(--color-text-primary); /* Forced #80807D (Gray) */
+    color: var(--color-text-primary);
   }
 }
 

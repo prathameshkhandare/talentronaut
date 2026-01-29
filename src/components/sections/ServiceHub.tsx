@@ -1,140 +1,193 @@
-import { motion } from "framer-motion"
-import { Monitor, Smartphone, Cpu, Box, Cloud, ArrowRight } from "lucide-react"
-import { Card } from "@/components/ui/Card"
-import { HandArrowRight, HandUnderline, HandStar, HandCircle } from "@/components/ui/HandDrawn"
+"use client";
+
+import { motion } from "framer-motion";
+import { Monitor, Smartphone, Cpu, Box, Cloud, Code, Database, Globe, Layers, ArrowRight } from "lucide-react";
 
 const services = [
   {
-    title: "Technical Solutions",
-    description: "End-to-end technical implementation for your immediate needs.",
+    title: "Web & Software Development",
+    description: "Scalable, high-performance web applications tailored to your business goals.",
     icon: Monitor,
-    tags: ["Development", "Implementation"],
+    tags: ["Full Stack", "Enterprise"],
+    delay: 0
   },
   {
-    title: "Talent Hire",
-    description: "Connect with top-tier talent to scale your operations.",
+    title: "Mobile App Development",
+    description: "Native and cross-platform mobile experiences that engage and convert.",
     icon: Smartphone,
-    tags: ["Recruitment", "Scaling"],
+    tags: ["iOS & Android", "React Native"],
+    delay: 0.1
   },
   {
-    title: "Technical Consulting",
-    description: "Expert guidance on architecture, stack selection, and best practices.",
+    title: "Blockchain & Web3",
+    description: "Decentralized solutions, smart contracts, and dApps for the future web.",
     icon: Box,
-    tags: ["Architecture", "Strategy"],
+    tags: ["Smart Contracts", "DeFi"],
+    delay: 0.2
   },
   {
-    title: "Growth Consulting",
-    description: "Data-driven strategies to accelerate your business growth.",
+    title: "AI & Automation",
+    description: "Intelligent algorithms and automated workflows to optimize operations.",
     icon: Cpu,
-    tags: ["Growth Hacking", "Analytics"],
+    tags: ["Machine Learning", "NLP"],
+    delay: 0.3
   },
   {
-    title: "Startup Consultation",
-    description: "Comprehensive mentorship and roadmap planning for early-stage ventures.",
+    title: "SaaS Development",
+    description: "Cloud-native SaaS platforms architected for scalability and multi-tenancy.",
     icon: Cloud,
-    tags: ["Mentorship", "Roadmap"],
+    tags: ["Cloud Native", "Microservices"],
+    delay: 0.4
   }
-]
+];
 
 export function ServiceHub() {
   return (
-    <section className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 bg-[#F9F9F9]" id="services">
-      {/* Header */}
-      <div className="mb-20 md:flex md:items-end md:justify-between text-center md:text-left">
-         <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="relative"
-         >
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-[#1A1A1A]">
-               Our <span className="text-[#D44531] font-light italic">Services</span>
-            </h2>
-            <p className="mt-6 text-lg text-[#666666] max-w-xl leading-relaxed">
-                End-to-end technical & consulting solutions for forward-thinking enterprises.
-            </p>
-         </motion.div>
-         
-         <motion.button 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="hidden md:flex items-center gap-2 px-8 py-4 rounded-full bg-white border border-[#D44531]/20 hover:border-[#D44531] text-[#D44531] font-semibold shadow-sm hover:shadow-md transition-all duration-300"
-        >
-            View all services <ArrowRight className="w-4 h-4" />
-         </motion.button>
+    <section className="relative py-24 sm:py-32 bg-[#fafafa] overflow-hidden" id="services">
+      {/* Background Decor */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[10%] right-[-10%] w-[800px] h-[800px] bg-[#FCD2AD]/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[10%] left-[-10%] w-[600px] h-[600px] bg-[#D44531]/5 rounded-full blur-[100px]" />
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-        {services.map((service, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-          >
-            {/* BrainwaveBoard Style: Clean Bento Card */}
-            <div className="group relative h-[420px] w-full rounded-card bg-white shadow-[0_20px_40px_rgba(0,0,0,0.04)] border border-transparent hover:border-[#FCD2AD] p-10 flex flex-col justify-between overflow-hidden transition-all duration-500 hover:shadow-[0_30px_60px_rgba(212,69,49,0.08)] hover:-translate-y-2">
-              
-              {/* Subtle Decorative Circle */}
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#FCD2AD] opacity-20 rounded-full blur-3xl group-hover:opacity-40 transition-all duration-500" />
-
-              {/* Top: Icon & Number */}
-              <div className="flex justify-between items-start relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-[#F9F9F9] border border-[#FCD2AD]/30 flex items-center justify-center group-hover:bg-[#D44531] transition-colors duration-500">
-                   <service.icon size={28} className="text-[#D44531] group-hover:text-white transition-colors duration-500" />
-                </div>
-                <span className="text-[#80807D] font-mono text-xs opacity-60">0{index + 1}</span>
-              </div>
-
-              {/* Bottom: Content */}
-              <div className="relative z-10 mt-auto">
-                 <h3 className="text-2xl font-semibold text-[#1A1A1A] mb-3 tracking-tight group-hover:text-[#D44531] transition-colors duration-300">
-                    {service.title}
-                 </h3>
-                 <p className="text-sm text-[#666666] leading-relaxed mb-8 max-w-[90%] font-normal">
-                    {service.description}
-                 </p>
-
-                 <div className="flex items-center gap-3">
-                    {service.tags.map((tag, i) => (
-                        <span key={i} className="px-3 py-1 rounded-full bg-[#FCD2AD]/20 text-[#D44531] text-[10px] font-bold uppercase tracking-wider">
-                            {tag}
-                        </span>
-                    ))}
-                 </div>
-              </div>
-
-            </div>
-          </motion.div>
-        ))}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* CTA Card */}
-        <motion.div
+        {/* Header */}
+        <div className="mb-20 max-w-3xl">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
-             className="flex flex-col justify-center items-center text-center p-10 rounded-card bg-[#D44531] text-white relative overflow-hidden shadow-xl"
-        >
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/notebook.png')] opacity-10"></div>
-            <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center mb-6">
-                <HandStar className="w-8 h-8 text-[#FCD2AD]" />
-            </div>
-            
-            <h3 className="text-3xl font-semibold mb-4 relative z-10 text-white text-left">Custom Solution?</h3>
-            <p className="text-[#FCD2AD] mb-8 relative z-10 text-sm max-w-xs mx-auto">
-                Let's discuss your specific requirements. We build exactly what you need.
-            </p>
-            
-            <button className="relative z-10 px-8 py-3 rounded-full bg-white text-[#D44531] font-bold hover:bg-[#FCD2AD] hover:text-[#D44531] transition-all w-full shadow-lg">
-                Contact Us
-            </button>
-        </motion.div>
+            transition={{ duration: 0.6 }}
+          >
+             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#FCD2AD] shadow-sm mb-6">
+                <span className="w-2 h-2 rounded-full bg-[#D44531]" />
+                <span className="text-xs font-bold uppercase tracking-wider text-[#4A4A46]">Our Expertise</span>
+             </div>
+             
+             <h2 className="text-4xl md:text-5xl font-bold font-heading text-[#4A4A46] tracking-tight mb-6">
+                Comprehensive <span className="text-[#D44531]">Digital Solutions</span>
+             </h2>
+             <p className="text-lg text-[#4A4A46]/70 leading-relaxed">
+                We combine technical expertise with industry insights to deliver solutions that drive real business value.
+             </p>
+          </motion.div>
+        </div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: service.delay, duration: 0.5 }}
+              className="group"
+            >
+              <div className="relative h-[480px] w-full rounded-[3rem] overflow-hidden transition-all duration-500 hover:-translate-y-3">
+                
+                {/* Background Layer */}
+                <div className="absolute inset-0 bg-white border border-gray-100 shadow-xl group-hover:shadow-2xl transition-all duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white via-[#fffdfb] to-[#fff5ee]" />
+                    
+                    {/* Dynamic Moving Blobs (Slow Animation) */}
+                    <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#FCD2AD]/10 rounded-full blur-[80px] group-hover:bg-[#D44531]/20 group-hover:scale-125 transition-all duration-1000" />
+                    <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#D44531]/5 rounded-full blur-[80px] group-hover:bg-[#D44531]/10 group-hover:scale-125 transition-all duration-1000" />
+                    
+                    {/* Grain Texture */}
+                    <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/noise.png')] mix-blend-overlay" />
+                </div>
+
+                {/* Content Container */}
+                <div className="absolute inset-0 p-10 flex flex-col items-start justify-between z-10">
+                    
+                    {/* Top Section */}
+                    <div className="w-full">
+                        <div className="w-16 h-16 rounded-[1.25rem] bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex items-center justify-center mb-10 group-hover:scale-110 group-hover:shadow-[0_20px_50px_rgba(212,69,49,0.1)] transition-all duration-500">
+                            <service.icon size={28} className="text-[#D44531] group-hover:scale-110 transition-transform duration-500" />
+                        </div>
+                        
+                        <h3 className="text-3xl font-bold font-heading text-[#4A4A46] mb-5 tracking-tight group-hover:text-[#D44531] transition-colors duration-300">
+                            {service.title}
+                        </h3>
+                        
+                        <p className="text-[#4A4A46]/70 leading-relaxed font-medium">
+                            {service.description}
+                        </p>
+                    </div>
+
+                    {/* Bottom Section */}
+                    <div className="w-full pt-8 flex items-end justify-between relative">
+                        <div className="flex flex-col gap-1">
+                            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#D44531]/60">Expertise</span>
+                            <span className="text-sm font-bold text-[#4A4A46]">{service.tags[0]}</span>
+                        </div>
+                        
+                        <div className="flex flex-col gap-1 text-right">
+                             <div className="w-12 h-12 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center group-hover:bg-[#D44531] group-hover:border-[#D44531] transition-all duration-500">
+                                <ArrowRight size={20} className="text-[#D44531] group-hover:text-white group-hover:translate-x-0.5 transition-all" />
+                            </div>
+                        </div>
+
+                        {/* Subtle decorative line */}
+                        <div className="absolute top-0 left-0 w-12 h-[2px] bg-gradient-to-r from-[#D44531]/30 to-transparent" />
+                    </div>
+
+                </div>
+
+                {/* Hover Glow Border */}
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#D44531]/5 rounded-[3rem] transition-all duration-500" />
+              </div>
+            </motion.div>
+          ))}
+
+          {/* Custom Need Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="group"
+          >
+             <div className="relative h-[480px] w-full rounded-[3rem] overflow-hidden bg-[#D44531] shadow-2xl transition-all duration-500 hover:-translate-y-3">
+                 {/* Premium Primary Background */}
+                 <div className="absolute inset-0 bg-gradient-to-br from-[#D44531] via-[#e65a45] to-[#D44531]" />
+                 
+                 {/* Subtle Light Glow */}
+                 <div className="absolute -top-[20%] -right-[20%] w-[80%] h-[80%] bg-white/20 rounded-full blur-[100px] group-hover:scale-150 transition-transform duration-1000" />
+                 
+                 <div className="absolute inset-0 p-10 flex flex-col justify-between text-white z-10">
+                    <div>
+                        <div className="w-16 h-16 rounded-[1.25rem] bg-white flex items-center justify-center mb-10 shadow-2xl shadow-black/10 border border-white/20">
+                            <Layers size={28} className="text-[#D44531]" />
+                        </div>
+                        <h3 className="text-4xl font-bold font-heading mb-6 tracking-tight text-white line-tight">Need a <br/><span className="text-[#FCD2AD]">Bespoke</span> <br/>Solution?</h3>
+                        <p className="text-white opacity-80 leading-relaxed font-medium max-w-[240px]">
+                            We architect custom platforms for those who refuse to settle for off-the-shelf limits.
+                        </p>
+                    </div>
+                    
+                    <a href="#contact" className="group/btn relative w-full py-5 rounded-2xl bg-white text-[#D44531] font-bold text-center overflow-hidden transition-all hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
+                        <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide">
+                            Start Consultation <ArrowRight size={18} />
+                        </span>
+                        <div className="absolute inset-0 bg-[#4A4A46] translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-300" />
+                        <span className="absolute inset-0 flex items-center justify-center gap-2 text-white translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-300 font-black">
+                            Let&apos;s Build It <ArrowRight size={18} />
+                        </span>
+                    </a>
+                 </div>
+
+                 {/* Decorative Grid Panel */}
+                 <div className="absolute bottom-0 right-0 w-32 h-32 opacity-10 pointer-events-none">
+                     <div className="absolute inset-0 bg-[radial-gradient(#D44531_1px,transparent_1px)] bg-[size:10px_10px]" />
+                 </div>
+             </div>
+          </motion.div>
+
+        </div>
       </div>
     </section>
-  )
+  );
 }
