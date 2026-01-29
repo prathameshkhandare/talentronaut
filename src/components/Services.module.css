@@ -1,0 +1,222 @@
+.section {
+  padding: var(--section-padding) 0;
+  background: linear-gradient(180deg, transparent, var(--accent-mint) 50%, transparent);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 10px 20px;
+  background: white;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--brand-coral);
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.highlight {
+  color: var(--brand-coral);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--secondary-text);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Animation */
+.animateItem {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.animateItem.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cards .animateItem:nth-child(1) { transition-delay: 0.1s; }
+.cards .animateItem:nth-child(2) { transition-delay: 0.2s; }
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.cardBadge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  padding: 6px 14px;
+  background: var(--brand-coral);
+  color: white;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cardIcon {
+  width: 72px;
+  height: 72px;
+  background: var(--accent-mint);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-coral);
+  margin-bottom: 24px;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  color: var(--secondary-text);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.cardFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--primary-text);
+}
+
+.feature svg {
+  color: var(--accent-green);
+  flex-shrink: 0;
+}
+
+.cardPricing {
+  margin-bottom: 24px;
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary-text);
+}
+
+.pricePeriod {
+  font-size: 0.95rem;
+  color: var(--secondary-text);
+  margin-left: 4px;
+}
+
+.cardButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 16px 32px;
+  background: var(--primary-text);
+  color: white;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.cardButton:hover {
+  background: #1a1a1a;
+  transform: translateY(-2px);
+}
+
+.cardButtonOutline {
+  background: transparent;
+  color: var(--primary-text);
+  border: 2px solid var(--primary-text);
+}
+
+.cardButtonOutline:hover {
+  background: var(--primary-text);
+  color: white;
+}
+
+/* Card Variants */
+.cardPrimary {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(252, 228, 236, 0.5));
+}
+
+.cardSecondary {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(232, 240, 232, 0.5));
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 32px;
+  }
+
+  .cardIcon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .price {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,320 @@
+.section {
+  padding: var(--section-padding) 0;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--accent-pink);
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--brand-coral);
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.highlight {
+  color: var(--brand-coral);
+}
+
+/* Bento Grid */
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto auto;
+  gap: 24px;
+}
+
+/* Base Card */
+.card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Animation */
+.animateItem {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.animateItem.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animateItem:nth-child(1) { transition-delay: 0.1s; }
+.animateItem:nth-child(2) { transition-delay: 0.2s; }
+.animateItem:nth-child(3) { transition-delay: 0.3s; }
+.animateItem:nth-child(4) { transition-delay: 0.4s; }
+.animateItem:nth-child(5) { transition-delay: 0.5s; }
+.animateItem:nth-child(6) { transition-delay: 0.6s; }
+
+/* Card 1 - Large */
+.cardLarge {
+  grid-column: span 5;
+  background: linear-gradient(135deg, #FAFAFA, #F5F5F5);
+}
+
+.cardIcon {
+  width: 56px;
+  height: 56px;
+  background: var(--accent-mint);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: var(--brand-coral);
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.cardDescription {
+  color: var(--secondary-text);
+  line-height: 1.6;
+}
+
+/* Card 2 - Stats */
+.cardStats {
+  grid-column: span 4;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.statsNumber {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--primary-text);
+  line-height: 1;
+}
+
+.statsLabel {
+  font-size: 1.1rem;
+  color: var(--secondary-text);
+  margin-bottom: 24px;
+}
+
+.avatarStack {
+  display: flex;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-left: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+.avatarMore {
+  background: var(--primary-text) !important;
+}
+
+/* Card 3 - Image */
+.cardImage {
+  grid-column: span 3;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.imageWrapper {
+  height: 200px;
+  background: linear-gradient(135deg, var(--accent-mint), var(--accent-pink));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagePlaceholder {
+  color: var(--secondary-text);
+  opacity: 0.5;
+}
+
+.imageCaption {
+  display: block;
+  padding: 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--secondary-text);
+}
+
+/* Card 4 - Success */
+.cardSuccess {
+  grid-column: span 4;
+  background: linear-gradient(135deg, #4CAF50, #66BB6A);
+  color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.successBadge {
+  position: relative;
+  z-index: 1;
+}
+
+.successNumber {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  display: block;
+}
+
+.successLabel {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.successGraph {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+}
+
+.waveGraph {
+  width: 100%;
+  height: 100%;
+}
+
+.cardSuccess:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Card 5 & 6 - Feature */
+.cardFeature,
+.cardFeature2 {
+  grid-column: span 4;
+  background: white;
+}
+
+.featureIcon {
+  width: 48px;
+  height: 48px;
+  background: var(--accent-mint);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-coral);
+  margin-bottom: 16px;
+}
+
+.featureTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.featureText {
+  font-size: 0.95rem;
+  color: var(--secondary-text);
+  line-height: 1.5;
+}
+
+.cardFeature2 {
+  background: var(--accent-pink);
+}
+
+.cardFeature2 .featureIcon {
+  background: white;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .bentoGrid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .cardLarge {
+    grid-column: span 6;
+  }
+
+  .cardStats,
+  .cardSuccess {
+    grid-column: span 3;
+  }
+
+  .cardImage {
+    grid-column: span 6;
+  }
+
+  .cardFeature,
+  .cardFeature2 {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 640px) {
+  .bentoGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .cardLarge,
+  .cardStats,
+  .cardImage,
+  .cardSuccess,
+  .cardFeature,
+  .cardFeature2 {
+    grid-column: span 1;
+  }
+
+  .card {
+    padding: 24px;
+  }
+
+  .statsNumber {
+    font-size: 3rem;
+  }
+
+  .successNumber {
+    font-size: 2.5rem;
+  }
+}

@@ -1,0 +1,218 @@
+.section {
+  padding: var(--section-padding) 0;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Banner */
+.banner {
+  text-align: center;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.bannerText {
+  font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--brand-coral);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  opacity: 0.4;
+}
+
+/* Animation */
+.animateItem {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.animateItem.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Contact Card */
+.card {
+  background: linear-gradient(135deg, var(--brand-coral-light), var(--brand-coral));
+  border-radius: var(--radius-xl);
+  padding: 48px;
+  color: white;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 60px;
+  box-shadow: var(--shadow-xl);
+  position: relative;
+}
+
+.cardTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.cardSubtitle {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 32px;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: white;
+  transition: all var(--transition-fast);
+}
+
+.contactItem:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateX(4px);
+}
+
+.contactIcon {
+  width: 48px;
+  height: 48px;
+  background: white;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-coral);
+  flex-shrink: 0;
+}
+
+.contactText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.contactLabel {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contactValue {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.socialLink {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all var(--transition-fast);
+}
+
+.socialLink:hover {
+  background: white;
+  color: var(--brand-coral);
+  transform: translateY(-4px);
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 40px;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.footerBrand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footerLogo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brand-coral);
+}
+
+.footerTagline {
+  font-size: 0.9rem;
+  color: var(--secondary-text);
+}
+
+.footerLinks {
+  display: flex;
+  gap: 32px;
+}
+
+.footerLinks a {
+  font-size: 0.9rem;
+  color: var(--secondary-text);
+  transition: color var(--transition-fast);
+}
+
+.footerLinks a:hover {
+  color: var(--brand-coral);
+}
+
+.footerCopyright {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted-text);
+  padding-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .bannerText {
+    -webkit-text-stroke: 1px var(--brand-coral);
+  }
+
+  .card {
+    padding: 32px 24px;
+  }
+
+  .footerContent {
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .footerLinks {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+  }
+}
