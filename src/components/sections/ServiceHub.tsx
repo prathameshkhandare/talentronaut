@@ -1,43 +1,49 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Monitor, Smartphone, Cpu, Box, Cloud, Code, Database, Globe, Layers, ArrowRight } from "lucide-react";
+import { Monitor, Users, Cpu, TrendingUp, Rocket, Layers, ArrowRight } from "lucide-react";
 
 const services = [
   {
-    title: "Web & Software Development",
-    description: "Scalable, high-performance web applications tailored to your business goals.",
+    title: "Technical Solutions",
+    description: "End-to-end IT solutions tailored to your business needs, from web apps to enterprise software.",
     icon: Monitor,
     tags: ["Full Stack", "Enterprise"],
-    delay: 0
+    delay: 0,
+    href: "/services/technical-solutions"
   },
   {
-    title: "Mobile App Development",
-    description: "Native and cross-platform mobile experiences that engage and convert.",
-    icon: Smartphone,
-    tags: ["iOS & Android", "React Native"],
-    delay: 0.1
+    title: "Talent Hire",
+    description: "Strategic recruitment and talent acquisition services to build high-performing teams.",
+    icon: Users,
+    tags: ["Recruitment", "Hiring"],
+    delay: 0.1,
+    href: "/services/talent-hire"
   },
   {
-    title: "Blockchain & Web3",
-    description: "Decentralized solutions, smart contracts, and dApps for the future web.",
-    icon: Box,
-    tags: ["Smart Contracts", "DeFi"],
-    delay: 0.2
-  },
-  {
-    title: "AI & Automation",
-    description: "Intelligent algorithms and automated workflows to optimize operations.",
+    title: "Technical Consulting",
+    description: "Expert IT and technology consulting to guide your digital transformation journey.",
     icon: Cpu,
-    tags: ["Machine Learning", "NLP"],
-    delay: 0.3
+    tags: ["Tech Strategy", "Architecture"],
+    delay: 0.2,
+    href: "/services/technical-consulting"
   },
   {
-    title: "SaaS Development",
-    description: "Cloud-native SaaS platforms architected for scalability and multi-tenancy.",
-    icon: Cloud,
-    tags: ["Cloud Native", "Microservices"],
-    delay: 0.4
+    title: "Growth Consulting",
+    description: "Data-driven strategies to accelerate business growth and market expansion.",
+    icon: TrendingUp,
+    tags: ["Strategy", "Expansion"],
+    delay: 0.3,
+    href: "/services/growth-consulting"
+  },
+  {
+    title: "Startup Consultation",
+    description: "Comprehensive guidance for startups, from MVP development to scaling.",
+    icon: Rocket,
+    tags: ["MVP", "Scaling"],
+    delay: 0.4,
+    href: "/services/startup-consultation"
   }
 ];
 
@@ -85,60 +91,62 @@ export function ServiceHub() {
               transition={{ delay: service.delay, duration: 0.5 }}
               className="group"
             >
-              <div className="relative h-[480px] w-full rounded-[3rem] overflow-hidden transition-all duration-500 hover:-translate-y-3">
-                
-                {/* Background Layer */}
-                <div className="absolute inset-0 bg-white border border-gray-100 shadow-xl group-hover:shadow-2xl transition-all duration-500">
-                    <div className="absolute inset-0 bg-gradient-to-br from-white via-[#fffdfb] to-[#fff5ee]" />
-                    
-                    {/* Dynamic Moving Blobs (Slow Animation) */}
-                    <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#FCD2AD]/10 rounded-full blur-[80px] group-hover:bg-[#D44531]/20 group-hover:scale-125 transition-all duration-1000" />
-                    <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#D44531]/5 rounded-full blur-[80px] group-hover:bg-[#D44531]/10 group-hover:scale-125 transition-all duration-1000" />
-                    
-                    {/* Grain Texture */}
-                    <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/noise.png')] mix-blend-overlay" />
+              <Link href={service.href} className="block h-full">
+                <div className="relative h-[480px] w-full rounded-[3rem] overflow-hidden transition-all duration-500 hover:-translate-y-3">
+                  
+                  {/* Background Layer */}
+                  <div className="absolute inset-0 bg-white border border-gray-100 shadow-xl group-hover:shadow-2xl transition-all duration-500">
+                      <div className="absolute inset-0 bg-gradient-to-br from-white via-[#fffdfb] to-[#fff5ee]" />
+                      
+                      {/* Dynamic Moving Blobs (Slow Animation) */}
+                      <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#FCD2AD]/10 rounded-full blur-[80px] group-hover:bg-[#D44531]/20 group-hover:scale-125 transition-all duration-1000" />
+                      <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#D44531]/5 rounded-full blur-[80px] group-hover:bg-[#D44531]/10 group-hover:scale-125 transition-all duration-1000" />
+                      
+                      {/* Grain Texture */}
+                      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/noise.png')] mix-blend-overlay" />
+                  </div>
+
+                  {/* Content Container */}
+                  <div className="absolute inset-0 p-10 flex flex-col items-start justify-between z-10">
+                      
+                      {/* Top Section */}
+                      <div className="w-full">
+                          <div className="w-16 h-16 rounded-[1.25rem] bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex items-center justify-center mb-10 group-hover:scale-110 group-hover:shadow-[0_20px_50px_rgba(212,69,49,0.1)] transition-all duration-500">
+                              <service.icon size={28} className="text-[#D44531] group-hover:scale-110 transition-transform duration-500" />
+                          </div>
+                          
+                          <h3 className="text-3xl font-bold font-heading text-[#4A4A46] mb-5 tracking-tight group-hover:text-[#D44531] transition-colors duration-300">
+                              {service.title}
+                          </h3>
+                          
+                          <p className="text-[#4A4A46]/70 leading-relaxed font-medium">
+                              {service.description}
+                          </p>
+                      </div>
+
+                      {/* Bottom Section */}
+                      <div className="w-full pt-8 flex items-end justify-between relative">
+                          <div className="flex flex-col gap-1">
+                              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#D44531]/60">Expertise</span>
+                              <span className="text-sm font-bold text-[#4A4A46]">{service.tags[0]}</span>
+                          </div>
+                          
+                          <div className="flex flex-col gap-1 text-right">
+                               <div className="w-12 h-12 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center group-hover:bg-[#D44531] group-hover:border-[#D44531] transition-all duration-500">
+                                  <ArrowRight size={20} className="text-[#D44531] group-hover:text-white group-hover:translate-x-0.5 transition-all" />
+                              </div>
+                          </div>
+
+                          {/* Subtle decorative line */}
+                          <div className="absolute top-0 left-0 w-12 h-[2px] bg-gradient-to-r from-[#D44531]/30 to-transparent" />
+                      </div>
+
+                  </div>
+
+                  {/* Hover Glow Border */}
+                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#D44531]/5 rounded-[3rem] transition-all duration-500" />
                 </div>
-
-                {/* Content Container */}
-                <div className="absolute inset-0 p-10 flex flex-col items-start justify-between z-10">
-                    
-                    {/* Top Section */}
-                    <div className="w-full">
-                        <div className="w-16 h-16 rounded-[1.25rem] bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex items-center justify-center mb-10 group-hover:scale-110 group-hover:shadow-[0_20px_50px_rgba(212,69,49,0.1)] transition-all duration-500">
-                            <service.icon size={28} className="text-[#D44531] group-hover:scale-110 transition-transform duration-500" />
-                        </div>
-                        
-                        <h3 className="text-3xl font-bold font-heading text-[#4A4A46] mb-5 tracking-tight group-hover:text-[#D44531] transition-colors duration-300">
-                            {service.title}
-                        </h3>
-                        
-                        <p className="text-[#4A4A46]/70 leading-relaxed font-medium">
-                            {service.description}
-                        </p>
-                    </div>
-
-                    {/* Bottom Section */}
-                    <div className="w-full pt-8 flex items-end justify-between relative">
-                        <div className="flex flex-col gap-1">
-                            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#D44531]/60">Expertise</span>
-                            <span className="text-sm font-bold text-[#4A4A46]">{service.tags[0]}</span>
-                        </div>
-                        
-                        <div className="flex flex-col gap-1 text-right">
-                             <div className="w-12 h-12 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center group-hover:bg-[#D44531] group-hover:border-[#D44531] transition-all duration-500">
-                                <ArrowRight size={20} className="text-[#D44531] group-hover:text-white group-hover:translate-x-0.5 transition-all" />
-                            </div>
-                        </div>
-
-                        {/* Subtle decorative line */}
-                        <div className="absolute top-0 left-0 w-12 h-[2px] bg-gradient-to-r from-[#D44531]/30 to-transparent" />
-                    </div>
-
-                </div>
-
-                {/* Hover Glow Border */}
-                <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#D44531]/5 rounded-[3rem] transition-all duration-500" />
-              </div>
+              </Link>
             </motion.div>
           ))}
 
