@@ -1,3 +1,4 @@
+"use client"
 import { motion, useTransform, useScroll } from "framer-motion"
 import { useRef } from "react"
 import { ArrowUpRight } from "lucide-react"
@@ -100,7 +101,7 @@ export function Products() {
 
                 {/* Decorative Number */}
                 <div className="absolute top-6 right-10 flex flex-col items-center">
-                    <span className="text-9xl font-bold text-gray-900/5 select-none font-sans italic">0{index + 1}</span>
+                    <span className="text-9xl font-bold text-gray-900/5 select-none italic">0{index + 1}</span>
                     <HandUnderline className="w-20 text-gray-900/10 -mt-4 opacity-50" />
                 </div>
             </div>

@@ -14,7 +14,7 @@ const services = [
     href: "/services/technical-solutions"
   },
   {
-    title: "Talent Hire",
+    title: "Strategic Talent Discovery",
     description: "Strategic recruitment and talent acquisition services to build high-performing teams.",
     icon: Users,
     tags: ["Recruitment", "Hiring"],
@@ -22,28 +22,20 @@ const services = [
     href: "/services/talent-hire"
   },
   {
-    title: "Technical Consulting",
-    description: "Expert IT and technology consulting to guide your digital transformation journey.",
-    icon: Cpu,
-    tags: ["Tech Strategy", "Architecture"],
-    delay: 0.2,
-    href: "/services/technical-consulting"
-  },
-  {
-    title: "Growth Consulting",
-    description: "Data-driven strategies to accelerate business growth and market expansion.",
+    title: "Consultation Service",
+    description: "Expert guidance in Tech, Growth, and Startup strategies to navigate your digital journey.",
     icon: TrendingUp,
-    tags: ["Strategy", "Expansion"],
-    delay: 0.3,
-    href: "/services/growth-consulting"
+    tags: ["Strategy", "Advisory"],
+    delay: 0.2,
+    href: "/services/consultation"
   },
   {
-    title: "Startup Consultation",
-    description: "Comprehensive guidance for startups, from MVP development to scaling.",
-    icon: Rocket,
-    tags: ["MVP", "Scaling"],
-    delay: 0.4,
-    href: "/services/startup-consultation"
+    title: "Enterprise Operation",
+    description: "Scalable operational frameworks and digital infrastructure for large organizations.",
+    icon: Cpu,
+    tags: ["Operations", "Scale"],
+    delay: 0.3,
+    href: "/services/enterprise-operation"
   }
 ];
 
@@ -156,9 +148,9 @@ export function ServiceHub() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="group"
+            className="group md:col-span-2 lg:col-span-2"
           >
-             <div className="relative h-[480px] w-full rounded-[3rem] overflow-hidden bg-[#D44531] shadow-2xl transition-all duration-500 hover:-translate-y-3">
+             <div className="relative h-[480px] w-full rounded-[3rem] overflow-hidden bg-[#D44531] shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_40px_80px_rgba(212,69,49,0.35)]">
                  {/* Premium Primary Background */}
                  <div className="absolute inset-0 bg-gradient-to-br from-[#D44531] via-[#e65a45] to-[#D44531]" />
                  
@@ -177,11 +169,11 @@ export function ServiceHub() {
                     </div>
                     
                     <a href="#contact" className="group/btn relative w-full py-5 rounded-2xl bg-white text-[#D44531] font-bold text-center overflow-hidden transition-all hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
-                        <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide">
+                        <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide transition-transform duration-300 group-hover/btn:-translate-y-[150%]">
                             Start Consultation <ArrowRight size={18} />
                         </span>
                         <div className="absolute inset-0 bg-[#4A4A46] translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-300" />
-                        <span className="absolute inset-0 flex items-center justify-center gap-2 text-white translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-300 font-black">
+                        <span className="absolute inset-0 flex items-center justify-center gap-2 text-white translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-300 font-black z-20">
                             Let&apos;s Build It <ArrowRight size={18} />
                         </span>
                     </a>

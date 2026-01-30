@@ -2,104 +2,125 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, ChevronDown } from "lucide-react";
 import Link from "next/link";
-import { RocketVector } from "@/components/vector/RocketVector";
-import { CloudA, CloudB } from "@/components/vector/CloudVector";
+import { SaffronCircuit } from "@/components/visuals/SaffronCircuit";
+
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
 
-  // Parallax Logic matching GrowthFlow physics
-  const rocketY = useTransform(scrollY, [0, 500], [0, -600]); // Fast upward launch
-  const cloudY = useTransform(scrollY, [0, 500], [0, 100]);   // Slow downward drift (parallax)
-  const textOpacity = useTransform(scrollY, [0, 300], [1, 0]); // Fade text out on scroll
-  const textScale = useTransform(scrollY, [0, 300], [1, 0.9]); // Slight shrink
+  // Parallax effects
+  const textY = useTransform(scrollY, [0, 500], [0, 150]);
+  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   return (
-    <section 
+    <section
       ref={containerRef}
-      className="relative min-h-[140vh] flex flex-col items-center pt-24 overflow-hidden bg-white"
+      className="relative min-h-[100vh] flex flex-col items-center justify-center overflow-hidden bg-white selection:bg-[#FCD2AD] selection:text-[#D44531]"
     >
-      {/* Background Atmosphere */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none">
-        <div className="absolute top-[-20%] left-[20%] w-[800px] h-[800px] bg-gradient-to-b from-pink-50/30 to-transparent rounded-full blur-[120px] opacity-60" />
-        <div className="absolute top-[10%] right-[-10%] w-[500px] h-[500px] bg-orange-50/20 rounded-full blur-[100px]" />
-      </div>
+      {/* Advanced Saffron Circuit Background */}
+      <SaffronCircuit />
 
-      {/* Main Content - Centered */}
-      <motion.div 
-        style={{ opacity: textOpacity, scale: textScale }}
-        className="container mx-auto px-4 relative z-30 text-center flex flex-col items-center gap-8 mb-20"
+      {/* Main Content Container */}
+      <motion.div
+        style={{ y: textY, opacity }}
+        className="relative z-10 container mx-auto px-4 text-center flex flex-col items-center justify-center h-full pt-10"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-gray-200 shadow-sm">
-           <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-           <span className="text-xs font-bold text-gray-500 tracking-wide uppercase">Now in Public Beta</span>
+
+
+        {/* Center Content with Glass Backing */}
+        <div className="relative">
+             {/* Enhanced Glass Halo */}
+             <motion.div 
+                 animate={{ scale: [1, 1.02, 1], opacity: [0.3, 0.4, 0.3] }}
+                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                 className="absolute -inset-16 bg-gradient-to-r from-white/40 via-white/80 to-white/40 backdrop-blur-[3px] rounded-[60px] blur-3xl -z-10" 
+             />
+             
+            {/* Badge */}
+            <Link href="/beta">
+                <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                whileHover={{ scale: 1.05 }}
+                className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-[#D44531]/20 bg-white/95 backdrop-blur-xl mb-10 cursor-pointer shadow-[0_4px_20px_rgba(212,69,49,0.1)] hover:shadow-[0_8px_30px_rgba(212,69,49,0.2)] hover:border-[#D44531] transition-all"
+                >
+                <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D44531] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#D44531]"></span>
+                </span>
+                <span className="text-xs font-bold tracking-[0.2em] text-[#D44531] uppercase">Talentronaut</span>
+                <ChevronDown size={14} className="text-[#D44531] -rotate-90" />
+                </motion.div>
+            </Link>
+
+            {/* Hero Headline */}
+            <motion.h1
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="text-5xl md:text-7xl lg:text-[7rem] font-bold tracking-tight text-[#2D1810] leading-[0.95] mb-8 drop-shadow-sm select-none" 
+            >
+            Igniting <br className="hidden md:block" />
+            <span className="relative inline-block mt-2 md:mt-0 group cursor-default">
+                <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-[#D44531] via-[#FF8C69] to-[#D44531] bg-[length:200%_auto] animate-gradient-x">
+                Digital Transformations
+                </span>
+                {/* Advanced Shimmer Overlay */}
+                <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-transparent via-white to-transparent bg-[length:50%_100%] bg-no-repeat bg-[-100%_0] group-hover:animate-shine opacity-60 pointer-events-none mix-blend-overlay">
+                    Digital Transformations
+                </span>
+            </span>
+            </motion.h1>
+
+            {/* Subtext */}
+            <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            className="text-lg md:text-2xl text-[#5C4D45] max-w-3xl mx-auto leading-relaxed mb-12 font-medium"
+            >
+            Empowering industries with bespoke IT solutions and cutting-edge product services to drive <span className="relative inline-block px-1 text-[#D44531] font-bold hover:skew-x-2 transition-transform cursor-crosshair">sustainable growth</span>.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto"
+            >
+                {/* Primary Button */}
+                <button className="group relative px-10 py-5 rounded-full bg-[#D44531] text-white font-bold text-lg shadow-[0_15px_40px_rgba(212,69,49,0.25)] hover:shadow-[0_25px_60px_rgba(212,69,49,0.4)] transition-all flex items-center gap-3 w-full sm:w-auto justify-center overflow-hidden active:scale-95 hover:bg-[#E6503A]">
+                    <span className="relative z-10 flex items-center gap-2">
+                        Start Now <Play size={18} className="fill-current" />
+                    </span>
+                    {/* Ripple Effect on Hover */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-0 h-0 bg-white/20 rounded-full group-hover:w-[400px] group-hover:h-[400px] transition-all duration-700 ease-out" />
+                </button>
+                
+                {/* Secondary Button */}
+                <Link href="/#contact" className="group px-10 py-5 rounded-full bg-white/80 backdrop-blur-md border-2 border-gray-100 text-gray-700 font-semibold text-lg hover:border-[#D44531] hover:text-[#D44531] hover:bg-white shadow-sm hover:shadow-xl transition-all flex items-center gap-3 w-full sm:w-auto justify-center">
+                    <span>Contact Us</span>
+                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+            </motion.div>
         </div>
 
-        <h1 className="text-6xl md:text-8xl font-black text-[#1A1A1A] tracking-tighter leading-[0.9] max-w-5xl">
-          Unlock Your <br/>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF4D4D] to-[#F9CB28]">
-             Growth Hacking
-          </span> <br/>
-          Expertise!
-        </h1>
-
-        <p className="text-xl md:text-2xl text-gray-500 font-medium max-w-2xl leading-relaxed">
-          The ultimate platform for startups ready to scale. No fluff, just hard-hitting strategies and tech transformation.
-        </p>
-
-        <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
-           <button className="px-8 py-4 rounded-full bg-[#1A1A1A] text-white font-bold text-lg hover:bg-black hover:scale-105 transition-all shadow-xl shadow-black/10 flex items-center gap-3">
-             <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
-                <Play size={10} fill="currentColor" />
-             </div>
-             Watch Demo
-           </button>
-           <Link href="/contact" className="px-8 py-4 rounded-full bg-white border border-gray-200 text-[#4A4A46] font-bold text-lg hover:bg-gray-50 hover:border-gray-300 transition-all flex items-center gap-3 shadow-sm">
-             Get Started <ArrowRight size={18} />
-           </Link>
-        </div>
       </motion.div>
 
-      {/* Hero Visuals - The Launchpad */}
-      <div className="absolute inset-x-0 bottom-0 h-[800px] flex justify-center items-end pointer-events-none overflow-hidden">
-         
-         {/* The "Sun" Background */}
-         <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-pink-200 rounded-full blur-[150px] opacity-40" />
-
-         {/* The Rocket - Launches UP on scroll */}
-         <motion.div 
-            style={{ y: rocketY }} 
-            className="absolute bottom-[20%] z-20 w-[140px] md:w-[180px]"
-         >
-            <div className="relative">
-               {/* Rocket Glow */}
-               <div className="absolute inset-0 bg-pink-400 blur-3xl opacity-30 rounded-full transform scale-150" />
-               <RocketVector className="w-full h-auto drop-shadow-2xl relative z-10" />
-            </div>
-         </motion.div>
-         
-         {/* Mist Layer (Back) - Slightly Pink */}
-         <motion.div 
-            style={{ y: cloudY }}
-            className="absolute bottom-0 w-full flex justify-center z-10 opacity-60 mix-blend-multiply"
-         >
-             <CloudB className="w-full h-[400px] text-pink-100 blur-3xl scale-150" />
-         </motion.div>
-
-         {/* Clouds Layer (Front/Sharp) - Pinkish White */}
-         <div className="absolute bottom-[-50px] w-full z-30 opacity-90">
-             <div className="flex justify-center items-end w-full relative">
-                 <CloudA className="absolute bottom-0 left-[-10%] w-[60%] text-pink-50 blur-lg opacity-80" />
-                 <CloudB className="absolute bottom-[-20%] right-[-10%] w-[70%] text-pink-100 blur-md opacity-90" />
-                 
-                 {/* Center Mist to hide rocket bottom - Matches bg-white */}
-                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-gradient-to-t from-white to-transparent blur-xl" />
-             </div>
-         </div>
-      </div>
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity, delay: 2 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#D44531]/60"
+      >
+          <ChevronDown size={32} strokeWidth={2.5} />
+      </motion.div>
 
     </section>
   );

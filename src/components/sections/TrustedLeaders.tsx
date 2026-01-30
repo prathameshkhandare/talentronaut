@@ -42,7 +42,7 @@ export function TrustedLeaders() {
          className="text-center mb-16"
        >
           <h2 className="text-4xl md:text-5xl font-bold text-[#D44531]">
-            Trusted by <span className="font-sans italic font-bold text-[#4A4A46]">Industry Leaders</span>
+            Trusted by <span className="italic font-bold text-[#4A4A46]">Industry Leaders</span>
           </h2>
           <p className="mt-4 text-[#D44531] max-w-2xl mx-auto">
             We've partnered with forward-thinking companies across various industries to deliver exceptional results.
@@ -67,8 +67,8 @@ export function TrustedLeaders() {
                             "/logos/nikaay.png",
                             "/logos/yuga.png"
                         ].map((logo, i) => (
-                             <div key={i} className="bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-gray-50 flex items-center justify-center w-24 h-24 group-hover:scale-110 group-hover:shadow-md transition-all duration-500">
-                                <img src={logo} alt={`Partner ${i}`} className="w-full h-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" />
+                             <div key={i} className="group/logo relative p-4 rounded-3xl bg-white border border-gray-100 flex items-center justify-center w-24 h-24 md:w-28 md:h-28 shadow-sm hover:shadow-[0_10px_30px_rgba(212,69,49,0.15)] hover:border-[#FCD2AD]/50 hover:scale-110 transition-all duration-300">
+                                <img src={logo} alt={`Partner ${i}`} className="w-full h-full object-contain filter transition-all duration-300 group-hover/logo:scale-110" />
                              </div>
                         ))}
                     </div>
