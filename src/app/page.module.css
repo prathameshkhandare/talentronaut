@@ -13,7 +13,6 @@
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-geist-sans);
   background-color: var(--background);
 }
 
@@ -45,6 +44,7 @@
   letter-spacing: -2.4px;
   text-wrap: balance;
   color: var(--text-primary);
+  font-family: var(--font-heading) !important; /* Bochan */
 }
 
 .intro p {
@@ -53,11 +53,13 @@
   line-height: 32px;
   text-wrap: balance;
   color: var(--text-secondary);
+  font-family: var(--font-body) !important; /* Minion Display */
 }
 
 .intro a {
   font-weight: 500;
   color: var(--text-primary);
+  font-family: var(--font-body) !important; /* Minion Display */
 }
 
 .ctas {
@@ -81,6 +83,7 @@
   cursor: pointer;
   width: fit-content;
   font-weight: 500;
+  font-family: var(--font-body) !important; /* Minion Display */
 }
 
 a.primary {

@@ -24,6 +24,7 @@
   letter-spacing: -0.03em;
   line-height: 1;
   opacity: 0.4;
+  font-family: var(--font-heading) !important; /* Bochan */
 }
 
 /* Animation */
@@ -40,7 +41,11 @@
 
 /* Contact Card */
 .card {
-  background: linear-gradient(135deg, var(--brand-coral-light), var(--brand-coral));
+  background: linear-gradient(
+    135deg,
+    var(--brand-coral-light),
+    var(--brand-coral)
+  );
   border-radius: var(--radius-xl);
   padding: 48px;
   color: white;
@@ -55,12 +60,14 @@
   font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 8px;
+  font-family: var(--font-heading) !important; /* Bochan */
 }
 
 .cardSubtitle {
   font-size: 1rem;
   opacity: 0.9;
   margin-bottom: 32px;
+  font-family: var(--font-body) !important; /* Minion Display */
 }
 
 .contactInfo {
@@ -111,11 +118,13 @@
   opacity: 0.8;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  font-family: var(--font-body) !important; /* Minion Display */
 }
 
 .contactValue {
   font-size: 1rem;
   font-weight: 600;
+  font-family: var(--font-body) !important; /* Minion Display */
 }
 
 .socialLinks {
@@ -165,11 +174,13 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--brand-coral);
+  font-family: var(--font-heading) !important; /* Bochan */
 }
 
 .footerTagline {
   font-size: 0.9rem;
   color: var(--secondary-text);
+  font-family: var(--font-body) !important; /* Minion Display */
 }
 
 .footerLinks {
@@ -181,6 +192,7 @@
   font-size: 0.9rem;
   color: var(--secondary-text);
   transition: color var(--transition-fast);
+  font-family: var(--font-body) !important; /* Minion Display */
 }
 
 .footerLinks a:hover {
@@ -192,6 +204,7 @@
   font-size: 0.85rem;
   color: var(--muted-text);
   padding-bottom: 20px;
+  font-family: var(--font-body) !important; /* Minion Display */
 }
 
 /* Responsive */

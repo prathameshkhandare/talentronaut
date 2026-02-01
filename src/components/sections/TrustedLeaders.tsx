@@ -41,8 +41,8 @@ export function TrustedLeaders() {
          viewport={{ once: true }}
          className="text-center mb-16"
        >
-          <h2 className="text-4xl md:text-5xl font-bold text-[#D44531]">
-            Trusted by <span className="italic font-bold text-[#4A4A46]">Industry Leaders</span>
+          <h2 className="text-4xl md:text-5xl font-black font-heading text-[#D44531]">
+            Trusted by <span className="font-black text-[#4A4A46]">Industry Leaders</span>
           </h2>
           <p className="mt-4 text-[#D44531] max-w-2xl mx-auto">
             We've partnered with forward-thinking companies across various industries to deliver exceptional results.

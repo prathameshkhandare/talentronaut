@@ -23,6 +23,7 @@
   font-weight: 500;
   color: var(--brand-coral);
   margin-bottom: 20px;
+  font-family: var(--font-body) !important; /* Minion Display */
 }
 
 .title {
@@ -30,6 +31,7 @@
   font-weight: 800;
   max-width: 600px;
   margin: 0 auto;
+  font-family: var(--font-heading) !important; /* Bochan */
 }
 
 .highlight {
@@ -70,203 +72,224 @@
   transform: translateY(0);
 }
 
-.animateItem:nth-child(1) { transition-delay: 0.1s; }
-.animateItem:nth-child(2) { transition-delay: 0.2s; }
-.animateItem:nth-child(3) { transition-delay: 0.3s; }
-.animateItem:nth-child(4) { transition-delay: 0.4s; }
-.animateItem:nth-child(5) { transition-delay: 0.5s; }
-.animateItem:nth-child(6) { transition-delay: 0.6s; }
+.animateItem:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.animateItem:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.animateItem:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.animateItem:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.animateItem:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.animateItem:nth-child(6) {
+  transition-delay: 0.6s;
+}
 
-  /* Card 1 - Large */
-  .cardLarge {
-    grid-column: span 5;
-    background: linear-gradient(135deg, #FAFAFA, #F5F5F5);
-  }
-  
-  .cardIcon {
-    width: 56px;
-    height: 56px;
-    background: #FCD2AD; /* Peach */
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    color: #D44531; /* Primary Orange */
-  }
-  
-  .cardTitle {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: #80807D; /* Heading Gray */
-  }
-  
-  .cardDescription {
-    color: #D44531; /* Body Orange */
-    line-height: 1.6;
-  }
-  
-  /* Card 2 - Stats */
-  .cardStats {
-    grid-column: span 4;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-  }
-  
-  .statsNumber {
-    font-size: 4rem;
-    font-weight: 800;
-    color: #80807D; /* Gray Stats */
-    line-height: 1;
-  }
-  
-  .statsLabel {
-    font-size: 1.1rem;
-    color: #D44531; /* Orange Label */
-    margin-bottom: 24px;
-  }
-  
-  .avatarStack {
-    display: flex;
-  }
-  
-  .avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: 3px solid white;
-    margin-left: -10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: white;
-  }
-  
-  .avatar:first-child {
-    margin-left: 0;
-  }
-  
-  .avatarMore {
-    background: #D44531 !important; /* Orange */
-  }
-  
-  /* Card 3 - Image */
-  .cardImage {
-    grid-column: span 3;
-    padding: 0;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .imageWrapper {
-    height: 200px;
-    background: linear-gradient(135deg, #FCD2AD, #F9F9F9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .imagePlaceholder {
-    color: #80807D;
-    opacity: 0.5;
-  }
-  
-  .imageCaption {
-    display: block;
-    padding: 16px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #D44531; /* Body Orange */
-  }
-  
-  /* Card 4 - Success */
-  .cardSuccess {
-    grid-column: span 4;
-    background: linear-gradient(135deg, #D44531, #b03a29); /* Orange Gradient */
-    color: white;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .successBadge {
-    position: relative;
-    z-index: 1;
-  }
-  
-  .successNumber {
-    font-size: 3.5rem;
-    font-weight: 800;
-    line-height: 1;
-    display: block;
-  }
-  
-  .successLabel {
-    font-size: 1.1rem;
-    opacity: 0.9;
-  }
-  
-  .successGraph {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-  }
-  
-  .waveGraph {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .cardSuccess:hover {
-    transform: translateY(-8px) scale(1.02);
-  }
-  
-  /* Card 5 & 6 - Feature */
-  .cardFeature,
-  .cardFeature2 {
-    grid-column: span 4;
-    background: white;
-  }
-  
-  .featureIcon {
-    width: 48px;
-    height: 48px;
-    background: #FCD2AD; /* Peach */
-    border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #D44531; /* Orange */
-    margin-bottom: 16px;
-  }
-  
-  .featureTitle {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: #80807D; /* Heading Gray */
-  }
-  
-  .featureText {
-    font-size: 0.95rem;
-    color: #D44531; /* Body Orange */
-    line-height: 1.5;
-  }
-  
-  .cardFeature2 {
-    background: #FCD2AD; /* Peach */
-  }
-  
-  .cardFeature2 .featureIcon {
-    background: white;
-  }
+/* Card 1 - Large */
+.cardLarge {
+  grid-column: span 5;
+  background: linear-gradient(135deg, #fafafa, #f5f5f5);
+}
+
+.cardIcon {
+  width: 56px;
+  height: 56px;
+  background: #fcd2ad; /* Peach */
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: #d44531; /* Primary Orange */
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #80807d; /* Heading Gray */
+  font-family: var(--font-heading) !important; /* Bochan */
+}
+
+.cardDescription {
+  color: #d44531; /* Body Orange */
+  line-height: 1.6;
+  font-family: var(--font-body) !important; /* Minion Display */
+}
+
+/* Card 2 - Stats */
+.cardStats {
+  grid-column: span 4;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.statsNumber {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #80807d; /* Gray Stats */
+  line-height: 1;
+  font-family: var(--font-heading) !important; /* Bochan */
+}
+
+.statsLabel {
+  font-size: 1.1rem;
+  color: #d44531; /* Orange Label */
+  margin-bottom: 24px;
+  font-family: var(--font-body) !important; /* Minion Display */
+}
+
+.avatarStack {
+  display: flex;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-left: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+.avatarMore {
+  background: #d44531 !important; /* Orange */
+}
+
+/* Card 3 - Image */
+.cardImage {
+  grid-column: span 3;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.imageWrapper {
+  height: 200px;
+  background: linear-gradient(135deg, #fcd2ad, #f9f9f9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagePlaceholder {
+  color: #80807d;
+  opacity: 0.5;
+}
+
+.imageCaption {
+  display: block;
+  padding: 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #d44531; /* Body Orange */
+  font-family: var(--font-body) !important; /* Minion Display */
+}
+
+/* Card 4 - Success */
+.cardSuccess {
+  grid-column: span 4;
+  background: linear-gradient(135deg, #d44531, #b03a29); /* Orange Gradient */
+  color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.successBadge {
+  position: relative;
+  z-index: 1;
+}
+
+.successNumber {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  display: block;
+  font-family: var(--font-heading) !important; /* Bochan */
+}
+
+.successLabel {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  font-family: var(--font-body) !important; /* Minion Display */
+}
+
+.successGraph {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+}
+
+.waveGraph {
+  width: 100%;
+  height: 100%;
+}
+
+.cardSuccess:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Card 5 & 6 - Feature */
+.cardFeature,
+.cardFeature2 {
+  grid-column: span 4;
+  background: white;
+}
+
+.featureIcon {
+  width: 48px;
+  height: 48px;
+  background: #fcd2ad; /* Peach */
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d44531; /* Orange */
+  margin-bottom: 16px;
+}
+
+.featureTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #80807d; /* Heading Gray */
+  font-family: var(--font-heading) !important; /* Bochan */
+}
+
+.featureText {
+  font-size: 0.95rem;
+  color: #d44531; /* Body Orange */
+  line-height: 1.5;
+  font-family: var(--font-body) !important; /* Minion Display */
+}
+
+.cardFeature2 {
+  background: #fcd2ad; /* Peach */
+}
+
+.cardFeature2 .featureIcon {
+  background: white;
+}
 
 /* Responsive */
 @media (max-width: 1024px) {

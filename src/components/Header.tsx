@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -18,9 +18,27 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const [hoveredService, setHoveredService] = useState(false);
+
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "Services", href: "/#services" },
+    { 
+      label: "Services", 
+      href: "/#services",
+      children: [
+        { label: "Technical Solutions", href: "/services/technical-solutions" },
+        { label: "Strategic Talent Discovery", href: "/services/talent-hire" },
+        { label: "Consultation Service", href: "/services/consultation" },
+        { label: "Enterprise Operation", href: "/services/enterprise-operation" },
+        { 
+            label: "Need a Bespoke Solution?", 
+            href: "/#contact",
+            isSpecial: true,
+            description: "We architect custom platforms for those who refuse to settle for off-the-shelf limits.",
+            cta: "Start Consultation" 
+        },
+      ]
+    },
     { label: "Products", href: "/products" },
     { label: "Team", href: "/team" },
     { label: "Blog", href: "/blog" },
@@ -43,18 +61,16 @@ export default function Header() {
           >
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-10 h-10 overflow-hidden rounded-xl bg-gradient-to-tr from-[#D44531] to-[#FCD2AD] p-[2px]">
-                 <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
+              <div className="relative w-16 h-16 flex items-center justify-center">
                     <Image
-                        src="/logos/main_logo.png"
+                        src="/logos/logo.svg"
                         alt="Talentronaut Logo"
-                        width={32}
-                        height={32}
+                        width={64}
+                        height={64}
                         className="object-contain"
                     />
-                 </div>
               </div>
-              <span className="text-xl font-bold font-heading text-[#4A4A46] tracking-tight group-hover:text-[#D44531] transition-colors">
+              <span className="text-2xl font-black font-heading text-[#4A4A46] tracking-tight group-hover:text-[#D44531] transition-colors">
                 Talentronaut
               </span>
             </Link>
@@ -66,13 +82,72 @@ export default function Header() {
                 : "bg-white/50 backdrop-blur-md border border-white/20 shadow-sm"
             }`}>
               {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="px-5 py-2 text-sm font-medium text-[#4A4A46] rounded-full hover:bg-white hover:text-[#D44531] hover:shadow-sm transition-all duration-300"
-                >
-                  {item.label}
-                </Link>
+                <div key={item.label} className="relative group/nav">
+                    {item.children ? (
+                        <div 
+                            className="relative"
+                            onMouseEnter={() => setHoveredService(true)}
+                            onMouseLeave={() => setHoveredService(false)}
+                        >
+                            <Link
+                                href={item.href}
+                                className="px-5 py-2 text-sm font-medium text-[#4A4A46] rounded-full hover:bg-white hover:text-[#D44531] hover:shadow-sm transition-all duration-300 flex items-center gap-1"
+                            >
+                                {item.label}
+                                <ChevronDown size={14} className={`transition-transform duration-300 ${hoveredService ? "rotate-180 text-[#D44531]" : ""}`} />
+                            </Link>
+                            
+                            {/* Dropdown Menu */}
+                            <AnimatePresence>
+                                {hoveredService && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                        transition={{ duration: 0.2 }}
+                                        className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[360px]"
+                                    >
+                                        <div className="bg-white/95 backdrop-blur-xl rounded-2xl border border-white/50 shadow-xl p-3 flex flex-col gap-2 overflow-hidden">
+                                            {item.children.map((subItem: any) => (
+                                                subItem.isSpecial ? (
+                                                    <Link
+                                                        key={subItem.label}
+                                                        href={subItem.href}
+                                                        className="mt-2 p-4 rounded-xl bg-[#fafafa] border border-gray-100 hover:border-[#D44531]/30 hover:bg-white group/card transition-all"
+                                                    >
+                                                        <h5 className="text-sm font-black font-heading text-[#D44531] mb-1">{subItem.label}</h5>
+                                                        <p className="text-[11px] text-gray-500 leading-relaxed mb-3">
+                                                            {subItem.description}
+                                                        </p>
+                                                        <span className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-gray-900 group-hover/card:text-[#D44531] transition-colors">
+                                                            {subItem.cta} <ArrowRight size={12} />
+                                                        </span>
+                                                    </Link>
+                                                ) : (
+                                                    <Link
+                                                        key={subItem.label}
+                                                        href={subItem.href}
+                                                        className="px-4 py-2.5 text-sm font-medium text-[#4A4A46] hover:bg-[#D44531]/5 hover:text-[#D44531] rounded-xl transition-all block flex items-center justify-between group/link"
+                                                    >
+                                                        {subItem.label}
+                                                        <ChevronDown size={12} className="-rotate-90 opacity-0 group-hover/link:opacity-100 -translate-x-2 group-hover/link:translate-x-0 transition-all text-[#D44531]" />
+                                                    </Link>
+                                                )
+                                            ))}
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
+                    ) : (
+                        <Link
+                            href={item.href}
+                            className="px-5 py-2 text-sm font-medium text-[#4A4A46] rounded-full hover:bg-white hover:text-[#D44531] hover:shadow-sm transition-all duration-300 block"
+                        >
+                            {item.label}
+                        </Link>
+                    )}
+                </div>
               ))}
             </nav>
 
@@ -116,7 +191,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="absolute right-0 top-0 bottom-0 w-[80%] max-w-sm bg-white p-6 shadow-2xl"
+              className="absolute right-0 top-0 bottom-0 w-[85%] max-w-sm bg-white p-6 shadow-2xl overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-between items-center mb-8">
@@ -133,14 +208,40 @@ export default function Header() {
 
               <div className="flex flex-col gap-2">
                 {navItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-4 text-lg font-medium text-[#4A4A46] hover:bg-gray-50 hover:text-[#D44531] rounded-2xl transition-all"
-                  >
-                    {item.label}
-                  </Link>
+                  <div key={item.label}>
+                    {item.children ? (
+                        <div className="flex flex-col">
+                             <Link
+                                href={item.href}
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="p-4 text-lg font-medium text-[#4A4A46] hover:bg-gray-50 hover:text-[#D44531] rounded-2xl transition-all flex items-center justify-between"
+                             >
+                                {item.label}
+                                <ChevronDown size={18} />
+                             </Link>
+                             <div className="pl-6 flex flex-col gap-1 border-l-2 border-gray-100 ml-4">
+                                {item.children.map(subItem => (
+                                    <Link
+                                        key={subItem.label}
+                                        href={subItem.href}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className="py-3 px-4 text-sm font-medium text-gray-500 hover:text-[#D44531] transition-colors block"
+                                    >
+                                        {subItem.label}
+                                    </Link>
+                                ))}
+                             </div>
+                        </div>
+                    ) : (
+                        <Link
+                            href={item.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="p-4 text-lg font-medium text-[#4A4A46] hover:bg-gray-50 hover:text-[#D44531] rounded-2xl transition-all block"
+                        >
+                            {item.label}
+                        </Link>
+                    )}
+                  </div>
                 ))}
               </div>
 

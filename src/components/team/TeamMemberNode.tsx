@@ -71,13 +71,13 @@ export const TeamMemberNode = ({ member, position, delay = 0 }: TeamMemberNodePr
                             transition={{ duration: 0.2 }}
                             className="absolute left-1/2 -translate-x-1/2 bottom-[110%] w-max max-w-xs z-20 pointer-events-none"
                         >
-                            <div className="bg-white rounded-2xl p-4 shadow-2xl border border-secondary/20 relative">
+                            <div className="bg-white rounded-2xl p-6 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-gray-100 relative">
                                 {/* Arrow */}
                                 <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-2 border-8 border-transparent border-t-white" />
 
-                                <h3 className="text-lg font-heading font-bold text-primary">{member.name}</h3>
-                                <p className="text-sm font-semibold text-tertiary mb-1">{member.role}</p>
-                                <p className="text-xs text-tertiary/80 leading-relaxed max-w-[200px]">{member.bio}</p>
+                                <h3 className="text-xl font-heading font-black text-gray-900 tracking-tight mb-1">{member.name}</h3>
+                                <p className="text-[10px] font-mono font-bold text-[#D44531] uppercase tracking-[0.2em] mb-4">{member.role}</p>
+                                <p className="text-sm font-medium text-gray-500 leading-relaxed max-w-[220px]">{member.bio}</p>
                             </div>
                         </motion.div>
                     )}

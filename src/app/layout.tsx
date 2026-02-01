@@ -1,38 +1,38 @@
 import type { Metadata } from 'next';
-import { Inter, Syne } from 'next/font/google';
 import SmoothScroll from '@/components/layout/SmoothScroll';
 import Header from '@/components/Header';
-import { Background } from '../components/visuals/Background';
-import { LoadingScreen } from '@/components/ui/LoadingScreen';
+import { Footer } from '@/components/sections/Footer';
+import { Background } from '@/components/visuals/Background';
+import { bochan, minion, inter } from '../lib/fonts';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const syne = Syne({ 
-  subsets: ['latin'], 
-  variable: '--font-syne',
-  weight: ['400', '500', '600', '700', '800']
-});
-
 export const metadata: Metadata = {
-  title: 'Talentronaut | Navigate Your Career Journey',
-  description: 'Connect with industry-leading experts and unlock unprecedented growth opportunities. Transform your career with Talentronaut.',
+  title: 'Talentronaut - Innovating the future with AI & Next - Gen Technology',
+  description:
+    'Connect with industry-leading experts and unlock unprecedented growth opportunities. Transform your career with Talentronaut.',
+  icons: {
+    icon: '/logo-icon.png',
+  },
 };
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${syne.variable} font-sans antialiased selection:bg-[#D44531]/20`}>
-        <LoadingScreen />
+    <html
+      lang="en"
+      className={`${bochan.variable} ${minion.variable} ${inter.variable}`}
+    >
+      <body className="antialiased selection:bg-[#D44531]/20">
         <SmoothScroll>
           <Header />
           <Background />
           <main className="relative z-10 min-h-screen">
             {children}
           </main>
+          <Footer />
         </SmoothScroll>
       </body>
     </html>

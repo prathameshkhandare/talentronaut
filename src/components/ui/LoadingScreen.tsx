@@ -45,7 +45,7 @@ export function LoadingScreen() {
             className="relative w-32 h-32 md:w-48 md:h-48"
           >
             <Image
-              src="/loading-logo.png"
+              src="/logos/logo.svg"
               alt="Loading..."
               fill
               className="object-contain"

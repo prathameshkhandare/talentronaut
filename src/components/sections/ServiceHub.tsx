@@ -42,6 +42,8 @@ const services = [
 export function ServiceHub() {
   return (
     <section className="relative py-24 sm:py-32 bg-[#fafafa] overflow-hidden" id="services">
+      {/* Top Section Blend Overlay */}
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white to-transparent z-20 pointer-events-none" />
       {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[10%] right-[-10%] w-[800px] h-[800px] bg-[#FCD2AD]/20 rounded-full blur-[120px]" />
@@ -63,7 +65,7 @@ export function ServiceHub() {
                 <span className="text-xs font-bold uppercase tracking-wider text-[#4A4A46]">Our Expertise</span>
              </div>
              
-             <h2 className="text-4xl md:text-5xl font-bold font-heading text-[#4A4A46] tracking-tight mb-6">
+             <h2 className="text-4xl md:text-5xl font-bold font-heading text-[#4A4A46] tracking-tight mb-6 leading-[1.2]">
                 Comprehensive <span className="text-[#D44531]">Digital Solutions</span>
              </h2>
              <p className="text-lg text-[#4A4A46]/70 leading-relaxed">
@@ -162,20 +164,24 @@ export function ServiceHub() {
                         <div className="w-16 h-16 rounded-[1.25rem] bg-white flex items-center justify-center mb-10 shadow-2xl shadow-black/10 border border-white/20">
                             <Layers size={28} className="text-[#D44531]" />
                         </div>
-                        <h3 className="text-4xl font-bold font-heading mb-6 tracking-tight text-white line-tight">Need a <br/><span className="text-[#FCD2AD]">Bespoke</span> <br/>Solution?</h3>
-                        <p className="text-white opacity-80 leading-relaxed font-medium max-w-[240px]">
+                        <h3 className="text-4xl font-bold font-heading mb-6 tracking-tight text-white leading-tight">Need a <span className="text-[#FCD2AD]">Bespoke</span> Solution?</h3>
+                        <p className="text-white opacity-80 leading-relaxed font-medium">
                             We architect custom platforms for those who refuse to settle for off-the-shelf limits.
                         </p>
                     </div>
                     
-                    <a href="#contact" className="group/btn relative w-full py-5 rounded-2xl bg-white text-[#D44531] font-bold text-center overflow-hidden transition-all hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
-                        <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide transition-transform duration-300 group-hover/btn:-translate-y-[150%]">
-                            Start Consultation <ArrowRight size={18} />
-                        </span>
-                        <div className="absolute inset-0 bg-[#4A4A46] translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-300" />
-                        <span className="absolute inset-0 flex items-center justify-center gap-2 text-white translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-300 font-black z-20">
-                            Let&apos;s Build It <ArrowRight size={18} />
-                        </span>
+                    <a href="#contact" className="group/btn relative w-full py-5 rounded-2xl bg-white text-[#D44531] font-bold text-center overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(252,210,173,0.4)] hover:scale-[1.02]">
+                        <div className="relative z-10 flex items-center justify-center gap-2 tracking-wide transition-all duration-500 group-hover/btn:text-[#D44531]">
+                            <span className="flex items-center gap-2 group-hover/btn:scale-110 transition-transform duration-500">
+                                Start Consultation <ArrowRight size={18} className="group-hover/btn:translate-x-1" />
+                            </span>
+                        </div>
+                        
+                        {/* Shimmer Effect */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-[100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
+                        
+                        {/* Inner Glow Overlay */}
+                        <div className="absolute inset-0 bg-[#FCD2AD]/10 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
                     </a>
                  </div>
 

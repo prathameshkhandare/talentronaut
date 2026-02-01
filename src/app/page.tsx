@@ -4,10 +4,12 @@ import { motion } from "framer-motion"
 import { Hero } from "@/components/sections/Hero";
 import { ServiceHub } from "@/components/sections/ServiceHub";
 import { TrustedLeaders } from "@/components/sections/TrustedLeaders";
+import { Products } from "@/components/sections/Products";
 import { About } from "@/components/sections/About";
 import { Impact } from "@/components/sections/Impact";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
+import { LoadingScreen } from "@/components/ui/LoadingScreen";
 
 const containerVariants: any = {
   hidden: { opacity: 0, y: 20 },
@@ -45,6 +47,7 @@ export default function Home() {
       animate="visible"
       className="flex flex-col gap-0 pb-0"
     >
+      <LoadingScreen />
       <Hero />
 
       <motion.div
@@ -63,6 +66,15 @@ export default function Home() {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
         <TrustedLeaders />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <Products />
       </motion.div>
 
       <motion.div
@@ -92,14 +104,6 @@ export default function Home() {
         <Contact />
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <Footer />
-      </motion.div>
     </motion.div>
   )
 }

@@ -28,53 +28,38 @@ export function Contact() {
                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#4A4A46]">Launch Your Project</span>
                 </div>
                 
-                <h2 className="text-6xl md:text-8xl font-bold font-heading text-black leading-[0.85] tracking-tighter mb-8">
+                <h2 className="text-5xl md:text-6xl lg:text-[5rem] font-black font-heading text-[#1a1a1a] leading-[1.1] tracking-tight mb-8">
                     Let's Build <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D44531] to-[#E65A45]">The Future.</span>
+                    <span className="text-[#D44531]">The Future.</span>
                 </h2>
                 
                 <p className="text-xl text-black font-medium leading-relaxed mb-12 opacity-70">
                     Your vision deserves more than just code. It deserves an architectural masterpiece. Reach out and let's discuss your next breakthrough.
                 </p>
 
-                <div className="flex gap-4">
-                    {[
-                        { icon: Twitter, color: 'hover:bg-[#1DA1F2]' },
-                        { icon: Linkedin, color: 'hover:bg-[#0077B5]' },
-                        { icon: Instagram, color: 'hover:bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888]' }
-                    ].map((social, i) => (
-                        <motion.a 
-                            key={i}
-                            whileHover={{ scale: 1.1, translateY: -5 }}
-                            href="#" 
-                            className={`w-14 h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-[#4A4A46] shadow-sm transition-all duration-300 ${social.color} hover:text-white hover:border-transparent`}
-                        >
-                            <social.icon size={24} />
-                        </motion.a>
-                    ))}
-                </div>
+                {/* Social Icons Removed (Redundant with Footer) */}
             </motion.div>
 
-            {/* Right Side: Interactive Tiles */}
-            <div className="grid gap-6">
+            {/* Right Side: Interactive Control Deck */}
+            <div className="flex flex-col gap-6 pl-0 lg:pl-10">
                 {[
                     { 
-                        title: "Voice Channels", 
-                        value: "+1 (234) 567-890", 
-                        link: "tel:+1234567890", 
+                        title: "Call Us", 
+                        value: "+91 82203 24802", 
+                        link: "tel:+918220324802", 
                         icon: Phone,
                         sub: "Immediate Consultation"
                     },
                     { 
-                        title: "Direct Correspondence", 
-                        value: "hello@talentronaut.com", 
-                        link: "mailto:hello@talentronaut.com", 
+                        title: "Email Us", 
+                        value: "connecttalentronaut@gmail.com", 
+                        link: "mailto:connecttalentronaut@gmail.com", 
                         icon: Mail,
                         sub: "24-Hour Response Time"
                     },
                     { 
-                        title: "Headquarters", 
-                        value: "Innovation Hub, Tech City", 
+                        title: "Visit Us", 
+                        value: "Fab Lab, SRM, Bharathi Salai, Ramapuram, Chennai, Tamil Nadu 600089", 
                         link: "#", 
                         icon: MapPin,
                         sub: "Visit Our Architects"
@@ -82,30 +67,49 @@ export function Contact() {
                 ].map((item, i) => (
                     <motion.a
                         key={i}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: i * 0.1, duration: 0.6 }}
+                        transition={{ delay: i * 0.15, type: "spring", stiffness: 100 }}
                         href={item.link}
-                        className="group relative bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-xl overflow-hidden hover:border-[#D44531]/30 transition-all duration-500"
+                        className={`
+                            group relative p-1 rounded-[2.5rem] bg-white transition-all duration-500
+                            hover:-translate-y-2 hover:translate-x-1 hover:shadow-[0_20px_40px_-15px_rgba(212,69,49,0.2)]
+                        `}
                     >
-                        {/* Hover Background Accent */}
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-[#D44531]/[0.02] rounded-full translate-x-16 -translate-y-16 group-hover:scale-[8] transition-transform duration-1000" />
+                        {/* Outer Border/Glow Container */}
+                        <div className="absolute inset-0 rounded-[2.5rem] border-2 border-gray-100 group-hover:border-[#D44531] transition-colors duration-500" />
                         
-                        <div className="relative z-10 flex items-center justify-between">
-                            <div className="flex items-center gap-8">
-                                <div className="w-16 h-16 rounded-2xl bg-[#fafafa] flex items-center justify-center border border-gray-50 flex-shrink-0 group-hover:bg-[#D44531] group-hover:shadow-[0_10px_30px_rgba(212,69,49,0.3)] transition-all duration-500">
-                                    <item.icon size={30} className="text-[#D44531] group-hover:text-white transition-colors duration-500" />
+                        {/* Inner Content */}
+                        <div className="relative z-10 p-8 flex items-center justify-between bg-white rounded-[2.3rem] overflow-hidden">
+                            
+                            {/* Hover Gradient Background */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#D44531]/[0.03] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            
+                            <div className="relative flex items-center gap-6 md:gap-8">
+                                {/* Icon Box */}
+                                <div className={`w-16 h-16 rounded-2xl bg-[#D44531]/10 text-[#D44531] flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-[#D44531] group-hover:text-white transition-all duration-500 shadow-sm`}>
+                                    <item.icon size={28} />
                                 </div>
+                                
+                                {/* Text Content */}
                                 <div>
-                                    <span className="text-[10px] font-black uppercase tracking-widest text-gray-400 group-hover:text-[#D44531] transition-colors">{item.title}</span>
-                                    <h4 className="text-xl md:text-2xl font-bold text-black group-hover:translate-x-1 transition-transform">{item.value}</h4>
-                                    <p className="text-xs font-bold text-[#D44531] mt-1 opacity-0 group-hover:opacity-100 transition-opacity">{item.sub}</p>
+                                    <span className="text-lg font-black font-heading uppercase tracking-[0.2em] text-[#D44531] group-hover:text-[#D44531] transition-colors">
+                                        {item.title}
+                                    </span>
+                                    <h4 className="text-sm font-medium font-body text-[#787979] mt-1 mb-1 leading-tight group-hover:translate-x-1 transition-transform">
+                                        {item.value}
+                                    </h4>
+                                    <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#D44531]" />
+                                        <p className="text-xs font-bold text-[#787979]">{item.sub}</p>
+                                    </div>
                                 </div>
                             </div>
                             
-                            <div className="w-10 h-10 rounded-full bg-[#fafafa] flex items-center justify-center text-gray-300 group-hover:bg-black group-hover:text-white transition-all duration-500">
-                                <ArrowRight size={18} />
+                            {/* Action Arrow */}
+                            <div className="w-12 h-12 rounded-full border-2 border-gray-50 flex items-center justify-center text-gray-300 group-hover:border-[#D44531] group-hover:bg-[#D44531] group-hover:text-white group-hover:rotate-[-45deg] transition-all duration-500 bg-white shadow-sm">
+                                <ArrowRight size={20} />
                             </div>
                         </div>
                     </motion.a>

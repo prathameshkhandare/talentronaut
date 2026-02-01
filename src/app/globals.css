@@ -1,74 +1,186 @@
 @import "tailwindcss";
 
-
-
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  
+
   /* Talentronaut Palette */
-  --color-primary: #D44531;     /* Deep Orange-Red */
-  --color-primary-light: #E65A45;
-  --color-secondary: #FCD2AD;   /* Peach */
-  --color-secondary-light: #FFF0E0;
-  --color-tertiary: #4A4A46;    /* Dark Charcoal */
-  --color-tertiary-light: #80807D;
-  
-  --color-text-primary: #1A1A1A; /* Main Text - Nearly Black for contrast */
-  --color-text-secondary: #4A4A46; /* Secondary Text - Charcoal */
-  --color-text-accent: #D44531;  /* Accent Text - Orange */
-  
+  --color-primary: #d44531;
+  --color-primary-light: #e65a45;
+  --color-secondary: #fcd2ad;
+  --color-secondary-light: #fff0e0;
+  --color-tertiary: #4a4a46;
+  --color-tertiary-light: #80807d;
+
+  /* Master Prompt Colors */
+  --color-cream: #fdfbf9;
+  --color-coral: #e85c4a;
+  --color-charcoal: #1a1a1a;
+
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #4a4a46;
+  --color-text-accent: #d44531;
+
   --radius-card: 32px;
   --radius-pill: 9999px;
-  
-  --font-sans: var(--font-inter), sans-serif;
-  --font-heading: var(--font-syne), sans-serif;
-  
-  --animate-blob: blob 7s infinite;
+
+  /* Font Family Assignments */
+  --font-heading: var(--font-bochan), serif;
+  --font-body: var(--font-minion), serif;
 }
 
-@layer utilities {
-  .text-heading {
-    font-family: var(--font-heading);
+/* ---------------- BASE ---------------- */
+@layer base {
+  html,
+  body {
+    background-color: var(--background);
+    color: var(--color-text-primary);
+    font-family: var(--font-body) !important; /* Minion Display */
+    font-weight: 400;
+    letter-spacing: 0em;
+    line-height: 1.6;
+    overflow-x: hidden;
   }
-  
+
+  /* Headings = Bochan ONLY */
+  /* Roles: Hero heading, Large display headlines, Primary section titles */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading) !important; /* Bochan */
+    font-weight: 700; /* Range 600-800 */
+    letter-spacing: -0.03em; /* Range -0.02em to -0.04em */
+  }
+
+  /* Body text = Minion Display */
+  /* Roles: Body text, Paragraphs, Subheadings, Buttons, Labels, Supporting copy */
+  p,
+  a,
+  li,
+  td,
+  th,
+  label,
+  input,
+  textarea,
+  button,
+  select,
+  strong,
+  b,
+  i,
+  em,
+  small {
+    font-family: var(--font-body) !important; /* Minion Display */
+    letter-spacing: 0em; /* Strict 0em */
+  }
+
+  /* Spans inherit by default unless they are top-level or specifically body-text */
+  span {
+    font-family: inherit;
+    letter-spacing: inherit;
+  }
+
+  /* Ensure headings and their children use Bochan */
+  h1, h2, h3, h4, h5, h6,
+  h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
+    font-family: var(--font-heading) !important;
+  }
+}
+
+/* ---------------- UTILITIES ---------------- */
+@layer utilities {
+  /* Explicit heading utility (Bochan) */
+  .font-heading,
+  .text-heading,
+  .font-bochan {
+    font-family: var(--font-heading) !important;
+    letter-spacing: -0.03em;
+  }
+
+  /* Explicit body utility (Minion Display) */
+  .font-body,
+  .font-sans,
+  .font-text,
+  .font-minion {
+    font-family: var(--font-body) !important;
+    letter-spacing: 0em;
+  }
+
+  /* Bochan heading sizes and weights */
+  .bochan-hero {
+    font-family: var(--font-heading) !important;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+  }
+
+  .bochan-xl {
+    font-family: var(--font-heading) !important;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  .bochan-lg {
+    font-family: var(--font-heading) !important;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .bochan-md {
+    font-family: var(--font-heading) !important;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* Minion Display body sizes */
+  .minion-lg {
+    font-family: var(--font-body) !important;
+    font-weight: 500;
+    letter-spacing: 0em;
+  }
+
+  .minion-base {
+    font-family: var(--font-body) !important;
+    font-weight: 400;
+    letter-spacing: 0em;
+  }
+
+  .minion-sm {
+    font-family: var(--font-body) !important;
+    font-weight: 400;
+    letter-spacing: 0em;
+  }
+
   .glass-panel {
     @apply bg-white/70 backdrop-blur-xl border border-white/50 shadow-lg;
   }
-  
+
   .glass-card {
     @apply bg-white/40 backdrop-blur-lg border border-white/30 shadow-sm hover:shadow-md transition-all duration-300;
   }
 }
 
+/* ---------------- ANIMATIONS ---------------- */
 @keyframes shimmer {
-  0% { transform: translateX(-150%) translateY(0%) rotate(45deg); opacity: 0; }
-  20% { opacity: 1; }
-  100% { transform: translateX(150%) translateY(0%) rotate(45deg); opacity: 0; }
-}
-
-@layer base {
-  body {
-    background-color: var(--background);
-    color: var(--color-text-primary);
-    font-family: var(--font-sans);
-    font-weight: 400;
-    line-height: 1.6;
-    overflow-x: hidden;
+  0% {
+    transform: translateX(-150%) rotate(45deg);
+    opacity: 0;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: var(--color-text-primary);
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(150%) rotate(45deg);
+    opacity: 0;
   }
 }
 
-/* Utilities for Lenis or others if needed */
-html.lenis, html.lenis body {
+/* ---------------- LENIS SUPPORT ---------------- */
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -84,6 +196,41 @@ html.lenis, html.lenis body {
   overflow: hidden;
 }
 
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 40s linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right 40s linear infinite;
+}
+
+@keyframes infinite-scroll-y {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.animate-infinite-scroll-y {
+  animation: infinite-scroll-y 2s linear infinite;
 }
