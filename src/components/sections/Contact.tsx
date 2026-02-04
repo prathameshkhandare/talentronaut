@@ -15,7 +15,7 @@ export function Contact() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
             
-            {/* Left Side: Impactful Text */}
+            {/* Left Side: Impactful Text & Info */}
             <motion.div 
                initial={{ opacity: 0, x: -50 }}
                whileInView={{ opacity: 1, x: 0 }}
@@ -28,7 +28,7 @@ export function Contact() {
                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#4A4A46]">Launch Your Project</span>
                 </div>
                 
-                <h2 className="text-5xl md:text-6xl lg:text-[5rem] font-black font-heading text-[#1a1a1a] leading-[1.1] tracking-tight mb-8">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-heading text-[#1a1a1a] leading-[1.1] tracking-tight mb-8">
                     Let's Build <br />
                     <span className="text-[#D44531]">The Future.</span>
                 </h2>
@@ -37,84 +37,111 @@ export function Contact() {
                     Your vision deserves more than just code. It deserves an architectural masterpiece. Reach out and let's discuss your next breakthrough.
                 </p>
 
-                {/* Social Icons Removed (Redundant with Footer) */}
-            </motion.div>
-
-            {/* Right Side: Interactive Control Deck */}
-            <div className="flex flex-col gap-6 pl-0 lg:pl-10">
-                {[
-                    { 
-                        title: "Call Us", 
-                        value: "+91 82203 24802", 
-                        link: "tel:+918220324802", 
-                        icon: Phone,
-                        sub: "Immediate Consultation"
-                    },
-                    { 
-                        title: "Email Us", 
-                        value: "connecttalentronaut@gmail.com", 
-                        link: "mailto:connecttalentronaut@gmail.com", 
-                        icon: Mail,
-                        sub: "24-Hour Response Time"
-                    },
-                    { 
-                        title: "Visit Us", 
-                        value: "Fab Lab, SRM, Bharathi Salai, Ramapuram, Chennai, Tamil Nadu 600089", 
-                        link: "#", 
-                        icon: MapPin,
-                        sub: "Visit Our Architects"
-                    }
-                ].map((item, i) => (
-                    <motion.a
-                        key={i}
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.15, type: "spring", stiffness: 100 }}
-                        href={item.link}
-                        className={`
-                            group relative p-1 rounded-[2.5rem] bg-white transition-all duration-500
-                            hover:-translate-y-2 hover:translate-x-1 hover:shadow-[0_20px_40px_-15px_rgba(212,69,49,0.2)]
-                        `}
-                    >
-                        {/* Outer Border/Glow Container */}
-                        <div className="absolute inset-0 rounded-[2.5rem] border-2 border-gray-100 group-hover:border-[#D44531] transition-colors duration-500" />
-                        
-                        {/* Inner Content */}
-                        <div className="relative z-10 p-8 flex items-center justify-between bg-white rounded-[2.3rem] overflow-hidden">
-                            
-                            {/* Hover Gradient Background */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#D44531]/[0.03] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            
-                            <div className="relative flex items-center gap-6 md:gap-8">
-                                {/* Icon Box */}
-                                <div className={`w-16 h-16 rounded-2xl bg-[#D44531]/10 text-[#D44531] flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-[#D44531] group-hover:text-white transition-all duration-500 shadow-sm`}>
-                                    <item.icon size={28} />
-                                </div>
-                                
-                                {/* Text Content */}
-                                <div>
-                                    <span className="text-lg font-black font-heading uppercase tracking-[0.2em] text-[#D44531] group-hover:text-[#D44531] transition-colors">
-                                        {item.title}
-                                    </span>
-                                    <h4 className="text-sm font-medium font-body text-[#787979] mt-1 mb-1 leading-tight group-hover:translate-x-1 transition-transform">
-                                        {item.value}
-                                    </h4>
-                                    <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-[#D44531]" />
-                                        <p className="text-xs font-bold text-[#787979]">{item.sub}</p>
-                                    </div>
-                                </div>
+                {/* Minimal Contact Info for Quick Reference */}
+                <div className="pt-8 border-t border-gray-100 space-y-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 rounded-xl bg-[#D44531]/5 text-[#D44531] flex items-center justify-center">
+                                <Phone size={20} />
                             </div>
-                            
-                            {/* Action Arrow */}
-                            <div className="w-12 h-12 rounded-full border-2 border-gray-50 flex items-center justify-center text-gray-300 group-hover:border-[#D44531] group-hover:bg-[#D44531] group-hover:text-white group-hover:rotate-[-45deg] transition-all duration-500 bg-white shadow-sm">
-                                <ArrowRight size={20} />
+                            <div>
+                                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Call Us</p>
+                                <p className="text-sm font-bold text-[#1a1a1a]">+91 82203 24802</p>
                             </div>
                         </div>
-                    </motion.a>
-                ))}
-            </div>
+                        <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 rounded-xl bg-[#D44531]/5 text-[#D44531] flex items-center justify-center">
+                                <Mail size={20} />
+                            </div>
+                            <div>
+                                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Email Us</p>
+                                <p className="text-sm font-bold text-[#1a1a1a]">connecttalentronaut@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 rounded-xl bg-[#D44531]/5 text-[#D44531] flex items-center justify-center shrink-0">
+                            <MapPin size={20} />
+                        </div>
+                        <div>
+                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Visit Us</p>
+                            <p className="text-sm font-bold text-[#1a1a1a] max-w-sm">Fab Lab, SRM, Bharathi Salai, Ramapuram, Chennai, Tamil Nadu 600089</p>
+                        </div>
+                    </div>
+                </div>
+            </motion.div>
+
+            {/* Right Side: Elegant Form */}
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="relative group lg:pl-10"
+            >
+                {/* Form Backdrop Decoration */}
+                <div className="absolute -inset-4 bg-gradient-to-br from-[#D44531]/10 to-transparent blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                
+                <div className="relative bg-white rounded-[3rem] p-8 md:p-12 shadow-2xl shadow-gray-200/50 border border-gray-100">
+                    <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-black uppercase tracking-widest text-black ml-4">Full Name</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="John Doe"
+                                    className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-transparent focus:bg-white focus:border-[#D44531]/30 focus:ring-4 focus:ring-[#D44531]/5 outline-none transition-all duration-300 font-medium text-black placeholder:text-gray-300" 
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-black uppercase tracking-widest text-black ml-4">Email Address</label>
+                                <input 
+                                    type="email" 
+                                    placeholder="john@example.com"
+                                    className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-transparent focus:bg-white focus:border-[#D44531]/30 focus:ring-4 focus:ring-[#D44531]/5 outline-none transition-all duration-300 font-medium text-black placeholder:text-gray-300" 
+                                />
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-black uppercase tracking-widest text-black ml-4">Phone Number</label>
+                                <input 
+                                    type="tel" 
+                                    placeholder="+91 00000 00000"
+                                    className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-transparent focus:bg-white focus:border-[#D44531]/30 focus:ring-4 focus:ring-[#D44531]/5 outline-none transition-all duration-300 font-medium text-black placeholder:text-gray-300" 
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-black uppercase tracking-widest text-black ml-4">Subject</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="Briefly describe your topic"
+                                    className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-transparent focus:bg-white focus:border-[#D44531]/30 focus:ring-4 focus:ring-[#D44531]/5 outline-none transition-all duration-300 font-medium text-black placeholder:text-gray-300" 
+                                />
+                            </div>
+                        </div>
+
+                        <div className="space-y-2">
+                            <label className="text-[10px] font-black uppercase tracking-widest text-black ml-4">Your Message</label>
+                            <textarea 
+                                rows={4}
+                                placeholder="Tell us about your breakthrough idea..."
+                                className="w-full px-6 py-4 rounded-3xl bg-gray-50 border border-transparent focus:bg-white focus:border-[#D44531]/30 focus:ring-4 focus:ring-[#D44531]/5 outline-none transition-all duration-300 font-medium text-black placeholder:text-gray-300 resize-none" 
+                            />
+                        </div>
+
+                        <motion.button
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="w-full py-5 rounded-[2rem] bg-[#D44531] text-white font-bold text-lg shadow-lg shadow-[#D44531]/20 hover:shadow-[#D44531]/40 transition-all duration-300 flex items-center justify-center gap-3 group/btn"
+                        >
+                            Send Message
+                            <ArrowRight size={20} className="group-hover/btn:translate-x-1 transition-transform" />
+                        </motion.button>
+                    </form>
+                </div>
+            </motion.div>
 
         </div>
       </div>

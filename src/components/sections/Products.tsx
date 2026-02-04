@@ -14,7 +14,8 @@ const products = [
     status: "Beta",
     image: "/images/vectors/linksus.png",
     color: "#D44531",
-    videoId: "rIsW6spE5i4"
+    videoId: "rIsW6spE5i4",
+    href: "https://www.linksus.in/"
   },
   {
     id: "firststep",
@@ -25,7 +26,8 @@ const products = [
     status: "Live",
     image: "/images/vectors/firststep.png",
     color: "#E65A45",
-    videoId: "3AY4mxPW0u8"
+    videoId: "3AY4mxPW0u8",
+    href: "https://firststep.linksus.in/"
   },
   {
     id: "spazorlabs",
@@ -36,7 +38,8 @@ const products = [
     status: "Alpha",
     image: "/images/vectors/spazorlabs.png",
     color: "#D44531",
-    videoId: "W7-GG-_WvW0"
+    videoId: "W7-GG-_WvW0",
+    href: "https://spazorlabs.linksus.in/"
   },
   {
     id: "aimailer",
@@ -47,7 +50,8 @@ const products = [
     status: "Dev",
     image: "/images/vectors/aimailer.png",
     color: "#E65A45",
-    videoId: "2-8IvWtwFDM"
+    videoId: "2-8IvWtwFDM",
+    href: "https://v0-mail-managment-linksus.vercel.app/"
   },
   {
     id: "xmetx",
@@ -58,7 +62,8 @@ const products = [
     status: "Concept",
     image: "/images/vectors/xmetx.png",
     color: "#D44531",
-    videoId: "xEpq88CIl7U"
+    videoId: "xEpq88CIl7U",
+    href: "https://xmetx.netlify.app/"
   },
   {
     id: "eventsphere",
@@ -69,7 +74,8 @@ const products = [
     status: "Live",
     image: "/images/vectors/eventsphere.png",
     color: "#E65A45",
-    videoId: "8QvvNTgW2e4"
+    videoId: "8QvvNTgW2e4",
+    href: "https://eventspherebookings.netlify.app/"
   }
 ]
 
@@ -79,6 +85,7 @@ const products = [
 export function Products() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(0); // -1 for left, 1 for right
+  const [isPaused, setIsPaused] = useState(false);
 
   const nextSlide = () => {
     setDirection(1);
@@ -92,11 +99,13 @@ export function Products() {
 
   // Auto-advance
   useEffect(() => {
+    if (isPaused) return;
+
     const timer = setInterval(() => {
         nextSlide();
     }, 8000);
     return () => clearInterval(timer);
-  }, [activeIndex]);
+  }, [activeIndex, isPaused]);
 
   const variants = {
     enter: (direction: number) => ({
@@ -143,7 +152,7 @@ export function Products() {
                 <motion.h2 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    className="text-5xl md:text-6xl leading-tight text-[#D44531]"
+                    className="text-4xl md:text-5xl leading-tight text-[#D44531]"
                 >
                     Innovation Showcase.
                 </motion.h2>
@@ -184,7 +193,11 @@ export function Products() {
                     className="absolute inset-0 w-full h-full flex flex-col lg:flex-row gap-8 lg:gap-20 items-center justify-center"
                 >
                     {/* LEFT: VISUAL (Takes up more space now) */}
-                    <div className="w-full lg:w-3/5 h-[300px] lg:h-full relative order-1 lg:order-2 group cursor-pointer">
+                    <div 
+                        onMouseEnter={() => setIsPaused(true)}
+                        onMouseLeave={() => setIsPaused(false)}
+                        className="w-full lg:w-3/5 h-[300px] lg:h-full relative order-1 lg:order-2 group cursor-pointer"
+                    >
                         <div className="absolute inset-0 bg-gradient-to-br from-[#D44531]/10 to-transparent rounded-[3rem] transform rotate-3 scale-95 opacity-50 transition-transform duration-700 group-hover:rotate-6 group-hover:scale-100" />
                         
                         <div className="relative h-full w-full rounded-[2.5rem] overflow-hidden shadow-2xl bg-black border border-white/50">
@@ -195,11 +208,6 @@ export function Products() {
                                 allowFullScreen
                              ></iframe>
                              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-40" />
-                        </div>
-
-                        {/* Floating Status Badge */}
-                        <div className="absolute top-8 right-8 px-5 py-2 rounded-full bg-white/40 backdrop-blur-xl border border-white/30 text-white text-sm font-bold uppercase tracking-widest shadow-xl">
-                            {products[activeIndex].status}
                         </div>
                     </div>
 
@@ -226,7 +234,7 @@ export function Products() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3 }}
-                            className="text-4xl lg:text-5xl text-[#4B4B4B] mb-6 tracking-tight"
+                            className="text-3xl lg:text-4xl text-[#4B4B4B] mb-6 tracking-tight"
                         >
                             {products[activeIndex].name}
                         </motion.h3>
@@ -240,31 +248,33 @@ export function Products() {
                             {products[activeIndex].description}
                         </motion.p>
 
-                        <motion.button 
+                        <motion.a 
+                            href={products[activeIndex].href}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5 }}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="group relative px-10 py-5 bg-[#D44531] text-white rounded-[1.5rem] font-bold text-lg overflow-hidden shadow-lg shadow-[#D44531]/30"
+                            className="group relative px-10 py-5 bg-[#D44531] text-white rounded-[1.5rem] font-bold text-lg overflow-hidden shadow-lg shadow-[#D44531]/30 inline-flex items-center"
                         >
                             <span className="relative z-10 flex items-center gap-3">
                                 Explore Platform
                                 <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                             </span>
-                            <div className="absolute inset-0 bg-[#D44531] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-                        </motion.button>
+                            <div className="absolute inset-0 bg-[#E65A45] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+                        </motion.a>
                         
-                        {/* Progress Bar */}
-                        <div className="mt-12 w-full h-1 bg-gray-200 rounded-full overflow-hidden">
-                             <motion.div 
-                                className="h-full bg-[#D44531]"
-                                initial={{ width: "0%" }}
-                                animate={{ width: "100%" }}
-                                transition={{ duration: 8, ease: "linear", repeat: Infinity }}
-                                key={activeIndex} // Resets on change
-                             />
-                        </div>
+                         <div className="mt-12 w-full h-1 bg-gray-200 rounded-full overflow-hidden">
+                              <motion.div 
+                                 className="h-full bg-[#D44531]"
+                                 initial={{ width: "0%" }}
+                                 animate={{ width: isPaused ? undefined : "100%" }}
+                                 transition={{ duration: 8, ease: "linear" }}
+                                 key={`${activeIndex}-${isPaused}`} // Key change to re-trigger or pause
+                              />
+                         </div>
 
                     </div>
 

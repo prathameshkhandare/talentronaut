@@ -1,5 +1,5 @@
 "use client"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion"
 import { Hero } from "@/components/sections/Hero";
 import { ServiceHub } from "@/components/sections/ServiceHub";
@@ -10,6 +10,7 @@ import { Impact } from "@/components/sections/Impact";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
 import { LoadingScreen } from "@/components/ui/LoadingScreen";
+import { useLoading } from "@/context/LoadingContext";
 
 const containerVariants: any = {
   hidden: { opacity: 0, y: 20 },
@@ -36,6 +37,9 @@ const sectionVariants = {
 }
 
 export default function Home() {
+  const { isLoading } = useLoading();
+  const isLoaded = !isLoading;
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -47,8 +51,7 @@ export default function Home() {
       animate="visible"
       className="flex flex-col gap-0 pb-0"
     >
-      <LoadingScreen />
-      <Hero />
+      <Hero startAnimation={isLoaded} />
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}

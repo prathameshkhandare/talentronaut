@@ -67,7 +67,7 @@
   font-size: 1rem;
   opacity: 0.9;
   margin-bottom: 32px;
-  font-family: var(--font-body) !important; /* Minion Display */
+  font-family: var(--font-body) !important; /* Instrument Sans */
 }
 
 .contactInfo {
@@ -118,13 +118,13 @@
   opacity: 0.8;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  font-family: var(--font-body) !important; /* Minion Display */
+  font-family: var(--font-body) !important; /* Instrument Sans */
 }
 
 .contactValue {
   font-size: 1rem;
   font-weight: 600;
-  font-family: var(--font-body) !important; /* Minion Display */
+  font-family: var(--font-body) !important; /* Instrument Sans */
 }
 
 .socialLinks {
@@ -180,7 +180,7 @@
 .footerTagline {
   font-size: 0.9rem;
   color: var(--secondary-text);
-  font-family: var(--font-body) !important; /* Minion Display */
+  font-family: var(--font-body) !important; /* Instrument Sans */
 }
 
 .footerLinks {
@@ -192,7 +192,7 @@
   font-size: 0.9rem;
   color: var(--secondary-text);
   transition: color var(--transition-fast);
-  font-family: var(--font-body) !important; /* Minion Display */
+  font-family: var(--font-body) !important; /* Instrument Sans */
 }
 
 .footerLinks a:hover {
@@ -204,7 +204,7 @@
   font-size: 0.85rem;
   color: var(--muted-text);
   padding-bottom: 20px;
-  font-family: var(--font-body) !important; /* Minion Display */
+  font-family: var(--font-body) !important; /* Instrument Sans */
 }
 
 /* Responsive */

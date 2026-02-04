@@ -1,67 +1,32 @@
 "use client";
 
 import { useRef, useState, useEffect, useMemo } from "react";
-import { motion, useScroll, useTransform, useSpring, useMotionValue, useVelocity } from "framer-motion";
+import { motion, useScroll, useTransform, useVelocity, useSpring, Variants } from "framer-motion";
 import { ArrowRight, Play, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { SaffronCircuit } from "@/components/visuals/SaffronCircuit";
+import { Magnetic } from "@/components/visuals/AnimationUtils";
 
 
-interface ReactiveDotProps {
-  mouseX: any;
-  mouseY: any;
-  i: number;
-  j: number;
-}
-
-function ReactiveDot({ mouseX, mouseY, i, j }: ReactiveDotProps) {
-    const x = useTransform(mouseX, (val: number) => (val * 0.03) * (i/10));
-    const y = useTransform(mouseY, (val: number) => (val * 0.03) * (j/10));
-    
-    return (
-        <motion.div
-            style={{ x, y }}
-            className="w-1 h-1 rounded-full bg-[#D44531] opacity-40"
-        />
-    );
-}
-
-export function Hero() {
+export function Hero({ startAnimation = true }: { startAnimation?: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
-
-  // Mouse Glow & Velocity Tracking
-  const rawMouseX = useMotionValue(0);
-  const rawMouseY = useMotionValue(0);
-  const velocityX = useVelocity(rawMouseX);
-  const velocityY = useVelocity(rawMouseY);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      const moveX = clientX - window.innerWidth / 2;
-      const moveY = clientY - window.innerHeight / 2;
-      rawMouseX.set(moveX);
-      rawMouseY.set(moveY);
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [rawMouseX, rawMouseY]);
-
-  const glowX = useSpring(rawMouseX, { stiffness: 80, damping: 25 });
-  const glowY = useSpring(rawMouseY, { stiffness: 80, damping: 25 });
-
-  // Cursor Morphing based on Velocity
-  const cursorScaleX = useTransform(velocityX, [-3000, 0, 3000], [1.5, 1, 1.5]);
-  const cursorScaleY = useTransform(velocityY, [-3000, 0, 3000], [1.5, 1, 1.5]);
-  const cursorSkewX = useTransform(velocityX, [-3000, 3000], [-10, 10]);
+  const scrollVelocity = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocity, { damping: 50, stiffness: 400 });
+  
+  // Velocity Skew Effect (#4)
+  const skewX = useTransform(smoothVelocity, [-1000, 1000], [-5, 5]);
 
   // Parallax effects
-  const textY = useTransform(scrollY, [0, 500], [0, 150]);
+  const textY = useTransform(scrollY, [0, 500], [0, 200]);
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
+  
+  // Static Text
+  const headlinePart1 = "Talentronaut - Igniting Digital";
+  const headlinePart2 = "Transformations";
 
   // Animation Variants
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -72,14 +37,15 @@ export function Hero() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: any = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+      transition: { duration: 0.8, ease: "easeOut" }
     }
   };
+
 
   return (
     <section
@@ -89,71 +55,50 @@ export function Hero() {
       {/* Advanced Saffron Circuit Background */}
       <SaffronCircuit />
 
-      {/* Interactive Dot Grid (Warping Effect) */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
-          <div className="absolute inset-0 overflow-hidden flex flex-col justify-around">
-            {Array.from({ length: 10 }).map((_, i) => (
-                <div key={i} className="flex justify-around w-full">
-                    {Array.from({ length: 15 }).map((_, j) => (
-                        <ReactiveDot key={j} mouseX={glowX} mouseY={glowY} i={i} j={j} />
-                    ))}
-                </div>
-            ))}
-          </div>
-      </div>
-
-      {/* Mouse Follower Glow (Atmospheric) */}
-      <motion.div 
-        style={{ x: glowX, y: glowY }}
-        className="absolute w-[1000px] h-[1000px] bg-[radial-gradient(circle,rgba(212,69,49,0.08)_0%,transparent_70%)] rounded-full pointer-events-none z-0"
-      />
-
-      {/* Morphing Intelligence Lens (God-Tier Interactive) */}
-      <motion.div
-        style={{ 
-            x: glowX, 
-            y: glowY,
-            scaleX: cursorScaleX,
-            scaleY: cursorScaleY,
-            skewX: cursorSkewX
-        }}
-        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 z-50 pointer-events-none flex items-center justify-center"
-      >
-          {/* Outer Ring 1 - Dashed */}
-          <motion.div 
-            animate={{ rotate: 360 }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-0 border border-dashed border-[#D44531]/20 rounded-full"
-          />
-          {/* Outer Ring 2 - Solid with Notch */}
-          <motion.div 
-            animate={{ rotate: -360 }}
-            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-2 border border-[#D44531]/40 rounded-full before:absolute before:top-0 before:left-1/2 before:-translate-x-1/2 before:w-1 before:h-2 before:bg-[#D44531]"
-          />
-          {/* Main Glass Lens */}
-          <div className="absolute inset-4 border-2 border-[#D44531]/10 rounded-full backdrop-blur-[3px] bg-white/5 shadow-[inset_0_0_20px_rgba(212,69,49,0.05)] border-gradient-to-br from-[#D44531]/20 to-transparent" />
-          
-          {/* Core Hub */}
-          <motion.div 
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="relative w-2 h-2 bg-[#D44531] rounded-full shadow-[0_0_15px_#D44531]"
-          />
-      </motion.div>
-
       {/* Bottom Section Blend Overlay */}
       <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#fafafa] to-transparent z-20 pointer-events-none" />
+
 
       {/* Main Content Container */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        animate={startAnimation ? "visible" : "hidden"}
         style={{ y: textY, opacity }}
         className="relative z-10 container mx-auto px-4 text-center flex flex-col items-center justify-center h-full pt-10"
       >
         <div className="relative">
+             {/* Floating Glass Elements (#5) - Abstract 3D Shapes */}
+             <motion.div 
+                style={{ y: useTransform(scrollY, [0, 800], [0, -200]) }}
+                animate={{ 
+                    scale: [1, 1.2, 1], 
+                    rotate: [0, 90, 0],
+                    x: [0, 30, 0]
+                }}
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                className="absolute top-10 left-[10%] w-32 h-32 bg-gradient-to-tr from-blue-200/40 to-purple-200/40 backdrop-blur-3xl rounded-full mix-blend-multiply filter blur-2xl opacity-80" 
+             />
+             <motion.div 
+                style={{ y: useTransform(scrollY, [0, 800], [0, -150]) }}
+                animate={{ 
+                    scale: [1, 1.3, 1], 
+                    rotate: [0, -60, 0],
+                    x: [0, -40, 0]
+                }}
+                transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+                className="absolute top-20 right-[15%] w-48 h-48 bg-gradient-to-bl from-orange-200/50 to-yellow-200/30 backdrop-blur-3xl rounded-full mix-blend-multiply filter blur-3xl opacity-70" 
+             />
+             <motion.div 
+                style={{ y: useTransform(scrollY, [0, 800], [0, -300]) }}
+                animate={{ 
+                    scale: [0.9, 1.1, 0.9], 
+                    y: [0, 50, 0]
+                }}
+                transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-32 left-[20%] w-40 h-40 bg-gradient-to-br from-[#D44531]/20 to-transparent backdrop-blur-xl rounded-full mix-blend-overlay filter blur-2xl opacity-60" 
+             />
+
              {/* Enhanced Glass Halo */}
              <motion.div 
                  animate={{ scale: [1, 1.02, 1], opacity: [0.3, 0.4, 0.3] }}
@@ -161,77 +106,59 @@ export function Hero() {
                  className="absolute -inset-16 bg-gradient-to-r from-white/40 via-white/80 to-white/40 backdrop-blur-[3px] rounded-[60px] blur-3xl -z-10" 
              />
              
-            {/* Badge */}
-            <motion.div variants={itemVariants}>
-                <Link href="/beta">
-                    <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-[#D44531]/20 bg-white/95 backdrop-blur-xl mb-10 cursor-pointer shadow-[0_4px_20px_rgba(212,69,49,0.1)] hover:shadow-[0_8px_30px_rgba(212,69,49,0.2)] hover:border-[#D44531] transition-all"
-                    >
-                    <span className="relative flex h-2.5 w-2.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D44531] opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#D44531]"></span>
-                    </span>
-                    <span className="text-xs font-bold tracking-[0.2em] text-[#D44531] uppercase">Talentronaut</span>
-                    <ChevronDown size={14} className="text-[#D44531] -rotate-90" />
-                    </motion.div>
-                </Link>
-            </motion.div>
-
             {/* Hero Headline */}
             <motion.h1
             variants={itemVariants}
-            className="text-5xl md:text-7xl lg:text-[4.5rem] font-heading font-black tracking-tight text-[#2D1810] leading-[1.2] mb-12 drop-shadow-sm select-none" 
+            style={{ skewX }} // Applied skew effect
+            className="text-3xl md:text-4xl lg:text-5xl font-heading font-black tracking-tight text-[#2D1810] leading-[1.1] mb-6 drop-shadow-sm select-none flex flex-wrap justify-center gap-x-3 gap-y-1" 
             >
-            <span className="inline-flex overflow-hidden">
-                {"Igniting".split("").map((char, i) => (
-                    <motion.span
-                        key={i}
-                        variants={{
-                            hidden: { y: "100%", opacity: 0 },
-                            visible: { 
-                                y: 0, 
-                                opacity: 1,
-                                transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 + (i * 0.05) }
-                            }
-                        }}
-                    >
-                        {char}
-                    </motion.span>
-                ))}
-            </span> <br className="hidden md:block" />
-            <span className="relative inline-block mt-2 md:mt-0 group cursor-default">
-                <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-[#D44531] via-[#FF8C69] to-[#D44531] bg-[length:200%_auto] animate-gradient-x font-heading font-black">
-                Digital Transformations
+                <span className="inline-block min-h-[1.1em]">
+                    {headlinePart1}
                 </span>
-                {/* Advanced Shimmer Overlay */}
-                <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-transparent via-white to-transparent bg-[length:50%_100%] bg-no-repeat bg-[-100%_0] group-hover:animate-shine opacity-60 pointer-events-none mix-blend-overlay font-heading font-black">
-                    Digital Transformations
-                </span>
-            </span>
+                
+                {/* Forced break */}
+                <div className="basis-full h-0"></div>
+
+                {/* Second Line Part: Transformations */}
+                <motion.span 
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 2.0 }}
+                    className="relative inline-block group min-h-[1.1em]"
+                >
+                    <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-[#D44531] via-[#FF8C69] to-[#D44531] bg-[length:200%_auto] animate-gradient-x font-heading font-black">
+                    {headlinePart2}
+                    </span>
+                    {/* Advanced Shimmer Overlay */}
+                    <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-transparent via-white to-transparent bg-[length:50%_100%] bg-no-repeat bg-[-100%_0] group-hover:animate-shine opacity-60 pointer-events-none mix-blend-overlay font-heading font-black">
+                        {headlinePart2}
+                    </span>
+                </motion.span>
             </motion.h1>
+
 
             {/* Subtext */}
             <motion.p
             variants={itemVariants}
-            className="text-lg md:text-2xl text-[#5C4D45] max-w-3xl mx-auto leading-relaxed mb-12 font-medium"
+            style={{ skewX }}
+            className="text-sm md:text-lg text-[#5C4D45] max-w-2xl mx-auto leading-relaxed mb-8 font-medium"
             >
-            Empowering industries with <span className="font-body font-bold text-[#D44531]">bespoke</span> IT solutions and cutting-edge product services to drive <span className="relative inline-block px-1 text-[#D44531] font-bold hover:skew-x-2 transition-transform cursor-crosshair">sustainable growth</span>.
+            Empowering industries with <span className="font-body font-bold text-[#D44531]">bespoke</span> IT solutions and cutting-edge product services to drive <span className="relative inline-block px-1 text-[#D44531] font-bold hover:skew-x-2 transition-transform">sustainable growth</span>.
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons with Magnetic Effect (#3) */}
             <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
             >
                 {/* Primary Button */}
                 <motion.button 
-                    whileHover={{ scale: 1.05, y: -5 }}
+                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="group relative px-10 py-5 rounded-full bg-[#D44531] text-white font-bold text-lg shadow-[0_15px_40px_rgba(212,69,49,0.25)] hover:shadow-[0_25px_60px_rgba(212,69,49,0.4)] transition-all flex items-center gap-3 w-full sm:w-auto justify-center overflow-hidden active:scale-95 hover:bg-[#E6503A]"
+                    className="group relative px-8 py-4 rounded-full bg-[#D44531] text-white font-bold text-sm shadow-[0_15px_40px_rgba(212,69,49,0.25)] hover:shadow-[0_25px_60px_rgba(212,69,49,0.4)] transition-all flex items-center gap-2 w-full sm:w-auto justify-center overflow-hidden active:scale-95 hover:bg-[#E6503A]"
                 >
                     <span className="relative z-10 flex items-center gap-2">
-                        Start Now <Play size={18} className="fill-current" />
+                        Start Now <Play size={14} className="fill-current" />
                     </span>
                     {/* Ripple Effect on Hover */}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-0 h-0 bg-white/20 rounded-full group-hover:w-[400px] group-hover:h-[400px] transition-all duration-700 ease-out" />
@@ -240,12 +167,12 @@ export function Hero() {
                 {/* Secondary Button */}
                 <Link href="/#contact" className="w-full sm:w-auto">
                     <motion.div 
-                        whileHover={{ scale: 1.05, y: -5 }}
+                        whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="group px-10 py-5 rounded-full bg-white/80 backdrop-blur-md border-2 border-gray-100 text-gray-700 font-semibold text-lg hover:border-[#D44531] hover:text-[#D44531] hover:bg-white shadow-sm hover:shadow-xl transition-all flex items-center gap-3 w-full justify-center"
+                        className="group px-8 py-4 rounded-full bg-white/80 backdrop-blur-md border border-gray-100 text-gray-700 font-semibold text-sm hover:border-[#D44531] hover:text-[#D44531] hover:bg-white shadow-sm hover:shadow-xl transition-all flex items-center gap-2 w-full justify-center"
                     >
                         <span>Contact Us</span>
-                        <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                     </motion.div>
                 </Link>
             </motion.div>
@@ -260,7 +187,7 @@ export function Hero() {
         transition={{ duration: 2, repeat: Infinity, delay: 2 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#D44531]/60"
       >
-          <ChevronDown size={32} strokeWidth={2.5} />
+          <ChevronDown size={24} strokeWidth={2.5} />
       </motion.div>
 
     </section>

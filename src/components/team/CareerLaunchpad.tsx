@@ -14,28 +14,39 @@ const ALUMNI_SUCCESS = [
 export function CareerLaunchpad() {
   return (
     <section className="py-32 bg-[#FAFAFA] relative overflow-hidden">
-        {/* Technical Blueprint Patterns */}
-        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:32px_32px] opacity-40" />
         
         <div className="container mx-auto px-6 relative z-10">
             
             {/* Header */}
             <div className="text-center mb-28">
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     className="inline-flex items-center gap-2 px-5 py-2 bg-white border border-gray-100 rounded-full mb-8 shadow-sm"
                 >
                     <Target className="w-4 h-4 text-[#D44531]" />
                     <span className="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em]">Destinations</span>
                 </motion.div>
-                <h2 className="text-6xl md:text-8xl font-heading font-black text-gray-900 tracking-tighter mb-8 leading-none">
-                    Where Talent <span className="text-[#D44531] italic text-7xl md:text-9xl">Peaks</span>
-                </h2>
-                <p className="text-xl text-gray-400 font-sans max-w-2xl mx-auto leading-relaxed">
+                <motion.h2 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    className="text-3xl md:text-4xl font-heading font-black text-gray-900 tracking-tighter mb-8 leading-none"
+                >
+                    Where Talent <span className="text-[#D44531] italic text-3xl md:text-4xl">Peaks</span>
+                </motion.h2>
+                <motion.p 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    className="text-xl text-gray-400 font-sans max-w-2xl mx-auto leading-relaxed"
+                >
                     Our impact is etched into the foundations of global technology leaders.
-                </p>
+                </motion.p>
             </div>
 
             {/* Success Grid */}
@@ -43,82 +54,72 @@ export function CareerLaunchpad() {
                 {ALUMNI_SUCCESS.map((item, i) => (
                     <motion.div
                         key={i}
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: i * 0.1 }}
-                        whileHover={{ y: -10 }}
-                        className="group relative h-[320px] bg-white rounded-[2.5rem] border border-gray-100 p-10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.03)] transition-all duration-500 overflow-hidden flex flex-col justify-between"
+                        transition={{ 
+                            duration: 0.8, 
+                            delay: i * 0.1,
+                            ease: [0.16, 1, 0.3, 1]
+                        }}
+                        className="group relative h-[340px] bg-white rounded-[2rem] p-8 shadow-[0_8px_24px_-8px_rgba(0,0,0,0.08)] hover:shadow-[0_24px_48px_-12px_rgba(212,69,49,0.12)] transition-all duration-500 overflow-hidden flex flex-col justify-between border border-gray-100 hover:border-[#D44531]/20 hover:-translate-y-1"
                     >
-                         {/* Architectural Corner Marker */}
-                         <div className="absolute top-8 left-8 w-6 h-6 border-l border-t border-gray-100 group-hover:border-[#D44531]/30 transition-colors" />
-                         <div className="absolute bottom-8 right-8 w-6 h-6 border-r border-b border-gray-100 group-hover:border-[#D44531]/30 transition-colors" />
+                         {/* Subtle Background Gradient */}
+                         <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50/30 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                         
+                         {/* Accent Glow */}
+                         <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#D44531]/5 rounded-full blur-3xl group-hover:bg-[#D44531]/8 transition-colors duration-700" />
 
-                         {/* Subtle Background Accent */}
-                         <div className="absolute -right-4 -bottom-4 w-32 h-32 bg-gray-50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl -z-10" />
-
-                         <div className="relative z-10 text-right md:text-left">
-                             {/* Category Chip */}
-                             <div className="inline-block px-3 py-1 bg-gray-50 rounded-lg text-[9px] font-black text-gray-400 uppercase tracking-[0.25em] mb-10 border border-gray-100 group-hover:border-[#D44531]/20 group-hover:text-[#D44531] transition-all">
-                                 {item.category}
-                             </div>
-
-                             <div className="flex flex-col">
-                                 <h3 className="text-5xl font-heading font-black text-gray-900 mb-2 tracking-tighter group-hover:text-[#D44531] transition-colors leading-none">
-                                     {item.company}
-                                 </h3>
-                                 <div className="h-0.5 w-10 bg-gray-100 mt-4 rounded-full group-hover:w-20 group-hover:bg-[#D44531] transition-all duration-700" />
+                         {/* Top Row: Category Badge */}
+                         <div className="relative z-10">
+                             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-50 border border-gray-200 group-hover:bg-[#D44531] group-hover:border-[#D44531] transition-all duration-300">
+                                 <div className="w-1.5 h-1.5 rounded-full bg-[#D44531] group-hover:bg-white transition-colors" />
+                                 <span className="text-[11px] font-bold uppercase tracking-wider text-gray-600 group-hover:text-white transition-colors">
+                                     {item.category}
+                                 </span>
                              </div>
                          </div>
 
-                         <div className="relative z-10 space-y-4">
-                             <div className="flex items-center gap-3">
-                                 <div className="w-10 h-10 rounded-2xl bg-[#D44531]/5 flex items-center justify-center text-[#D44531] group-hover:bg-[#D44531] group-hover:text-white transition-all duration-500">
-                                     <TrendingUp size={16} />
-                                 </div>
-                                 <div className="flex flex-col">
-                                     <div className="text-[10px] font-mono font-bold text-gray-300 uppercase tracking-[0.1em]">Position</div>
-                                     <div className="text-sm font-bold text-gray-600">{item.role}</div>
+                         {/* Middle: Company & Role */}
+                         <div className="relative z-10 flex-1 flex flex-col justify-center py-4">
+                             {/* Role/Position - More Visible */}
+                             <div className="mb-3">
+                                 <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Position</div>
+                                 <div className="text-base font-bold text-gray-600 group-hover:text-[#D44531] transition-colors">
+                                     {item.role}
                                  </div>
                              </div>
                              
-                             <div className="flex items-center gap-3">
-                                 <div className="w-10 h-10 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-gray-100 transition-colors">
-                                     <MapPin size={16} />
-                                 </div>
-                                 <div className="flex flex-col">
-                                     <div className="text-[10px] font-mono font-bold text-gray-300 uppercase tracking-[0.1em]">Location</div>
-                                     <div className="text-sm font-bold text-gray-400">{item.highlight}</div>
-                                 </div>
-                             </div>
+                             {/* Company Name - Reduced Size, No Clipping */}
+                             <h3 className="text-3xl font-heading font-black text-gray-900 leading-tight tracking-tight group-hover:text-[#D44531] transition-colors duration-300">
+                                 {item.company}
+                             </h3>
                          </div>
 
-                         {/* Side Indicator */}
-                         <div className="absolute top-1/2 -translate-y-1/2 right-6 flex flex-col items-center gap-2 opacity-10 group-hover:opacity-30 transition-opacity">
-                             {[1, 2, 3].map(j => (
-                                 <div key={j} className="w-1 h-1 rounded-full bg-gray-400" />
-                             ))}
+                         {/* Bottom: Location & Action */}
+                         <div className="relative z-10 flex items-center justify-between pt-4 border-t border-gray-100 group-hover:border-[#D44531]/10 transition-colors">
+                             <div className="flex items-center gap-2">
+                                 <div className="w-7 h-7 rounded-lg bg-gray-50 flex items-center justify-center group-hover:bg-[#D44531]/10 transition-colors">
+                                     <MapPin size={14} className="text-[#D44531]" />
+                                 </div>
+                                 <div>
+                                     <div className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">Location</div>
+                                     <div className="text-xs font-bold text-gray-600">
+                                         {item.highlight}
+                                     </div>
+                                 </div>
+                             </div>
+                             
+                             {/* Action Icon */}
+                             <div className="w-9 h-9 rounded-full border-2 border-gray-200 flex items-center justify-center group-hover:bg-[#D44531] group-hover:border-[#D44531] transition-all duration-300 group-hover:scale-110">
+                                 <TrendingUp size={16} className="text-gray-400 group-hover:text-white transition-colors" />
+                             </div>
                          </div>
                     </motion.div>
                 ))}
             </div>
 
-            {/* Bottom Citation */}
-            <motion.div 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6 }}
-                className="mt-32 border-t border-gray-100 pt-16 flex flex-col md:flex-row items-center justify-between gap-8"
-            >
-                <div className="text-[10px] font-mono text-gray-300 uppercase tracking-[0.4em]">
-                    ALUMNI_DATABASE_ENTRY // 2026.01
-                </div>
-                <div className="h-px flex-1 bg-gray-100 hidden md:block mx-12" />
-                <p className="text-gray-400 text-xs font-bold uppercase tracking-[0.2em]">
-                    Fueling Innovation at <span className="text-gray-900">50+ Silicon Valley Tech Leaders</span>
-                </p>
-            </motion.div>
+
         </div>
     </section>
   )

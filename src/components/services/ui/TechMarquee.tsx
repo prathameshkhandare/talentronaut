@@ -40,7 +40,7 @@ export function TechMarquee({ className }: { className?: string }) {
   return (
     <section className={cn("py-28 bg-white overflow-hidden", className)}>
       <div className="container mx-auto px-6 text-center mb-16">
-        <SectionHeading className="mb-6 text-5xl bg-clip-text text-transparent bg-gradient-to-r from-coral to-orange-500 pb-2">Technologies We Work With</SectionHeading>
+        <SectionHeading className="mb-6 text-5xl bg-clip-text text-transparent bg-gradient-to-r from-coral to-orange-500 pb-2 px-4">Technologies We Work With</SectionHeading>
         <div className="w-24 h-1.5 bg-coral mx-auto rounded-full mb-8" />
         <p className="text-gray-500 max-w-2xl mx-auto text-xl leading-relaxed">
             We don't just use tools; we leverage ecosystems to build scalable, future-proof platforms.

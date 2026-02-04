@@ -79,10 +79,10 @@ export default function TalentDiscoveryPage() {
         <section className="flex flex-col lg:flex-row items-center justify-between mt-12 mb-24 md:mb-32 gap-12">
           <div className="w-full lg:w-1/2">
             <span className="text-coral font-black tracking-[0.3em] text-[10px] uppercase mb-6 block border-l-2 border-coral pl-4">The Global Bridge</span>
-            <SectionHeading as="h1" className="text-5xl md:text-8xl mb-8 leading-[0.9] tracking-tighter">
+            <SectionHeading as="h1" className="text-4xl md:text-6xl mb-8 leading-[1.1] tracking-tight">
               Global Human <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-coral to-orange-400">Infrastructure.</span>
             </SectionHeading>
-            <p className="text-xl text-gray-500 mb-10 leading-relaxed max-w-xl">
+            <p className="text-lg text-gray-500 mb-10 leading-relaxed max-w-xl">
               From the tech hubs of London and Berlin to the emerging markets of Riyadh and Nairobi. We connect the world's most ambitious companies with the visionaries who build the future.
             </p>
             <CTA text="Tap into Global Talent" onClick={() => setIsContactModalOpen(true)} />
@@ -125,7 +125,7 @@ export default function TalentDiscoveryPage() {
           <div className="container mx-auto px-6 relative z-10">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                   <div>
-                      <h2 className="text-5xl md:text-7xl font-heading font-black tracking-tighter leading-none mb-10">
+                      <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tighter leading-none mb-10">
                           Europe. <br/> Middle East. <br/> <span className="text-coral">Africa.</span>
                       </h2>
                       <div className="space-y-8">
@@ -153,9 +153,8 @@ export default function TalentDiscoveryPage() {
                       <div className="grid grid-cols-2 gap-10 relative z-10">
                           {REACH_STATS.map((stat, i) => (
                               <div key={i} className="space-y-2">
-                                  <div className="text-5xl font-black text-gray-900 group-hover:text-coral transition-colors">{stat.value}</div>
+                                  <div className="text-4xl font-black text-gray-900 group-hover:text-coral transition-colors">{stat.value}</div>
                                   <div className="text-[10px] font-mono font-black text-gray-400 uppercase tracking-widest">{stat.label}</div>
-                                  <div className="text-[8px] font-mono text-gray-200 uppercase">{stat.code}</div>
                               </div>
                           ))}
                       </div>
@@ -179,7 +178,7 @@ export default function TalentDiscoveryPage() {
         
         {/* Bottom CTA */}
         <section className="text-center py-32">
-            <h2 className="text-4xl md:text-6xl font-heading font-black tracking-tighter mb-10">Ready to build your <br/><span className="italic text-coral">dream team?</span></h2>
+            <h2 className="text-3xl md:text-5xl font-heading font-black tracking-tighter mb-10">Ready to build your <br/><span className="italic text-coral">dream team?</span></h2>
             <CTA text="Start Global Hiring" onClick={() => setIsContactModalOpen(true)} />
         </section>
       </div>

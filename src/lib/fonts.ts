@@ -1,4 +1,4 @@
-import { EB_Garamond, Inter } from "next/font/google";
+import { Instrument_Sans, Inter } from "next/font/google";
 import localFont from "next/font/local";
 
 /**
@@ -25,16 +25,16 @@ export const bochan = localFont({
 });
 
 /**
- * MINION DISPLAY (Secondary Font)
+ * INSTRUMENT SANS (Secondary Font)
  * Usage: Body Text, Paragraphs, UI Elements, Buttons, Labels
- * Google Font: EB Garamond (closest alternative to Minion Display)
- * Font Family: Serif
+ * Google Font: Instrument Sans
+ * Font Family: Sans-serif
  */
-export const minion = EB_Garamond({
+export const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
-  variable: "--font-minion",
+  variable: "--font-instrument",
   display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
 });
 

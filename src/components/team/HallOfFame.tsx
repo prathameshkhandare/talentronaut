@@ -12,13 +12,6 @@ interface FameItem {
 
 const FAME_ITEMS: FameItem[] = [
     {
-        id: '1',
-        title: 'Ex-Google Engineering',
-        category: 'Experience',
-        description: 'Our core tech leads bring experience from Google Search and Cloud teams.',
-        icon: Briefcase,
-    },
-    {
         id: '2',
         title: 'Forbes 30 Under 30',
         category: 'Achievement',
@@ -31,13 +24,6 @@ const FAME_ITEMS: FameItem[] = [
         category: 'Milestone',
         description: 'Helping over a million students find their dream career paths.',
         icon: Star,
-    },
-    {
-        id: '4',
-        title: 'Stanford Alumni',
-        category: 'Experience',
-        description: 'Founded by Stanford GSB graduates with a passion for education.',
-        icon: Briefcase,
     },
 ];
 
@@ -113,94 +99,138 @@ export const HallOfFame = () => {
     return (
         <section className="py-20 relative overflow-hidden bg-white">
             {/* Background Decor */}
-            <div className="absolute inset-0 bg-secondary-light/30 -skew-y-3 transform origin-top-left -z-10" />
+            <motion.div 
+                initial={{ opacity: 0, skewY: 0 }}
+                whileInView={{ opacity: 0.3, skewY: -3 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                className="absolute inset-0 bg-secondary-light transform origin-top-left -z-10" 
+            />
 
             <div className="container mx-auto px-4 md:px-8">
                 
                 {/* Section Header */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
+                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-5xl md:text-7xl font-heading font-black mb-6 text-gray-900 tracking-tighter">
+                    <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 text-gray-900 tracking-tight">
                         The <span className="text-[#D44531]">Hall of Fame</span>
                     </h2>
-                    <p className="text-xl text-gray-500 max-w-2xl mx-auto font-sans">
+                    <p className="text-lg text-gray-500 max-w-2xl mx-auto font-sans">
                         Our DNA is built on excellence. From world-class alumni to award-winning innovators.
                     </p>
                 </motion.div>
 
-                {/* Architectural Light Stats Grid - Design Thinking Applied */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
+                {/* Achievement Cards Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-32">
                     {FAME_ITEMS.map((item, index) => (
                         <motion.div
                             key={item.id}
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 60 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.6 }}
-                            whileHover={{ y: -10 }}
-                            className="group relative h-[400px] rounded-[2.5rem] bg-white border border-gray-100 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col justify-between p-12 transition-all duration-500 hover:border-[#D44531]/20"
+                            transition={{ duration: 0.8, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
+                            className="group relative"
                         >
-                            {/* Technical Blueprint Background */}
-                            <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] opacity-40" />
-                            
-                            {/* Architectural Corner Markers */}
-                            <div className="absolute top-6 left-6 w-4 h-4 border-l border-t border-gray-200 group-hover:border-[#D44531]/40 transition-colors" />
-                            <div className="absolute top-6 right-6 w-4 h-4 border-r border-t border-gray-200 group-hover:border-[#D44531]/40 transition-colors" />
-                            <div className="absolute bottom-6 left-6 w-4 h-4 border-l border-b border-gray-200 group-hover:border-[#D44531]/40 transition-colors" />
-                            <div className="absolute bottom-6 right-6 w-4 h-4 border-r border-b border-gray-200 group-hover:border-[#D44531]/40 transition-colors" />
+                            {/* Premium Card with Enhanced Primary Color Expression */}
+                            <div className="relative h-[380px] bg-gradient-to-br from-white via-white to-[#D44531]/5 backdrop-blur-2xl rounded-[2.5rem] p-12 border border-gray-200/40 shadow-[0_4px_24px_rgba(0,0,0,0.02)] hover:shadow-[0_40px_80px_rgba(212,69,49,0.18)] transition-all duration-1000 overflow-hidden hover:-translate-y-4 hover:border-[#D44531]/50">
+                                
+                                {/* Left Accent Border */}
+                                <div className="absolute left-0 top-1/4 bottom-1/4 w-[3px] bg-gradient-to-b from-transparent via-[#D44531] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-                            <div className="relative z-10 flex flex-col h-full">
-                                {/* Top Section */}
-                                <div className="flex justify-between items-start mb-auto">
-                                    <div className="relative">
-                                        <div className="w-14 h-14 rounded-2xl bg-[#D44531]/5 border border-[#D44531]/10 flex items-center justify-center text-[#D44531] group-hover:bg-[#D44531] group-hover:text-white transition-all duration-500">
-                                            <item.icon size={28} />
+                                {/* Shimmer Beam Effect */}
+                                <motion.div 
+                                    className="absolute inset-0 bg-gradient-to-r from-transparent via-[#D44531]/10 to-transparent w-[200%] -skew-x-12 translate-x-[-150%] pointer-events-none"
+                                    animate={{ 
+                                        translateX: ["-150%", "150%"] 
+                                    }}
+                                    transition={{ 
+                                        duration: 4, 
+                                        repeat: Infinity, 
+                                        ease: "linear",
+                                        repeatDelay: 3
+                                    }}
+                                />
+
+                                {/* Glass Reflection Top Edge */}
+                                <div className="absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-transparent via-[#D44531]/20 to-transparent pointer-events-none" />
+                                
+                                {/* DESIGN ELEMENT: Stronger Vibrant Aura */}
+                                <div className="absolute -inset-20 bg-[radial-gradient(circle_at_center,rgba(212,69,49,0.18)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-all duration-1000 blur-3xl" />
+                                
+                                {/* Content Container */}
+                                <div className="relative z-10 h-full flex flex-col">
+                                    {/* Design Detail: Premium Spark Indicator */}
+                                    <div className="mb-8 flex items-center gap-3">
+                                        <div className="w-16 h-[2px] bg-gradient-to-r from-[#D44531] to-transparent rounded-full group-hover:w-24 transition-all duration-1000" />
+                                        <motion.div 
+                                            animate={{ rotate: 360 }}
+                                            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                                            className="relative flex items-center justify-center"
+                                        >
+                                            <div className="w-2 h-2 rotate-45 bg-[#D44531]" />
+                                            <div className="absolute w-4 h-[1.5px] bg-[#D44531]/50 rotate-90" />
+                                            <div className="absolute h-4 w-[1.5px] bg-[#D44531]/50 rotate-90" />
+                                        </motion.div>
+                                    </div>
+
+                                    {/* Category Badge - Polished with Primary Tint */}
+                                    <div className="mb-6">
+                                        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/50 backdrop-blur-md border border-[#D44531]/20 group-hover:bg-[#D44531] group-hover:border-[#D44531] transition-all duration-700 shadow-sm group-hover:shadow-[#D44531]/30">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-[#D44531] group-hover:bg-white animate-pulse" />
+                                            <span className="text-[9px] font-black text-[#D44531] uppercase tracking-[0.25em] group-hover:text-white transition-colors duration-700">
+                                                {item.category}
+                                            </span>
                                         </div>
                                     </div>
-                                    <div className="text-[10px] font-mono font-bold text-gray-300 group-hover:text-[#D44531]/50 transition-colors duration-500 tracking-[0.2em] transform rotate-90 origin-right">
-                                        SEC_0{index + 1}/TYPE_H
-                                    </div>
-                                </div>
-
-                                {/* Main Content */}
-                                <div>
-                                    <div className="inline-flex items-center gap-2 mb-6">
-                                        <span className="w-2 h-2 rounded-full bg-[#D44531]" />
-                                        <span className="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em]">
-                                            {item.category}
-                                        </span>
-                                    </div>
                                     
-                                    <h3 className="text-4xl md:text-5xl font-heading font-black text-gray-900 leading-[0.85] mb-6 tracking-tighter">
+                                    {/* Title - Ultra Modern with Gradient Reveal */}
+                                    <h3 className="text-3xl md:text-4xl font-heading font-black text-gray-900 leading-[1.05] mb-5 tracking-[-0.03em] group-hover:text-[#D44531] transition-colors duration-700">
                                         {item.title}
                                     </h3>
                                     
-                                    <p className="text-lg text-gray-500 font-medium leading-relaxed max-w-sm">
+                                    {/* Description - High Legibility */}
+                                    <p className="text-[15px] text-gray-400 font-medium leading-relaxed mb-auto max-w-[85%] group-hover:text-gray-700 transition-colors duration-700">
                                         {item.description}
                                     </p>
+
+                                    {/* DESIGN DETAIL: Elegant Kinetic Border */}
+                                    <div className="mt-10 flex items-center gap-6">
+                                        <div className="relative h-[2px] flex-1 bg-[#D44531]/10 overflow-hidden rounded-full">
+                                            <div className="absolute inset-0 bg-gradient-to-r from-[#D44531] to-orange-400 w-0 group-hover:w-full transition-all duration-[1.5s] ease-in-out" />
+                                        </div>
+                                        <div className="flex gap-2 items-center">
+                                            {[...Array(3)].map((_, i) => (
+                                                <motion.div 
+                                                    key={i} 
+                                                    animate={{ 
+                                                        scale: [1, 1.4, 1],
+                                                        opacity: [0.3, 0.7, 0.3]
+                                                    }}
+                                                    transition={{ 
+                                                        duration: 2, 
+                                                        repeat: Infinity, 
+                                                        delay: i * 0.4 
+                                                    }}
+                                                    className="w-2 h-2 rounded-full bg-[#D44531]"
+                                                />
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            {/* Abstract Blueprint Watermark (Unique per card) */}
-                            <div className="absolute -right-16 -bottom-16 opacity-[0.03] group-hover:opacity-[0.08] transition-all duration-700 transform group-hover:scale-90 group-hover:-translate-x-4 pointer-events-none">
-                                <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="200" cy="200" r="199" stroke="currentColor" strokeWidth="0.5" strokeDasharray="10 10" />
-                                    <rect x="50" y="50" width="300" height="300" stroke="currentColor" strokeWidth="0.5" />
-                                    <line x1="0" y1="200" x2="400" y2="200" stroke="currentColor" strokeWidth="0.5" />
-                                    <line x1="200" y1="0" x2="200" y2="400" stroke="currentColor" strokeWidth="0.5" />
-                                    <path d="M100 100L300 300M300 100L100 300" stroke="currentColor" strokeWidth="0.5" />
-                                </svg>
-                            </div>
-
-                            {/* Technical Label */}
-                            <div className="absolute bottom-10 right-12 hidden md:block">
-                                <div className="text-[8px] font-mono text-gray-300 uppercase leading-none text-right">
-                                    VERIFIED LOG_2026<br />
-                                    <span className="text-[#D44531]/40">ALPHA_V.01</span>
+                                {/* Design Detail: Refined Primary Accents */}
+                                <div className="absolute top-10 right-10 w-10 h-10 opacity-0 group-hover:opacity-100 transition-all duration-1000 scale-75 group-hover:scale-100">
+                                    <div className="absolute top-0 right-0 w-full h-[2px] bg-gradient-to-l from-[#D44531] to-transparent" />
+                                    <div className="absolute top-0 right-0 w-[2px] h-full bg-gradient-to-b from-[#D44531] to-transparent" />
+                                </div>
+                                <div className="absolute bottom-10 left-10 w-10 h-10 opacity-0 group-hover:opacity-100 transition-all duration-1000 scale-75 group-hover:scale-100">
+                                    <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#D44531] to-transparent" />
+                                    <div className="absolute bottom-0 left-0 w-[2px] h-full bg-gradient-to-t from-[#D44531] to-transparent" />
                                 </div>
                             </div>
                         </motion.div>
@@ -219,13 +249,17 @@ export const HallOfFame = () => {
                         {LEGENDS.map((person, i) => (
                             <motion.div 
                                 key={person.id}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
+                                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: i * 0.05 }}
+                                transition={{ 
+                                    duration: 0.8, 
+                                    delay: i * 0.1,
+                                    ease: [0.16, 1, 0.3, 1]
+                                }}
                                 className="group relative h-[280px] rounded-3xl overflow-hidden cursor-pointer"
                             >
-                                <img src={person.image} alt={person.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
+                                <img src={person.image} alt={person.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
                                 
                                 <div className="absolute bottom-0 left-0 w-full p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">

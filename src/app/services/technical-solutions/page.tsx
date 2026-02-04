@@ -12,6 +12,7 @@ import { TechMarquee } from '@/components/services/ui/TechMarquee';
 import { ArchitecturalGrid } from '@/components/services/ui/ArchitecturalGrid';
 import { ProjectShowcase } from '@/components/services/ui/ProjectShowcase';
 import { ContactModal } from '@/components/ui/ContactModal';
+import { TechnicalServiceGrid } from '@/components/services/ui/TechnicalServiceGrid';
 
 const PROCESS_STEPS = [
   {
@@ -79,6 +80,9 @@ export default function TechnicalSolutionsPage() {
           </div>
         </section>
       </div>
+
+      {/* Core Technical Services Grid */}
+      <TechnicalServiceGrid />
 
       {/* Process Map Timeline */}
       <ProcessMap steps={PROCESS_STEPS} />

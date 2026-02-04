@@ -16,8 +16,9 @@ export default function TeamPage() {
                 
                 <div className="relative container mx-auto px-6 z-10 text-center max-w-4xl">
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
+                        initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                         className="inline-block mb-6 p-2 bg-orange-50 rounded-full"
                     >
                         <p className="text-[#D44531] font-bold tracking-[0.2em] text-[10px] uppercase px-3">
@@ -26,17 +27,18 @@ export default function TeamPage() {
                     </motion.div>
                     
                     <motion.h1 
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-5xl md:text-8xl font-heading font-black text-gray-900 mb-8 leading-[0.9] tracking-tighter"
+                        transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        className="text-4xl md:text-6xl font-heading font-bold text-gray-900 mb-8 leading-tight tracking-tight"
                     >
                         Bringing Passion and<br /> <span className="text-[#D44531] italic">Expertise</span> Together
                     </motion.h1>
                     
                     <motion.p 
-                        initial={{ opacity: 0, y: 10 }}
+                        initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
+                        transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         className="text-gray-500 text-lg md:text-xl leading-relaxed font-sans max-w-2xl mx-auto"
                     >
                         Welcome to our team page, where you get a glimpse into the heart and soul of our organization.

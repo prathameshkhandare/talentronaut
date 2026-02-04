@@ -23,7 +23,7 @@
   font-weight: 500;
   color: var(--brand-coral);
   margin-bottom: 20px;
-  font-family: var(--font-body) !important; /* Minion Display */
+  font-family: var(--font-body) !important; /* Instrument Sans */
 }
 
 .title {
@@ -120,7 +120,7 @@
 .cardDescription {
   color: #d44531; /* Body Orange */
   line-height: 1.6;
-  font-family: var(--font-body) !important; /* Minion Display */
+  font-family: var(--font-body) !important; /* Instrument Sans */
 }
 
 /* Card 2 - Stats */
@@ -145,7 +145,7 @@
   font-size: 1.1rem;
   color: #d44531; /* Orange Label */
   margin-bottom: 24px;
-  font-family: var(--font-body) !important; /* Minion Display */
+  font-family: var(--font-body) !important; /* Instrument Sans */
 }
 
 .avatarStack {
@@ -201,7 +201,7 @@
   font-size: 0.9rem;
   font-weight: 500;
   color: #d44531; /* Body Orange */
-  font-family: var(--font-body) !important; /* Minion Display */
+  font-family: var(--font-body) !important; /* Instrument Sans */
 }
 
 /* Card 4 - Success */
@@ -229,7 +229,7 @@
 .successLabel {
   font-size: 1.1rem;
   opacity: 0.9;
-  font-family: var(--font-body) !important; /* Minion Display */
+  font-family: var(--font-body) !important; /* Instrument Sans */
 }
 
 .successGraph {
@@ -280,7 +280,7 @@
   font-size: 0.95rem;
   color: #d44531; /* Body Orange */
   line-height: 1.5;
-  font-family: var(--font-body) !important; /* Minion Display */
+  font-family: var(--font-body) !important; /* Instrument Sans */
 }
 
 .cardFeature2 {

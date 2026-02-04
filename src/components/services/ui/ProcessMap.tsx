@@ -29,8 +29,8 @@ const ProcessNode = ({ step, index, total }: { step: Step, index: number, total:
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h3 className="text-3xl font-heading font-bold text-charcoal mb-4">{step.title}</h3>
-                        <p className="text-lg text-gray-600 leading-relaxed max-w-md ml-auto">
+                        <h3 className="text-2xl font-heading font-bold text-charcoal mb-4">{step.title}</h3>
+                        <p className="text-base text-gray-600 leading-relaxed max-w-md ml-auto">
                             {step.description}
                         </p>
                     </motion.div>
@@ -63,8 +63,8 @@ const ProcessNode = ({ step, index, total }: { step: Step, index: number, total:
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h3 className="text-3xl font-heading font-bold text-charcoal mb-4">{step.title}</h3>
-                        <p className="text-lg text-gray-600 leading-relaxed max-w-md mr-auto">
+                        <h3 className="text-2xl font-heading font-bold text-charcoal mb-4">{step.title}</h3>
+                        <p className="text-base text-gray-600 leading-relaxed max-w-md mr-auto">
                             {step.description}
                         </p>
                     </motion.div>
@@ -78,8 +78,8 @@ const ProcessNode = ({ step, index, total }: { step: Step, index: number, total:
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6 }}
                         >
-                            <h3 className="text-3xl font-heading font-bold text-charcoal mb-4">{step.title}</h3>
-                            <p className="text-lg text-gray-600 leading-relaxed">
+                            <h3 className="text-2xl font-heading font-bold text-charcoal mb-4">{step.title}</h3>
+                            <p className="text-base text-gray-600 leading-relaxed">
                                 {step.description}
                             </p>
                         </motion.div>
@@ -100,8 +100,8 @@ export function ProcessMap({ steps, className }: ProcessMapProps) {
   return (
     <section ref={containerRef} className={cn("py-24 bg-cream relative overflow-hidden", className)}>
         <div className="container mx-auto px-6 text-center mb-16">
-            <SectionHeading className="mb-6 text-5xl bg-clip-text text-transparent bg-gradient-to-r from-coral to-orange-500 pb-2">Our Engineering Process</SectionHeading>
-             <p className="text-gray-500 max-w-2xl mx-auto text-xl leading-relaxed">
+            <SectionHeading className="mb-6 text-4xl bg-clip-text text-transparent bg-gradient-to-r from-coral to-orange-500 pb-2">Our Engineering Process</SectionHeading>
+             <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
                 A seamless journey from blueprint to deployment.
             </p>
         </div>

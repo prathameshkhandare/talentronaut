@@ -53,13 +53,13 @@
   line-height: 32px;
   text-wrap: balance;
   color: var(--text-secondary);
-  font-family: var(--font-body) !important; /* Minion Display */
+  font-family: var(--font-body) !important; /* Instrument Sans */
 }
 
 .intro a {
   font-weight: 500;
   color: var(--text-primary);
-  font-family: var(--font-body) !important; /* Minion Display */
+  font-family: var(--font-body) !important; /* Instrument Sans */
 }
 
 .ctas {
@@ -83,7 +83,7 @@
   cursor: pointer;
   width: fit-content;
   font-weight: 500;
-  font-family: var(--font-body) !important; /* Minion Display */
+  font-family: var(--font-body) !important; /* Instrument Sans */
 }
 
 a.primary {

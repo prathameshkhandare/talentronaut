@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Check, Loader2 } from 'lucide-react';
 
@@ -19,6 +19,18 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       email: '',
       mobile: ''
   });
+
+  // Prevent scrolling when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,13 +61,13 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
+          {/* Backdrop - Solid White to hide background totally */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-white z-[9998]"
           />
 
           {/* Modal */}
@@ -63,12 +75,12 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg bg-white rounded-[32px] p-8 shadow-2xl z-50 overflow-hidden"
+            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg bg-white rounded-[32px] p-8 shadow-2xl z-[9999] overflow-hidden"
           >
              {/* Close Button */}
             <button 
                 onClick={onClose}
-                className="absolute top-6 right-6 p-2 rounded-full hover:bg-gray-100 transition-colors"
+                className="absolute top-6 right-6 p-2 rounded-full hover:bg-gray-100 transition-colors z-[100]"
             >
                 <X size={24} className="text-gray-500" />
             </button>
@@ -97,7 +109,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                         required
                                         value={formData.name}
                                         onChange={handleChange}
-                                        className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-gray-200 focus:border-coral focus:ring-4 focus:ring-coral/10 outline-none transition-all placeholder:text-gray-400"
+                                        className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-gray-200 focus:border-coral focus:ring-4 focus:ring-coral/10 outline-none transition-all placeholder:text-gray-400 text-black"
                                         placeholder="John Doe"
                                      />
                                  </div>
@@ -109,7 +121,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                         required
                                         value={formData.email}
                                         onChange={handleChange}
-                                        className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-gray-200 focus:border-coral focus:ring-4 focus:ring-coral/10 outline-none transition-all placeholder:text-gray-400"
+                                        className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-gray-200 focus:border-coral focus:ring-4 focus:ring-coral/10 outline-none transition-all placeholder:text-gray-400 text-black"
                                         placeholder="john@company.com"
                                      />
                                  </div>
@@ -121,7 +133,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                         required
                                         value={formData.mobile}
                                         onChange={handleChange}
-                                        className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-gray-200 focus:border-coral focus:ring-4 focus:ring-coral/10 outline-none transition-all placeholder:text-gray-400"
+                                        className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-gray-200 focus:border-coral focus:ring-4 focus:ring-coral/10 outline-none transition-all placeholder:text-gray-400 text-black"
                                         placeholder="+1 (555) 000-0000"
                                      />
                                  </div>
@@ -133,8 +145,8 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                  >
                                      {isSubmitting ? (
                                          <>
-                                            <Loader2 className="animate-spin" />
-                                            Sending...
+                                             <Loader2 className="animate-spin" />
+                                             Sending...
                                          </>
                                      ) : "Book Consultation"}
                                  </button>

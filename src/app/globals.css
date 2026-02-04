@@ -28,7 +28,7 @@
 
   /* Font Family Assignments */
   --font-heading: var(--font-bochan), serif;
-  --font-body: var(--font-minion), serif;
+  --font-body: var(--font-instrument), sans-serif;
 }
 
 /* ---------------- BASE ---------------- */
@@ -37,7 +37,7 @@
   body {
     background-color: var(--background);
     color: var(--color-text-primary);
-    font-family: var(--font-body) !important; /* Minion Display */
+    font-family: var(--font-body) !important; /* Instrument Sans */
     font-weight: 400;
     letter-spacing: 0em;
     line-height: 1.6;
@@ -57,7 +57,7 @@
     letter-spacing: -0.03em; /* Range -0.02em to -0.04em */
   }
 
-  /* Body text = Minion Display */
+  /* Body text = Instrument Sans */
   /* Roles: Body text, Paragraphs, Subheadings, Buttons, Labels, Supporting copy */
   p,
   a,
@@ -74,8 +74,8 @@
   i,
   em,
   small {
-    font-family: var(--font-body) !important; /* Minion Display */
-    letter-spacing: 0em; /* Strict 0em */
+    font-family: var(--font-body) !important; /* Instrument Sans */
+    letter-spacing: -0.01em; /* Slight tightening for modern sans */
   }
 
   /* Spans inherit by default unless they are top-level or specifically body-text */
@@ -101,13 +101,13 @@
     letter-spacing: -0.03em;
   }
 
-  /* Explicit body utility (Minion Display) */
+  /* Explicit body utility (Instrument Sans) */
   .font-body,
   .font-sans,
   .font-text,
-  .font-minion {
+  .font-instrument {
     font-family: var(--font-body) !important;
-    letter-spacing: 0em;
+    letter-spacing: -0.01em;
   }
 
   /* Bochan heading sizes and weights */
@@ -135,23 +135,23 @@
     letter-spacing: -0.02em;
   }
 
-  /* Minion Display body sizes */
-  .minion-lg {
+  /* Instrument Sans body sizes */
+  .instrument-lg {
     font-family: var(--font-body) !important;
     font-weight: 500;
-    letter-spacing: 0em;
+    letter-spacing: -0.015em;
   }
 
-  .minion-base {
+  .instrument-base {
     font-family: var(--font-body) !important;
     font-weight: 400;
-    letter-spacing: 0em;
+    letter-spacing: -0.01em;
   }
 
-  .minion-sm {
+  .instrument-sm {
     font-family: var(--font-body) !important;
     font-weight: 400;
-    letter-spacing: 0em;
+    letter-spacing: -0.01em;
   }
 
   .glass-panel {

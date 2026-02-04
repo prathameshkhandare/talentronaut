@@ -79,31 +79,7 @@ export function TrustedLeaders() {
                 </Card>
             </motion.div>
 
-            {/* Growth Stat Card - Enhanced Gray Design */}
-            <motion.div variants={leftVariant} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                 <Card className="h-64 p-8 bg-[#4A4A46] text-white relative overflow-hidden border-none shadow-2xl rounded-[2.5rem] group">
-                    {/* Premium Layering */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#4A4A46] via-[#3d3d3a] to-[#2a2a28]"></div>
-                    <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/noise.png')]"></div>
-                    
-                    <div className="relative z-10 h-full flex flex-col justify-between">
-                        <div className="flex justify-between items-start">
-                            <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                                <TrendingUp className="text-[#D44531] w-6 h-6" />
-                            </div>
-                            <span className="text-[10px] font-black uppercase tracking-widest text-[#D44531]">Verified ROI</span>
-                        </div>
-                        
-                        <div>
-                            <h3 className="text-6xl font-black text-white tracking-tighter mb-1">200%</h3>
-                            <p className="text-sm font-bold text-white/60 leading-tight uppercase tracking-wider">Average ROI for Partners</p>
-                        </div>
-                    </div>
-                    
-                    {/* Decorative Elements */}
-                    <div className="absolute bottom-[-20px] right-[-20px] w-48 h-48 opacity-10 blur-3xl bg-[#D44531] rounded-full group-hover:scale-125 transition-transform duration-1000"></div>
-                 </Card>
-            </motion.div>
+
         </div>
 
         {/* --- MIDDLE COLUMN --- */}

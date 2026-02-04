@@ -52,7 +52,7 @@ export function About() {
                 
                 <h2 className="text-5xl md:text-6xl text-[#4A4A46] leading-[1.1] md:leading-[1.1] -ml-1">
                     Pioneering <br/> 
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D44531] to-[#E65A45] font-serif italic">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D44531] to-[#E65A45] font-serif">
                         Digital Innovation
                     </span>
                 </h2>
@@ -70,7 +70,7 @@ export function About() {
             {/* 2. Left: Our Story (Editorial Text) */}
             <div className="lg:col-span-5 space-y-12">
                 <div className="space-y-6">
-                    <h3 className="text-3xl font-serif italic text-[#4A4A46]">The Narrative</h3>
+                    <h3 className="text-3xl font-serif text-[#4A4A46]">The Narrative</h3>
                     <div className="space-y-6 text-[#4A4A46]/80 text-lg leading-relaxed text-justify">
                         <p>
                             <span className="text-5xl float-left mr-3 mt-[-10px] font-serif text-[#D44531]">F</span>ounded with a singular vision to bridge the gap between cutting-edge technology and practical business solutions, Talentronaut has emerged as the trusted partner for enterprises seeking meaningful digital transformation.

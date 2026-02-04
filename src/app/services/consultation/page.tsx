@@ -57,11 +57,11 @@ export default function ConsultationPage() {
         {/* Hero Section */}
         <section className="text-center max-w-4xl mx-auto mb-20">
           <span className="text-coral font-bold tracking-widest text-sm uppercase mb-6 block">The Strategy</span>
-          <SectionHeading as="h1" className="text-5xl md:text-7xl mb-8 leading-tight">
+          <SectionHeading as="h1" className="text-4xl md:text-6xl mb-8 leading-tight tracking-tight">
             Clarity in a <br/>
             <span className="italic font-serif text-gray-400">Complex World.</span>
           </SectionHeading>
-          <p className="text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto">
             We provide the intellectual capital you need to navigate critical junctions. Professional, precise, and deeply invested in your outcome.
           </p>
           <CTA text="Book a Strategy Session" href="/contact?service=consulting" />
@@ -76,11 +76,11 @@ export default function ConsultationPage() {
                 {/* Decorative grain or texture could go here */}
                 <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
                 
-                <h2 className="font-heading font-serif text-4xl md:text-6xl leading-tight mb-8 relative z-10">
+                <h2 className="font-heading font-serif text-3xl md:text-5xl leading-tight mb-8 relative z-10">
                     "We believe strategy is the art of <span className="text-coral italic">sacrifice</span>. It's not about doing everything; it's about doing the right things, intensely."
                 </h2>
                 <div className="w-24 h-1 bg-coral mx-auto rounded-full mb-8 relative z-10" />
-                <p className="font-sans text-lg text-gray-400 max-w-xl mx-auto relative z-10">
+                <p className="font-sans text-base text-gray-400 max-w-xl mx-auto relative z-10">
                     Our philosophy centers on radical focus. We cut through the noise to find the signal that drives your business forward.
                 </p>
             </div>
