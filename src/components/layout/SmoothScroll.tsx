@@ -1,12 +1,11 @@
 "use client"
 import { ReactLenis, useLenis } from 'lenis/react'
-import { ReactNode, useEffect, Suspense } from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { ReactNode, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 
 function HashHelpers() {
   const lenis = useLenis();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     // Handle hash scrolling on route change or initial load
@@ -22,7 +21,7 @@ function HashHelpers() {
             }
         }, 500);
     }
-  }, [lenis, pathname, searchParams]);
+  }, [lenis, pathname]);
 
   return null;
 }
@@ -30,9 +29,7 @@ function HashHelpers() {
 export default function SmoothScroll({ children }: { children: ReactNode }) {
   return (
     <ReactLenis root options={{ lerp: 0.1, duration: 1.2 }}>
-      <Suspense fallback={null}>
-        <HashHelpers />
-      </Suspense>
+      <HashHelpers />
       {children}
     </ReactLenis>
   )
