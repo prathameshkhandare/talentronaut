@@ -5,7 +5,7 @@ import { Hero } from "@/components/sections/Hero";
 import { ServiceHub } from "@/components/sections/ServiceHub";
 import { TrustedLeaders } from "@/components/sections/TrustedLeaders";
 import { Products } from "@/components/sections/Products";
-import { About } from "@/components/sections/About";
+
 import { Impact } from "@/components/sections/Impact";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
@@ -71,6 +71,7 @@ export default function Home() {
         <TrustedLeaders />
       </motion.div>
 
+      {/* Innovation Showcase - Temporarily hidden
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -79,15 +80,9 @@ export default function Home() {
       >
         <Products />
       </motion.div>
+      */}
 
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <About />
-      </motion.div>
+
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}

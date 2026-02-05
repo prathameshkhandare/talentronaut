@@ -10,6 +10,7 @@ interface TabContent {
   title: string;
   content: string;
   features: string[];
+  image?: string;
 }
 
 interface TabbedInterfaceProps {
@@ -66,8 +67,16 @@ export function TabbedInterface({ tabs, className }: TabbedInterfaceProps) {
                        ))}
                    </ul>
                 </div>
-                <div className="bg-cream rounded-2xl h-64 md:h-80 flex items-center justify-center border border-gray-100">
-                    <span className="text-gray-400 italic">Illustration for {tab.label}</span>
+                <div className="bg-cream rounded-2xl h-64 md:h-80 flex items-center justify-center border border-gray-100 overflow-hidden">
+                    {tab.image ? (
+                        <img 
+                            src={tab.image} 
+                            alt={tab.title} 
+                            className="w-full h-full object-contain p-8"
+                        />
+                    ) : (
+                        <span className="text-gray-400 italic">Illustration for {tab.label}</span>
+                    )}
                 </div>
               </motion.div>
             ) : null

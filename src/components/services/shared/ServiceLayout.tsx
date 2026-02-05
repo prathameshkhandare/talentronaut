@@ -14,7 +14,7 @@ export function ServiceLayout({ children, className }: ServiceLayoutProps) {
        {/* Ensure global header is visible or re-included if needed, but Layout usually handles it.
            However, specific page layouts might want to control padding.
        */}
-      <main className="pt-40 pb-20">
+      <main className="pt-24 pb-20">
         {children}
       </main>
     </div>

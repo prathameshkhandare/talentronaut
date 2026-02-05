@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect, useMemo } from "react";
 import { motion, useScroll, useTransform, useVelocity, useSpring, Variants } from "framer-motion";
-import { ArrowRight, Play, ChevronDown } from "lucide-react";
+import { ArrowRight, Play, ChevronDown, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { SaffronCircuit } from "@/components/visuals/SaffronCircuit";
 import { Magnetic } from "@/components/visuals/AnimationUtils";
@@ -107,10 +107,20 @@ export function Hero({ startAnimation = true }: { startAnimation?: boolean }) {
              />
              
             {/* Hero Headline */}
+            <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="mb-8 inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-[#FCD2AD]/30 backdrop-blur-sm"
+            >
+                <Sparkles size={14} className="text-[#D44531]" />
+                <span className="text-[11px] font-bold text-[#D44531] font-heading tracking-wide">Next-Gen Technology Solutions</span>
+            </motion.div>
+
             <motion.h1
             variants={itemVariants}
             style={{ skewX }} // Applied skew effect
-            className="text-3xl md:text-4xl lg:text-5xl font-heading font-black tracking-tight text-[#2D1810] leading-[1.1] mb-6 drop-shadow-sm select-none flex flex-wrap justify-center gap-x-3 gap-y-1" 
+            className="text-4xl md:text-4xl lg:text-4xl font-heading font-black tracking-tight text-[#2D1810] leading-[1.1] mb-6 drop-shadow-sm select-none flex flex-wrap justify-center gap-x-3 gap-y-1" 
             >
                 <span className="inline-block min-h-[1.1em]">
                     {headlinePart1}
@@ -141,39 +151,64 @@ export function Hero({ startAnimation = true }: { startAnimation?: boolean }) {
             <motion.p
             variants={itemVariants}
             style={{ skewX }}
-            className="text-sm md:text-lg text-[#5C4D45] max-w-2xl mx-auto leading-relaxed mb-8 font-medium"
+            className="text-xl md:text-xl text-[#5C4D45] max-w-2xl mx-auto leading-relaxed mb-8 font-medium"
             >
             Empowering industries with <span className="font-body font-bold text-[#D44531]">bespoke</span> IT solutions and cutting-edge product services to drive <span className="relative inline-block px-1 text-[#D44531] font-bold hover:skew-x-2 transition-transform">sustainable growth</span>.
             </motion.p>
 
-            {/* CTA Buttons with Magnetic Effect (#3) */}
+            {/* CTA Buttons */}
             <motion.div
             variants={itemVariants}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
             >
-                {/* Primary Button */}
-                <motion.button 
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="group relative px-8 py-4 rounded-full bg-[#D44531] text-white font-bold text-sm shadow-[0_15px_40px_rgba(212,69,49,0.25)] hover:shadow-[0_25px_60px_rgba(212,69,49,0.4)] transition-all flex items-center gap-2 w-full sm:w-auto justify-center overflow-hidden active:scale-95 hover:bg-[#E6503A]"
-                >
-                    <span className="relative z-10 flex items-center gap-2">
-                        Start Now <Play size={14} className="fill-current" />
-                    </span>
-                    {/* Ripple Effect on Hover */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-0 h-0 bg-white/20 rounded-full group-hover:w-[400px] group-hover:h-[400px] transition-all duration-700 ease-out" />
-                </motion.button>
-                
-                {/* Secondary Button */}
+                {/* Primary Button - Magnetic Expand Effect */}
                 <Link href="/#contact" className="w-full sm:w-auto">
-                    <motion.div 
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="group px-8 py-4 rounded-full bg-white/80 backdrop-blur-md border border-gray-100 text-gray-700 font-semibold text-sm hover:border-[#D44531] hover:text-[#D44531] hover:bg-white shadow-sm hover:shadow-xl transition-all flex items-center gap-2 w-full justify-center"
+                    <motion.button 
+                        whileHover={{ scale: 1.05, rotate: 1 }}
+                        whileTap={{ scale: 0.95, rotate: -1 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                        className="group relative px-8 py-4 rounded-full text-white font-semibold text-sm w-full sm:w-auto justify-center overflow-hidden"
                     >
-                        <span>Contact Us</span>
-                        <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                    </motion.div>
+                        {/* Background with radial expand */}
+                        <div className="absolute inset-0 bg-[#D44531] rounded-full" />
+                        <div className="absolute inset-0 bg-[#E65A45] rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 ease-out origin-center" />
+                        
+                        {/* Sparkle particles on hover */}
+                        <div className="absolute top-1/2 left-1/4 w-1 h-1 bg-white rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping" />
+                        <div className="absolute top-1/3 right-1/4 w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping delay-100" />
+                        
+                        <span className="relative z-10 flex items-center justify-center gap-2">
+                            Get Free Consultation
+                            <motion.span 
+                                className="inline-block"
+                                whileHover={{ x: 5, rotate: -45 }}
+                                transition={{ type: "spring", stiffness: 300 }}
+                            >
+                                <ArrowRight size={16} />
+                            </motion.span>
+                        </span>
+                    </motion.button>
+                </Link>
+                
+                {/* Secondary Button - Slide Fill Effect */}
+                <Link href="/#services" className="w-full sm:w-auto">
+                    <motion.button 
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                        className="group relative px-8 py-4 rounded-full font-semibold text-sm w-full sm:w-auto overflow-hidden border-2 border-[#4A4A46]"
+                    >
+                        {/* Sliding background from left */}
+                        <div className="absolute inset-0 bg-[#4A4A46] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
+                        
+                        {/* Content */}
+                        <span className="relative z-10 flex items-center justify-center gap-2 text-[#4A4A46] group-hover:text-white transition-colors duration-300">
+                            <span>Explore Services</span>
+                            <span className="group-hover:translate-x-2 group-hover:rotate-0 rotate-45 transition-all duration-300">
+                                <ArrowRight size={16} />
+                            </span>
+                        </span>
+                    </motion.button>
                 </Link>
             </motion.div>
         </div>

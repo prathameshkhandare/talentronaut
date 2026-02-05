@@ -41,25 +41,25 @@ export function About() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* 1. Header - Clean & Structured */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 border-b border-gray-200 pb-8">
-            <div className="max-w-3xl">
+        {/* 1. Header - Center Focused */}
+        <div className="flex flex-col items-center text-center mb-20 border-b border-gray-200 pb-12">
+            <div className="max-w-4xl mx-auto">
                 {/* Premium Badge Component for 'About Talentronaut' */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#D44531]/10 border border-[#D44531]/20 mb-6 w-fit">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#D44531]/10 border border-[#D44531]/20 mb-6">
                     <Sparkles className="w-3 h-3 text-[#D44531]" />
                     <span className="text-[#D44531] font-bold text-[10px] uppercase tracking-[0.2em]">About Talentronaut</span>
                 </div>
                 
-                <h2 className="text-5xl md:text-6xl text-[#4A4A46] leading-[1.1] md:leading-[1.1] -ml-1">
-                    Pioneering <br/> 
+                <h2 className="text-[36px] text-[#4A4A46] leading-[1.1] mb-6">
+                    Pioneering &nbsp;
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D44531] to-[#E65A45] font-serif">
                         Digital Innovation
                     </span>
                 </h2>
             </div>
-            <div className="md:text-right max-w-sm ml-auto">
+            <div className="max-w-2xl mx-auto">
                 <p className="text-lg text-[#4A4A46]/70 font-medium">
-                    Architects of the future. <br/>
+                    Architects of the future. 
                     We don't just write code, we engineer legacy.
                 </p>
             </div>
@@ -73,7 +73,7 @@ export function About() {
                     <h3 className="text-3xl font-serif text-[#4A4A46]">The Narrative</h3>
                     <div className="space-y-6 text-[#4A4A46]/80 text-lg leading-relaxed text-justify">
                         <p>
-                            <span className="text-5xl float-left mr-3 mt-[-10px] font-serif text-[#D44531]">F</span>ounded with a singular vision to bridge the gap between cutting-edge technology and practical business solutions, Talentronaut has emerged as the trusted partner for enterprises seeking meaningful digital transformation.
+                            <span className="text-[36px] float-left mr-3 mt-[-4px] font-serif text-[#D44531]">F</span>ounded with a singular vision to bridge the gap between cutting-edge technology and practical business solutions, Talentronaut has emerged as the trusted partner for enterprises seeking meaningful digital transformation.
                         </p>
                         <p>
                             From our headquarters in Chennai to our global footprint, we define trends. Our journey began with a simple belief: that every business deserves access to world-class architecture.
@@ -166,37 +166,37 @@ export function About() {
                                     }}
                                     whileHover={!isActive ? { scale: 0.98, translateY: -5 } : {}}
                                     transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                                    className={`absolute inset-0 bg-white rounded-[2rem] shadow-2xl p-8 md:p-10 flex flex-col justify-between border border-gray-100 transition-colors duration-300 cursor-pointer ${isActive ? '' : 'hover:border-[#FCD2AD]'}`}
+                                    className={`absolute inset-0 bg-[#D44531] rounded-[2rem] shadow-2xl p-8 md:p-10 flex flex-col justify-between border border-[#E65A45] transition-colors duration-300 cursor-pointer ${isActive ? '' : 'hover:brightness-95'}`}
                                     style={{ transformOrigin: "bottom center" }}
                                 >
                                     {/* Card Header */}
                                     <div className="flex justify-between items-start">
-                                        <div className="w-12 h-12 rounded-full bg-[#FFFBF8] flex items-center justify-center border border-gray-100">
-                                            <tab.icon size={20} className="text-[#D44531]" />
+                                        <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
+                                            <tab.icon size={20} className="text-white" />
                                         </div>
                                         <div className="text-right">
-                                            <span className="block text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold mb-1">
+                                            <span className="block text-[10px] uppercase tracking-[0.2em] text-white/60 font-bold mb-1">
                                                 0{index + 1}
                                             </span>
-                                            <span className={`block w-2 h-2 rounded-full ml-auto ${isActive ? "bg-[#D44531]" : "bg-gray-200"}`}></span>
+                                            <span className={`block w-2 h-2 rounded-full ml-auto ${isActive ? "bg-white" : "bg-white/30"}`}></span>
                                         </div>
                                     </div>
 
                                     {/* Card Content */}
                                     <div className="space-y-4">
                                         <div>
-                                            <span className="text-[#D44531] font-serif italic text-lg">{tabContent[tab.id].subtitle}</span>
-                                            <h3 className="text-4xl text-[#4A4A46] mt-1 mb-2">{tabContent[tab.id].title}</h3>
+                                            <span className="text-[#FCD2AD] font-serif italic text-lg">{tabContent[tab.id].subtitle}</span>
+                                            <h3 className="text-4xl text-white mt-1 mb-2">{tabContent[tab.id].title}</h3>
                                         </div>
-                                        <p className="text-[#4A4A46]/70 leading-relaxed font-medium">
+                                        <p className="text-white/90 leading-relaxed font-medium">
                                             {tabContent[tab.id].text}
                                         </p>
                                     </div>
 
                                     {/* Card Footer */}
-                                    <div className="pt-6 border-t border-dashed border-gray-200 flex justify-between items-center opacity-60">
-                                        <span className="text-xs font-mono text-gray-400">TLN-CARD-0{index + 1}</span>
-                                        <ArrowUpRight size={16} className="text-[#4A4A46]" />
+                                    <div className="pt-6 border-t border-dashed border-white/20 flex justify-between items-center opacity-80">
+                                        <span className="text-xs font-mono text-white/60">TLN-CARD-0{index + 1}</span>
+                                        <ArrowUpRight size={16} className="text-white" />
                                     </div>
                                 </motion.div>
                             )

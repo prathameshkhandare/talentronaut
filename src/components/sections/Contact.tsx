@@ -4,7 +4,7 @@ import { Phone, Mail, MapPin, Twitter, Linkedin, Instagram, ArrowRight } from "l
 
 export function Contact() {
   return (
-    <section className="relative py-32 bg-[#fafafa] overflow-hidden" id="contact">
+    <section className="relative py-24 bg-[#fafafa] overflow-hidden" id="contact">
       {/* Immersive Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[radial-gradient(#D44531_0.5px,transparent_0.5px)] [background-size:32px_32px] opacity-[0.05]" />
@@ -23,49 +23,48 @@ export function Contact() {
                transition={{ duration: 0.8 }}
                className="max-w-xl"
             >
-                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white border border-gray-100 shadow-sm mb-8">
+                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white border border-gray-100 shadow-sm mb-6">
                    <span className="w-2 h-2 rounded-full bg-[#D44531] animate-[pulse_2s_infinite]" />
                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#4A4A46]">Launch Your Project</span>
                 </div>
                 
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-heading text-[#1a1a1a] leading-[1.1] tracking-tight mb-8">
-                    Let's Build <br />
-                    <span className="text-[#D44531]">The Future.</span>
+                <h2 className="text-[36px] font-black font-heading text-[#1a1a1a] leading-tight tracking-tight mb-6">
+                    Let's Build <span className="text-[#D44531]">The Future.</span>
                 </h2>
                 
-                <p className="text-xl text-black font-medium leading-relaxed mb-12 opacity-70">
+                <p className="text-base text-black font-medium leading-relaxed mb-10 opacity-70">
                     Your vision deserves more than just code. It deserves an architectural masterpiece. Reach out and let's discuss your next breakthrough.
                 </p>
 
                 {/* Minimal Contact Info for Quick Reference */}
                 <div className="pt-8 border-t border-gray-100 space-y-8">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                        <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 rounded-xl bg-[#D44531]/5 text-[#D44531] flex items-center justify-center">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
+                            <div className="w-12 h-12 rounded-xl bg-[#D44531]/5 text-[#D44531] flex items-center justify-center shrink-0">
                                 <Phone size={20} />
                             </div>
                             <div>
                                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Call Us</p>
-                                <p className="text-sm font-bold text-[#1a1a1a]">+91 82203 24802</p>
+                                <p className="text-sm font-bold text-[#1a1a1a] whitespace-nowrap">+91 82203 24802</p>
                             </div>
                         </div>
-                        <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 rounded-xl bg-[#D44531]/5 text-[#D44531] flex items-center justify-center">
+                        <div className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
+                            <div className="w-12 h-12 rounded-xl bg-[#D44531]/5 text-[#D44531] flex items-center justify-center shrink-0">
                                 <Mail size={20} />
                             </div>
-                            <div>
+                            <div className="min-w-0">
                                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Email Us</p>
-                                <p className="text-sm font-bold text-[#1a1a1a]">connecttalentronaut@gmail.com</p>
+                                <p className="text-sm font-bold text-[#1a1a1a] whitespace-nowrap">support@talentronaut.com</p>
                             </div>
                         </div>
                     </div>
-                    <div className="flex items-start gap-4">
+                    <div className="flex items-start gap-4 p-4 rounded-2xl bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
                         <div className="w-12 h-12 rounded-xl bg-[#D44531]/5 text-[#D44531] flex items-center justify-center shrink-0">
                             <MapPin size={20} />
                         </div>
                         <div>
                             <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Visit Us</p>
-                            <p className="text-sm font-bold text-[#1a1a1a] max-w-sm">Fab Lab, SRM, Bharathi Salai, Ramapuram, Chennai, Tamil Nadu 600089</p>
+                            <p className="text-base font-bold text-[#1a1a1a] max-w-sm">Fab Lab, SRM, Bharathi Salai, Ramapuram, Chennai, Tamil Nadu 600089</p>
                         </div>
                     </div>
                 </div>

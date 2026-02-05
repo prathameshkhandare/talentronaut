@@ -3,6 +3,7 @@ import SmoothScroll from '@/components/layout/SmoothScroll';
 import Header from '@/components/Header';
 import { Footer } from '@/components/sections/Footer';
 import { Background } from '@/components/visuals/Background';
+import { FloatingWhatsApp } from '@/components/ui/FloatingWhatsApp';
 import { bochan, instrumentSans, inter } from '../lib/fonts';
 import { LoadingProvider } from '@/context/LoadingContext';
 import ClientLayout from './ClientLayout';
@@ -37,6 +38,7 @@ export default function RootLayout({
               <main className="relative z-10 min-h-screen">
                 {children}
               </main>
+              <FloatingWhatsApp />
               <Footer />
             </SmoothScroll>
           </ClientLayout>

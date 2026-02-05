@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" width="300" height="100">
+  <!-- Startup India Logo -->
+  <text x="10" y="55" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#3B5998">startup</text>
+  <text x="140" y="55" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#FF9933">india</text>
+  <!-- Step symbol -->
+  <rect x="230" y="40" width="20" height="5" fill="#138808"/>
+  <rect x="250" y="25" width="5" height="20" fill="#138808"/>
+</svg>

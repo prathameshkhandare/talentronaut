@@ -49,12 +49,12 @@ export function ServiceDetail({
                 <div className="w-20 h-20 rounded-[1.5rem] bg-white shadow-lg border border-gray-100 flex items-center justify-center">
                     <Icon size={40} className="text-[#D44531]" />
                 </div>
-                <h1 className="text-5xl md:text-6xl font-bold font-heading text-[#4A4A46] tracking-tight">
+                <h1 className="text-2xl md:text-2xl font-bold font-heading text-[#4A4A46] tracking-tight">
                     {title}
                 </h1>
             </div>
             
-            <p className="text-xl text-[#4A4A46]/80 leading-relaxed font-medium max-w-2xl">
+            <p className="text-sm text-[#4A4A46]/80 leading-relaxed font-medium max-w-2xl">
               {description}
             </p>
           </motion.div>
@@ -71,7 +71,7 @@ export function ServiceDetail({
                     
                     {/* Key Offerings */}
                     <div>
-                        <h2 className="text-3xl font-bold text-[#4A4A46] mb-8 flex items-center gap-3">
+                        <h2 className="text-xl font-bold text-[#4A4A46] mb-8 flex items-center gap-3">
                             <span className="w-1.5 h-8 bg-[#D44531] rounded-full" />
                             Key Offerings
                         </h2>
@@ -85,7 +85,7 @@ export function ServiceDetail({
                                     transition={{ delay: idx * 0.1 }}
                                     className="p-6 rounded-[2rem] bg-white border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:border-[#FCD2AD]/50"
                                 >
-                                    <h3 className="text-xl font-bold text-[#4A4A46] mb-3">{offering.title}</h3>
+                                    <h3 className="text-lg font-bold text-[#4A4A46] mb-3">{offering.title}</h3>
                                     <p className="text-[#4A4A46]/70 text-sm leading-relaxed">{offering.description}</p>
                                 </motion.div>
                             ))}
@@ -95,8 +95,8 @@ export function ServiceDetail({
                     {/* Business Value */}
                     <div className="bg-[#4A4A46] p-10 rounded-[3rem] text-white relative overflow-hidden">
                         <div className="relative z-10">
-                            <h2 className="text-3xl font-bold mb-6">Business Value</h2>
-                            <p className="text-lg text-white/80 leading-relaxed font-medium">
+                            <h2 className="text-xl font-bold mb-6">Business Value</h2>
+                            <p className="text-sm text-white/80 leading-relaxed font-medium">
                                 {businessValue}
                             </p>
                         </div>
@@ -110,7 +110,7 @@ export function ServiceDetail({
                     
                     {/* Target Audience */}
                     <div className="p-8 rounded-[2.5rem] bg-[#FCD2AD]/10 border border-[#FCD2AD]/20">
-                        <h3 className="text-xl font-bold text-[#4A4A46] mb-6 flex items-center gap-2">
+                        <h3 className="text-lg font-bold text-[#4A4A46] mb-6 flex items-center gap-2">
                              <UsersIcon className="w-5 h-5 text-[#D44531]" />
                              Who Is This For?
                         </h3>
@@ -127,7 +127,7 @@ export function ServiceDetail({
                     {/* CTA Card */}
                     <div className="p-8 rounded-[2.5rem] bg-[#D44531] text-white text-center relative overflow-hidden">
                          <div className="relative z-10 flex flex-col items-center">
-                            <h3 className="text-2xl font-bold mb-4">Ready to Start?</h3>
+                            <h3 className="text-lg font-bold mb-4">Ready to Start?</h3>
                             <p className="text-white/80 text-sm mb-8">
                                 Let's discuss how we can tailor this solution to your specific needs.
                             </p>

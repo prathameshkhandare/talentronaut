@@ -11,11 +11,7 @@ export function ArchitecturalGrid() {
   }, []);
 
   return (
-    <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden bg-[#fafafa] rounded-[32px] border border-white shadow-2xl group cursor-pointer">
-      {/* Background Tech Pattern */}
-      <div className="absolute inset-0 opacity-[0.4]" 
-           style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #e5e7eb 1px, transparent 0)', backgroundSize: '24px 24px' }} 
-      />
+    <div className="relative w-full h-[500px] flex items-center justify-center perspective-[1000px] group cursor-pointer">
       
       {/* Central "Cool" Element - A Digital Core */}
       <div className="relative z-10 w-full h-full flex items-center justify-center perspective-[1000px]">

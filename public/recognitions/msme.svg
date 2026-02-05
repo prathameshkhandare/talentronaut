@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- MSME Logo -->
+  <!-- Government emblem circle -->
+  <circle cx="100" cy="60" r="35" fill="none" stroke="#1a365d" stroke-width="2"/>
+  <!-- Simplified Ashoka emblem -->
+  <circle cx="100" cy="60" r="8" fill="#1a365d"/>
+  <line x1="100" y1="35" x2="100" y2="25" stroke="#1a365d" stroke-width="2"/>
+  <line x1="120" y1="45" x2="130" y2="40" stroke="#1a365d" stroke-width="2"/>
+  <line x1="80" y1="45" x2="70" y2="40" stroke="#1a365d" stroke-width="2"/>
+  <!-- MSME Text -->
+  <text x="100" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#1a365d">MSME</text>
+  <text x="100" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">Ministry of Micro, Small and</text>
+  <text x="100" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">Medium Enterprises</text>
+</svg>

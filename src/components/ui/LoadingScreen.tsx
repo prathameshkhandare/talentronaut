@@ -93,23 +93,37 @@ export function LoadingScreen({ onComplete }: { onComplete?: () => void }) {
                 />
               </motion.div>
               
-              {/* Subtle visual cues for progress beyond the main logo animation */}
+              {/* Progress bar synced with logo animation */}
               <motion.div 
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
+                animate={{ opacity: [0, 1, 1, 0] }}
+                transition={{ 
+                  duration: 5.5, 
+                  times: [0, 0.15, 0.85, 1],
+                  ease: "easeInOut" 
+                }}
                 className="absolute bottom-[-60px] flex flex-col items-center gap-2"
               >
                  <div className="w-32 h-[1px] bg-gray-100 rounded-full overflow-hidden">
+                    {/* Progress bar uses same timing as logo rotation */}
                     <motion.div 
                       className="h-full bg-[#D44531]"
                       initial={{ width: "0%" }}
-                      animate={{ width: `${progress}%` }}
+                      animate={{ width: "100%" }}
+                      transition={{
+                        duration: 5.5,
+                        ease: [0.25, 0.1, 0.25, 1], // Custom easing to match logo motion
+                        times: [0, 1],
+                      }}
                     />
                   </div>
-                  <span className="text-[8px] font-mono font-bold text-gray-300 uppercase tracking-[0.4em]">
+                  <motion.span 
+                    className="text-[8px] font-mono font-bold text-gray-300 uppercase tracking-[0.4em]"
+                    animate={{ opacity: [0.5, 1, 0.5] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  >
                     Synchronizing Environment
-                  </span>
+                  </motion.span>
               </motion.div>
             </div>
           ) : (

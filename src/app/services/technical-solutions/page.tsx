@@ -13,19 +13,28 @@ import { ArchitecturalGrid } from '@/components/services/ui/ArchitecturalGrid';
 import { ProjectShowcase } from '@/components/services/ui/ProjectShowcase';
 import { ContactModal } from '@/components/ui/ContactModal';
 import { TechnicalServiceGrid } from '@/components/services/ui/TechnicalServiceGrid';
+import { motion } from "framer-motion";
 
 const PROCESS_STEPS = [
   {
-    title: "Blueprint & Discovery",
+    title: "Discovery & Blueprint",
     description: "Every great structure starts with a vision. We dive deep into your operational potential, mapping out a technical blueprint that aligns perfectly with your scaling ambitions. We don't just write code; we architect success.",
+  },
+  {
+    title: "Architecture & Prototyping",
+    description: "Before laying the foundation, we design the structural integrity. We create interactive prototypes and define the system architecture, ensuring every component is designed for scalability and performance from day one.",
   },
   {
     title: "Core Engineering",
     description: "Our diverse team of engineers constructs your digital foundation using clean, scalable code. We prioritize resilience and modularity, ensuring your system can adapt to market shifts without needing a teardown.",
   },
   {
-    title: "Integration & Launch",
-    description: "The final reveal. We rigorously test every beam and bolt of your platform before deploying it into the wild. Seamless integration with your existing tools ensures day-one productivity.",
+    title: "Quality Assurance",
+    description: "Perfection is in the details. We subject every feature to rigorous stress testing, security audits, and performance optimization. Nothing leaves our hangar without meeting the highest standards of stability.",
+  },
+  {
+    title: "Deployment & Evolution",
+    description: "The final reveal is just the beginning. We manage a seamless launch and provide continuous monitoring and evolution, ensuring your digital ecosystem grows and adapts alongside your business.",
   }
 ];
 
@@ -59,29 +68,50 @@ export default function TechnicalSolutionsPage() {
     <ServiceLayout>
       <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
       
-      {/* Hero Section - In Container */}
-      <div className="container mx-auto px-6">
+      {/* Hero Section - Immersive Background & Content */}
+      <section className="relative overflow-hidden -mt-4 md:-mt-8 mb-12 md:mb-20 min-h-[70vh] flex items-center">
+          {/* Ambient Background Elements */}
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-b from-coral/5 to-transparent rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+          <div className="absolute top-20 left-0 w-[600px] h-[600px] bg-gradient-to-r from-orange-100/20 to-transparent rounded-full blur-[100px] -translate-x-1/2 pointer-events-none" />
 
-        
-        <section className="flex flex-col lg:flex-row items-center justify-between mb-24 md:mb-32 gap-12">
+          <div className="container mx-auto px-6 relative z-10 w-full">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
           <div className="w-full lg:w-1/2">
-            <span className="text-coral font-bold tracking-widest text-sm uppercase mb-4 block">The Architect</span>
-            <SectionHeading as="h1" className="text-5xl md:text-7xl mb-6 leading-tight">
-              Engineering <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-coral to-orange-400">Digital Mastery.</span>
+            <span className="text-coral font-black tracking-[0.3em] text-[10px] uppercase mb-6 block border-l-2 border-coral pl-4">The Architect</span>
+            <SectionHeading as="h1" className="text-[36px] md:text-[56px] lg:text-[64px] mb-8 leading-[1] tracking-tight">
+              <span className="block mb-4">Engineering</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B4513] via-coral to-orange-400">Digital Mastery.</span>
             </SectionHeading>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-xl">
+            <p className="text-sm text-gray-500 mb-10 leading-relaxed max-w-xl">
               We build more than software; we construct the digital nervous systems that power market leaders. Precision, scalability, and aesthetic elegance in every line of code.
             </p>
             <CTA text="Book a Technical Audit" onClick={() => setIsContactModalOpen(true)} />
           </div>
           
-          <div className="w-full lg:w-1/2">
-             <ArchitecturalGrid />
+          <div className="w-full lg:w-1/2 relative flex justify-center lg:justify-end">
+             {/* Framed Visual Showcase */}
+             <div className="relative w-full max-w-[650px] aspect-[4/3] flex items-center justify-center bg-cream/30 backdrop-blur-md rounded-[3rem] border border-coral/10 shadow-[0_40px_100px_-20px_rgba(212,69,49,0.08)] overflow-hidden group">
+                {/* Internal Decorative Halo */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-coral/5 to-transparent opacity-50" />
+                
+                <img 
+                  src="/images/tech_hero_final.png" 
+                  alt="Engineering Digital Mastery" 
+                  className="w-full h-full object-contain scale-[1.3] mix-blend-multiply drop-shadow-[0_0_50px_rgba(212,69,49,0.05)] transition-transform duration-700 group-hover:scale-[1.35]" 
+                />
+                
+                {/* System Status Pill */}
+                <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 bg-cream/90 backdrop-blur-md border border-coral/20 px-4 py-2 rounded-full shadow-lg flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                    <span className="text-[10px] font-black tracking-widest text-gray-800 uppercase">System Status: Optimal</span>
+                </div>
+             </div>
           </div>
-        </section>
+        </div>
       </div>
+    </section>
 
-      {/* Core Technical Services Grid */}
+      {/* Core Technical Services Grid (Digital Capabilities) */}
       <TechnicalServiceGrid />
 
       {/* Process Map Timeline */}
@@ -103,7 +133,7 @@ export default function TechnicalSolutionsPage() {
         
         {/* Bottom CTA */}
         <section className="text-center py-20">
-            <h2 className="text-3xl font-heading font-bold mb-6">Ready to build the future?</h2>
+            <h2 className="text-xl font-heading font-bold mb-6">Ready to build the future?</h2>
             <CTA text="Start Your Project" onClick={() => setIsContactModalOpen(true)} />
         </section>
       </div>

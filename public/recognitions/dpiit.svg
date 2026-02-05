@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- DPIIT Logo -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#1a365d" stroke-width="2"/>
+  <!-- Laurel wreath left -->
+  <path d="M30 100 Q40 60 50 80 Q55 90 50 100 Q55 110 50 120 Q40 140 30 100" fill="#c9a227" opacity="0.9"/>
+  <!-- Laurel wreath right -->
+  <path d="M170 100 Q160 60 150 80 Q145 90 150 100 Q145 110 150 120 Q160 140 170 100" fill="#c9a227" opacity="0.9"/>
+  <!-- Ashoka Chakra simplified -->
+  <circle cx="100" cy="70" r="25" fill="none" stroke="#1a365d" stroke-width="2"/>
+  <circle cx="100" cy="70" r="5" fill="#1a365d"/>
+  <!-- DPIIT Text -->
+  <text x="100" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1a365d">DPIIT</text>
+  <text x="100" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">Department for Promotion of</text>
+  <text x="100" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">Industry and Internal Trade</text>
+</svg>

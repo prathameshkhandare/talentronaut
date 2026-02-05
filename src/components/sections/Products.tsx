@@ -152,7 +152,7 @@ export function Products() {
                 <motion.h2 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    className="text-4xl md:text-5xl leading-tight text-[#D44531]"
+                    className="text-4xl md:text-4xl leading-tight text-[#D44531]"
                 >
                     Innovation Showcase.
                 </motion.h2>
@@ -234,7 +234,7 @@ export function Products() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3 }}
-                            className="text-3xl lg:text-4xl text-[#4B4B4B] mb-6 tracking-tight"
+                            className="text-2xl lg:text-2xl text-[#4B4B4B] mb-6 tracking-tight"
                         >
                             {products[activeIndex].name}
                         </motion.h3>
@@ -243,7 +243,7 @@ export function Products() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 }}
-                            className="text-lg text-[#787979] leading-relaxed mb-10 max-w-md"
+                            className="text-sm text-[#787979] leading-relaxed mb-10 max-w-md"
                         >
                             {products[activeIndex].description}
                         </motion.p>
@@ -257,7 +257,7 @@ export function Products() {
                             transition={{ delay: 0.5 }}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="group relative px-10 py-5 bg-[#D44531] text-white rounded-[1.5rem] font-bold text-lg overflow-hidden shadow-lg shadow-[#D44531]/30 inline-flex items-center"
+                            className="group relative px-10 py-5 bg-[#D44531] text-white rounded-[1.5rem] font-bold text-sm overflow-hidden shadow-lg shadow-[#D44531]/30 inline-flex items-center"
                         >
                             <span className="relative z-10 flex items-center gap-3">
                                 Explore Platform

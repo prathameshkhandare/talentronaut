@@ -61,8 +61,8 @@ const services = [
     href: "/services/technical-solutions"
   },
   {
-    title: "Strategic Talent Discovery",
-    description: "Strategic recruitment and talent acquisition services to build high-performing teams.",
+    title: "Strategic Talent Partner",
+    description: "Helping EMEA hunt, build & manage high-impact teams & EntOps.",
     icon: TalentIcon,
     tags: ["Recruitment", "Hiring"],
     delay: 0.1,
@@ -100,7 +100,7 @@ export function ServiceHub() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="mb-20 max-w-3xl">
+        <div className="mb-20 max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -112,10 +112,10 @@ export function ServiceHub() {
                 <span className="text-xs font-bold uppercase tracking-wider text-[#4A4A46]">Our Expertise</span>
              </div>
              
-             <h2 className="text-4xl md:text-5xl font-bold font-heading text-[#4A4A46] tracking-tight mb-6 leading-[1.2]">
+             <h2 className="text-4xl md:text-4xl font-bold font-heading text-[#4A4A46] tracking-tight mb-6 leading-[1.2]">
                 Comprehensive <span className="text-[#D44531]">Digital Solutions</span>
              </h2>
-             <p className="text-lg text-[#4A4A46]/70 leading-relaxed">
+             <p className="text-sm text-[#4A4A46]/70 leading-relaxed">
                 We combine technical expertise with industry insights to deliver solutions that drive real business value.
              </p>
           </motion.div>
@@ -234,7 +234,7 @@ export function ServiceHub() {
                             <div className="w-16 h-16 rounded-[1.25rem] bg-white flex items-center justify-center mb-10 shadow-2xl shadow-black/10 border border-white/20">
                                 <Layers size={28} className="text-[#D44531]" />
                             </div>
-                            <h3 className="text-4xl font-bold font-heading mb-6 tracking-tight text-white leading-tight">Need a <span className="text-[#FCD2AD]">Bespoke</span> Solution?</h3>
+                            <h3 className="text-2xl font-bold font-heading mb-6 tracking-tight text-white leading-tight">Need a <span className="text-[#FCD2AD]">Bespoke</span> Solution?</h3>
                             <p className="text-white opacity-80 leading-relaxed font-medium">
                                 We architect custom platforms for those who refuse to settle for off-the-shelf limits.
                             </p>

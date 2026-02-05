@@ -215,11 +215,16 @@ html.lenis body {
 }
 
 .animate-scroll-left {
-  animation: scroll-left 40s linear infinite;
+  animation: scroll-left 90s linear infinite;
 }
 
 .animate-scroll-right {
-  animation: scroll-right 40s linear infinite;
+  animation: scroll-right 90s linear infinite;
+}
+
+.group:hover .animate-scroll-left,
+.group:hover .animate-scroll-right {
+  animation-play-state: paused;
 }
 
 @keyframes infinite-scroll-y {
@@ -233,4 +238,42 @@ html.lenis body {
 
 .animate-infinite-scroll-y {
   animation: infinite-scroll-y 2s linear infinite;
+}
+
+/* Gradient animation for buttons */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* Sticky Scroll Helper */
+.allow-sticky {
+  overflow: visible !important;
+}
+
+.sticky-viewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-infinite-scroll {
+  animation: scroll-infinite 40s linear infinite;
 }

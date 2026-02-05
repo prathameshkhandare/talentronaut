@@ -17,10 +17,10 @@ export function EnterpriseCommandCenter() {
       <div className="relative w-full h-full p-4">
         <div className="relative w-full h-full rounded-[38px] overflow-hidden group-hover:scale-[1.02] transition-transform duration-1000 ease-out shadow-2xl">
             <Image 
-                src="/artifacts/enterprise_command_visual.png" 
+                src="/images/enterprise/command-center.png" 
                 alt="Enterprise Command Hub" 
                 fill 
-                className="object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-700"
+                className="object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-700"
             />
             {/* Gradient Overlay for Depth */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60" />
