@@ -64,7 +64,7 @@ export function TrustedLeaders() {
         <div className="md:col-span-4 flex flex-col gap-6 -mt-0 md:-mt-12">
              {/* Centerpiece Image/Highlight */}
              <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                <Card className="h-[26rem] p-0 bg-white overflow-hidden relative border border-[#FCD2AD]/30 shadow-xl rounded-[2rem] group">
+                <Card className="h-[22rem] md:h-[26rem] p-0 bg-white overflow-hidden relative border border-[#FCD2AD]/30 shadow-xl rounded-[2rem] group">
                      {/* No white filter, full image clarity */}
                      <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center opacity-100 group-hover:scale-105 transition-transform duration-700"></div>
                     
@@ -73,12 +73,12 @@ export function TrustedLeaders() {
                     
                     {/* Floating Info Pill - Minimalist design to keep image visible */}
                     <div className="absolute bottom-6 left-6 right-6 z-20">
-                         <div className="bg-white p-5 rounded-[2rem] shadow-2xl border border-gray-100 flex items-center gap-4 transition-all duration-500 group-hover:-translate-y-1">
-                             <div className="w-12 h-12 rounded-2xl bg-[#D44531] flex items-center justify-center shadow-lg shadow-[#D44531]/20 group-hover:scale-110 transition-transform duration-500">
-                                <Handshake className="text-white w-6 h-6" />
+                         <div className="bg-white p-4 md:p-5 rounded-[2rem] shadow-2xl border border-gray-100 flex items-center gap-4 transition-all duration-500 group-hover:-translate-y-1">
+                             <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-[#D44531] flex items-center justify-center shadow-lg shadow-[#D44531]/20 group-hover:scale-110 transition-transform duration-500">
+                                <Handshake className="text-white w-5 h-5 md:w-6 md:h-6" />
                              </div>
                              <div>
-                                <h3 className="text-black text-base font-black tracking-tight leading-none mb-1">Strategic Partnerships</h3>
+                                <h3 className="text-black text-sm md:text-base font-black tracking-tight leading-none mb-1">Strategic Partnerships</h3>
                                 <div className="flex items-center gap-2">
                                     <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                                     <span className="text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Active Network</span>
@@ -91,30 +91,30 @@ export function TrustedLeaders() {
 
               {/* Startup Ecosystem Card */}
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                 <Card className="h-[22rem] p-10 bg-white border border-[#FCD2AD]/30 relative overflow-hidden shadow-2xl rounded-[3rem] group flex flex-col justify-between">
+                 <Card className="h-[20rem] md:h-[22rem] p-6 md:p-10 bg-white border border-[#FCD2AD]/30 relative overflow-hidden shadow-2xl rounded-[3rem] group flex flex-col justify-between">
                     {/* Peach Glow */}
                     <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#FCD2AD]/10 rounded-full blur-3xl group-hover:bg-[#FCD2AD]/20 transition-all duration-700" />
                     
                     <div>
-                         <div className="flex justify-between items-start mb-8">
-                            <div className="w-14 h-14 rounded-2xl bg-[#D44531]/5 flex items-center justify-center border border-[#D44531]/10 shadow-sm">
-                                <Users className="text-[#D44531] w-7 h-7" />
+                         <div className="flex justify-between items-start mb-6 md:mb-8">
+                            <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-[#D44531]/5 flex items-center justify-center border border-[#D44531]/10 shadow-sm">
+                                <Users className="text-[#D44531] w-6 h-6 md:w-7 md:h-7" />
                             </div>
                             <span className="px-3 py-1 rounded-full bg-[#4A4A46]/5 text-[#D44531] text-[10px] font-black tracking-widest uppercase">Startups</span>
                          </div>
                          
-                         <h3 className="text-4xl font-black text-black tracking-tight mb-2">50<span className="text-[#D44531]">+</span></h3>
-                         <p className="text-black/80 font-bold leading-relaxed">International startups scaled to success.</p>
+                         <h3 className="text-3xl md:text-4xl font-black text-black tracking-tight mb-2">50<span className="text-[#D44531]">+</span></h3>
+                         <p className="text-black/80 font-bold leading-relaxed text-sm md:text-base">International startups scaled to success.</p>
                     </div>
                     
                     <div className="flex flex-col gap-4">
                         <div className="flex -space-x-3 items-center">
                             {[1,2,3,4].map((i) => (
-                                <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-gray-100 overflow-hidden shadow-sm group-hover:translate-x-1 transition-transform duration-300">
+                                <div key={i} className="w-10 h-10 md:w-12 md:h-12 rounded-full border-4 border-white bg-gray-100 overflow-hidden shadow-sm group-hover:translate-x-1 transition-transform duration-300">
                                     <img src={`https://i.pravatar.cc/100?img=${15+i}`} alt="Partner" className="w-full h-full object-cover" />
                                 </div>
                             ))}
-                            <div className="w-12 h-12 rounded-full border-4 border-white bg-[#FCD2AD]/20 flex items-center justify-center text-xs font-black text-[#D44531] group-hover:scale-110 transition-transform">+46</div>
+                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-4 border-white bg-[#FCD2AD]/20 flex items-center justify-center text-xs font-black text-[#D44531] group-hover:scale-110 transition-transform">+46</div>
                         </div>
                         <div className="h-1 w-12 bg-[#D44531] rounded-full" />
                     </div>
@@ -128,7 +128,7 @@ export function TrustedLeaders() {
             
              {/* Global Reach - Peach Theme (Kept mostly Peach but swapped accents) */}
               <motion.div variants={rightVariant} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                <Card className="h-64 bg-white p-8 relative overflow-hidden rounded-[2.5rem] border border-[#FCD2AD]/30 shadow-xl group flex flex-col justify-between">
+                <Card className="h-64 bg-white p-6 md:p-8 relative overflow-hidden rounded-[2.5rem] border border-[#FCD2AD]/30 shadow-xl group flex flex-col justify-between">
                      {/* Decorative background element */}
                      <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#FCD2AD]/20 rounded-full blur-3xl group-hover:bg-[#D44531]/10 transition-colors duration-500" />
                      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/noise.png')]" />
@@ -153,7 +153,7 @@ export function TrustedLeaders() {
 
               {/* Enterprise Solutions - NOW ORANGE BG (was Dark Gray) */}
              <motion.div variants={rightVariant} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                <Card className="h-64 bg-[#D44531] p-8 relative overflow-hidden flex flex-col justify-center border-none shadow-2xl rounded-[2.5rem] group">
+                <Card className="h-64 bg-[#D44531] p-6 md:p-8 relative overflow-hidden flex flex-col justify-center border-none shadow-2xl rounded-[2.5rem] group">
                       <div className="absolute inset-0 bg-gradient-to-br from-[#D44531] to-[#c03e2b]" />
                       <div className="absolute top-0 left-0 w-full h-full opacity-[0.05] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/noise.png')]" />
 
@@ -253,7 +253,7 @@ function PartnersInteraction() {
                 viewport={{ once: true }}
                 className="relative"
             >
-                <Card className="h-auto min-h-[22rem] p-8 bg-white border border-gray-100/50 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.08)] rounded-[2.5rem] flex flex-col justify-between overflow-hidden relative group">
+                <Card className="h-auto min-h-[22rem] p-6 md:p-8 bg-white border border-gray-100/50 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.08)] rounded-[2.5rem] flex flex-col justify-between overflow-hidden relative group">
                     {/* Soft background gradient - Branding colors */}
                     <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-br from-[#FCD2AD]/20 to-[#D44531]/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 opacity-60" />
                     

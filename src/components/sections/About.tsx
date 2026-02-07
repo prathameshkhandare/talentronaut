@@ -183,7 +183,12 @@ export function About() {
                                     </div>
 
                                     {/* Card Content */}
-                                    <div className="space-y-4">
+                                    <motion.div 
+                                        className="space-y-4"
+                                        initial={false}
+                                        animate={isActive ? { opacity: 1, filter: "blur(0px)", y: 0 } : { opacity: 0.4, filter: "blur(2px)", y: 5 }}
+                                        transition={{ duration: 0.5, ease: "easeOut", delay: isActive ? 0.2 : 0 }}
+                                    >
                                         <div>
                                             <span className="text-[#FCD2AD] font-serif italic text-lg">{tabContent[tab.id].subtitle}</span>
                                             <h3 className="text-4xl text-white mt-1 mb-2">{tabContent[tab.id].title}</h3>
@@ -191,13 +196,10 @@ export function About() {
                                         <p className="text-white/90 leading-relaxed font-medium">
                                             {tabContent[tab.id].text}
                                         </p>
-                                    </div>
-
-                                    {/* Card Footer */}
-                                    <div className="pt-6 border-t border-dashed border-white/20 flex justify-between items-center opacity-80">
-                                        <span className="text-xs font-mono text-white/60">TLN-CARD-0{index + 1}</span>
-                                        <ArrowUpRight size={16} className="text-white" />
-                                    </div>
+                                    </motion.div>
+                                    
+                                    {/* Spacer to maintain layout balance */}
+                                    <div className="pt-6 min-h-[24px]" aria-hidden="true" />
                                 </motion.div>
                             )
                         })}

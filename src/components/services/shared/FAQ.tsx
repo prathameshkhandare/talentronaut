@@ -21,7 +21,7 @@ export function FAQ({ items, className }: FAQProps) {
 
   return (
     <section className={cn("py-16 max-w-4xl mx-auto px-4", className)}>
-      <SectionHeading className="text-3xl md:text-4xl text-center mb-12">Frequently Asked Questions</SectionHeading>
+      <SectionHeading className="text-[36px] text-center mb-12">Frequently Asked Questions</SectionHeading>
       <div className="space-y-4">
         {items.map((item, index) => (
           <div

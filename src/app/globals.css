@@ -218,6 +218,10 @@ html.lenis body {
   animation: scroll-left 90s linear infinite;
 }
 
+.animate-marquee {
+  animation: scroll-left 20s linear infinite;
+}
+
 .animate-scroll-right {
   animation: scroll-right 90s linear infinite;
 }

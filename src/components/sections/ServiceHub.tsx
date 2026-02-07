@@ -88,19 +88,19 @@ const services = [
 
 export function ServiceHub() {
   return (
-    <section className="relative py-24 sm:py-32 bg-[#fafafa] overflow-hidden" id="services">
+    <section className="relative py-16 md:py-32 bg-[#fafafa] overflow-hidden" id="services">
       {/* Top Section Blend Overlay */}
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white to-transparent z-20 pointer-events-none" />
       {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[10%] right-[-10%] w-[800px] h-[800px] bg-[#FCD2AD]/20 rounded-full blur-[120px]" />
+        <div className="absolute top-[10% ] right-[-10%] w-[800px] h-[800px] bg-[#FCD2AD]/20 rounded-full blur-[120px]" />
         <div className="absolute bottom-[10%] left-[-10%] w-[600px] h-[600px] bg-[#D44531]/5 rounded-full blur-[100px]" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="mb-20 max-w-3xl mx-auto text-center">
+        <div className="mb-12 md:mb-20 max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -112,17 +112,17 @@ export function ServiceHub() {
                 <span className="text-xs font-bold uppercase tracking-wider text-[#4A4A46]">Our Expertise</span>
              </div>
              
-             <h2 className="text-4xl md:text-4xl font-bold font-heading text-[#4A4A46] tracking-tight mb-6 leading-[1.2]">
+             <h2 className="text-3xl md:text-4xl font-bold font-heading text-[#4A4A46] tracking-tight mb-6 leading-[1.2]">
                 Comprehensive <span className="text-[#D44531]">Digital Solutions</span>
              </h2>
-             <p className="text-sm text-[#4A4A46]/70 leading-relaxed">
+             <p className="text-sm text-[#4A4A46]/70 leading-relaxed max-w-xl mx-auto">
                 We combine technical expertise with industry insights to deliver solutions that drive real business value.
              </p>
           </motion.div>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -143,7 +143,7 @@ export function ServiceHub() {
                 className="h-full"
               >
                 <Link href={service.href} className="block h-full relative group/card">
-                  <div className="relative h-[440px] w-full rounded-[2.5rem] bg-white transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_20px_80px_-15px_rgba(212,69,49,0.15)] border border-gray-100 overflow-hidden">
+                  <div className="relative h-[440px] w-full rounded-[2.5rem] bg-white transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_20px_80px_-15px_rgba(212,69,49,0.15)] border-2 border-gray-200 overflow-hidden">
                     
                     {/* Premium Texture & Depth Layer */}
                     <div className="absolute inset-0 bg-[#fafafa]/50" />
@@ -240,7 +240,7 @@ export function ServiceHub() {
                             </p>
                         </div>
                         
-                        <a href="#contact" className="group/btn relative w-full py-5 rounded-2xl bg-white text-[#D44531] font-bold text-center overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(252,210,173,0.4)] hover:scale-[1.02]">
+                        <a href="#contact" className="group/btn relative w-full py-3 md:py-5 rounded-2xl bg-white text-[#D44531] font-bold text-center overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(252,210,173,0.4)] hover:scale-[1.02]">
                             <div className="relative z-10 flex items-center justify-center gap-2 tracking-wide transition-all duration-500 group-hover/btn:text-[#D44531]">
                                 <span className="flex items-center gap-2 group-hover/btn:scale-110 transition-transform duration-500">
                                     Start Consultation <ArrowRight size={18} className="group-hover/btn:translate-x-1" />

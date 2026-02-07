@@ -68,43 +68,7 @@ export function Hero({ startAnimation = true }: { startAnimation?: boolean }) {
         className="relative z-10 container mx-auto px-4 text-center flex flex-col items-center justify-center h-full pt-10"
       >
         <div className="relative">
-             {/* Floating Glass Elements (#5) - Abstract 3D Shapes */}
-             <motion.div 
-                style={{ y: useTransform(scrollY, [0, 800], [0, -200]) }}
-                animate={{ 
-                    scale: [1, 1.2, 1], 
-                    rotate: [0, 90, 0],
-                    x: [0, 30, 0]
-                }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute top-10 left-[10%] w-32 h-32 bg-gradient-to-tr from-blue-200/40 to-purple-200/40 backdrop-blur-3xl rounded-full mix-blend-multiply filter blur-2xl opacity-80" 
-             />
-             <motion.div 
-                style={{ y: useTransform(scrollY, [0, 800], [0, -150]) }}
-                animate={{ 
-                    scale: [1, 1.3, 1], 
-                    rotate: [0, -60, 0],
-                    x: [0, -40, 0]
-                }}
-                transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-                className="absolute top-20 right-[15%] w-48 h-48 bg-gradient-to-bl from-orange-200/50 to-yellow-200/30 backdrop-blur-3xl rounded-full mix-blend-multiply filter blur-3xl opacity-70" 
-             />
-             <motion.div 
-                style={{ y: useTransform(scrollY, [0, 800], [0, -300]) }}
-                animate={{ 
-                    scale: [0.9, 1.1, 0.9], 
-                    y: [0, 50, 0]
-                }}
-                transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-32 left-[20%] w-40 h-40 bg-gradient-to-br from-[#D44531]/20 to-transparent backdrop-blur-xl rounded-full mix-blend-overlay filter blur-2xl opacity-60" 
-             />
-
-             {/* Enhanced Glass Halo */}
-             <motion.div 
-                 animate={{ scale: [1, 1.02, 1], opacity: [0.3, 0.4, 0.3] }}
-                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                 className="absolute -inset-16 bg-gradient-to-r from-white/40 via-white/80 to-white/40 backdrop-blur-[3px] rounded-[60px] blur-3xl -z-10" 
-             />
+{/* Floating Glass Elements and Halo removed for cleaner structure */}
              
             {/* Hero Headline */}
             <motion.div
@@ -120,7 +84,7 @@ export function Hero({ startAnimation = true }: { startAnimation?: boolean }) {
             <motion.h1
             variants={itemVariants}
             style={{ skewX }} // Applied skew effect
-            className="text-4xl md:text-4xl lg:text-4xl font-heading font-black tracking-tight text-[#2D1810] leading-[1.1] mb-6 drop-shadow-sm select-none flex flex-wrap justify-center gap-x-3 gap-y-1" 
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight text-[#2D1810] leading-[1.1] mb-6 drop-shadow-sm select-none flex flex-wrap justify-center gap-x-3 gap-y-1" 
             >
                 <span className="inline-block min-h-[1.1em]">
                     {headlinePart1}
@@ -151,9 +115,9 @@ export function Hero({ startAnimation = true }: { startAnimation?: boolean }) {
             <motion.p
             variants={itemVariants}
             style={{ skewX }}
-            className="text-xl md:text-xl text-[#5C4D45] max-w-2xl mx-auto leading-relaxed mb-8 font-medium"
+            className="text-base sm:text-lg md:text-xl text-[#5C4D45] max-w-5xl mx-auto leading-relaxed mb-8 font-medium px-4"
             >
-            Empowering industries with <span className="font-body font-bold text-[#D44531]">bespoke</span> IT solutions and cutting-edge product services to drive <span className="relative inline-block px-1 text-[#D44531] font-bold hover:skew-x-2 transition-transform">sustainable growth</span>.
+            Empowering industries with <span className="font-body font-bold text-[#D44531]">bespoke</span> IT solutions and cutting-edge product services <br className="hidden md:block"/> to drive <span className="relative inline-block px-1 text-[#D44531] font-bold hover:skew-x-2 transition-transform">sustainable growth</span>.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -167,7 +131,7 @@ export function Hero({ startAnimation = true }: { startAnimation?: boolean }) {
                         whileHover={{ scale: 1.05, rotate: 1 }}
                         whileTap={{ scale: 0.95, rotate: -1 }}
                         transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                        className="group relative px-8 py-4 rounded-full text-white font-semibold text-sm w-full sm:w-auto justify-center overflow-hidden"
+                        className="group relative px-6 py-3 sm:px-8 sm:py-4 rounded-full text-white font-semibold text-sm w-full sm:w-auto justify-center overflow-hidden"
                     >
                         {/* Background with radial expand */}
                         <div className="absolute inset-0 bg-[#D44531] rounded-full" />
@@ -196,7 +160,7 @@ export function Hero({ startAnimation = true }: { startAnimation?: boolean }) {
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
                         transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                        className="group relative px-8 py-4 rounded-full font-semibold text-sm w-full sm:w-auto overflow-hidden border-2 border-[#4A4A46]"
+                        className="group relative px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold text-sm w-full sm:w-auto overflow-hidden border-2 border-[#4A4A46]"
                     >
                         {/* Sliding background from left */}
                         <div className="absolute inset-0 bg-[#4A4A46] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />

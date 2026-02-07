@@ -47,24 +47,36 @@ export function TechnicalServiceGrid() {
   });
 
   // Calculate width for exact scroll distance
+  // Calculate width for exact scroll distance
   React.useEffect(() => {
+    if (!scrollContainerRef.current) return;
+
     const updateWidth = () => {
         if (scrollContainerRef.current) {
             const scrollWidth = scrollContainerRef.current.scrollWidth;
             const clientWidth = scrollContainerRef.current.clientWidth;
             // The distance we need to move left is the overflow amount
-            // Adding extra buffer (100px) to ensure the last card is fully revealed and not cut off
-            setWidth(scrollWidth - clientWidth + 100); 
+            // Adding extra buffer (50px) to ensure the last card is fully revealed
+            // Using Math.max to avoid negative values on wide screens where no scroll is needed
+            setWidth(Math.max(0, scrollWidth - clientWidth + 50)); 
         }
     };
 
     updateWidth();
-    // Delay to catch layout settle
-    const timer = setTimeout(updateWidth, 100);
+    
+    // Robust ResizeObserver to handle any layout shifts (images, fonts, dynamic content)
+    const resizeObserver = new ResizeObserver(() => {
+        updateWidth();
+    });
+    
+    resizeObserver.observe(scrollContainerRef.current);
+    
+    // Also listen to window resize for container width changes
     window.addEventListener('resize', updateWidth);
+
     return () => {
+        resizeObserver.disconnect();
         window.removeEventListener('resize', updateWidth);
-        clearTimeout(timer);
     };
   }, []);
 

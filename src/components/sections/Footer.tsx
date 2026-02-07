@@ -7,6 +7,17 @@ import Image from "next/image";
 export function Footer() {
   return (
     <footer className="relative bg-black pt-28 pb-16 overflow-hidden" id="footer">
+      {/* Marquee Header */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden py-4 bg-[#D44531]/5 border-b border-[#D44531]/10 z-20">
+        <div className="flex whitespace-nowrap animate-marquee">
+          {[...Array(10)].map((_, i) => (
+            <span key={i} className="text-[100px] md:text-[140px] font-heading font-black text-transparent stroke-text uppercase px-8 opacity-10">
+              LET&apos;S CONNECT
+            </span>
+          ))}
+        </div>
+      </div>
+      
       {/* Dark Circuit Animation - Inline */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <svg className="absolute inset-0 w-full h-full opacity-50" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
@@ -55,7 +66,7 @@ export function Footer() {
               transition={{ duration: 1.5 + i * 0.2, delay: i * 0.1 }}
             />
           ))}
-          {/* Animated pulses - More lines */}
+          {/* Animated pulses - High Density Flow */}
           {[
             "M 60 0 V 80 L 90 110 V 250 L 120 280 V 500",
             "M 350 0 V 100 L 320 130 V 500 L 350 530 V 900",
@@ -65,6 +76,25 @@ export function Footer() {
             "M 800 900 V 600 L 820 580 V 200 L 800 180 V 0",
             "M 1150 0 V 400 L 1180 430 V 800",
             "M 1350 900 V 500 L 1320 470 V 100",
+            // Additional dense lines
+            "M 30 0 V 120 L 60 150 V 450",
+            "M 140 900 V 500 L 170 470 V 100",
+            "M 250 0 V 300 L 220 330 V 700",
+            "M 420 900 V 600 L 450 570 V 200",
+            "M 600 0 V 400 L 630 430 V 800",
+            "M 720 900 V 300 L 690 270 V 50",
+            "M 850 0 V 250 L 880 280 V 650",
+            "M 980 900 V 450 L 950 420 V 120",
+            "M 1250 0 V 350 L 1220 380 V 750",
+            "M 1320 900 V 550 L 1350 520 V 150",
+            "M 90 0 V 180 L 120 210 V 520",
+            "M 380 900 V 620 L 350 590 V 220",
+            "M 520 0 V 320 L 550 350 V 720",
+            "M 760 900 V 420 L 730 390 V 80",
+            "M 1020 0 V 280 L 1050 310 V 680",
+            "M 1180 900 V 480 L 1150 450 V 120",
+            "M 15 0 V 200 L 35 220 V 600",
+            "M 1430 900 V 300 L 1410 280 V 50",
           ].map((d, i) => (
             <motion.path
               key={`pulse-${i}`}
@@ -76,10 +106,10 @@ export function Footer() {
               initial={{ pathLength: 0, pathOffset: 0 }}
               animate={{ pathLength: [0, 0.25, 0], pathOffset: [0, 1, 1] }}
               transition={{
-                duration: 3 + i * 0.8,
+                duration: (5 + (i % 5) * 6) * 2, // Slower speed (50% of original)
                 repeat: Infinity,
                 ease: "linear",
-                delay: i * 0.5,
+                delay: i * 0.2, // Staggered start for density
               }}
             />
           ))}

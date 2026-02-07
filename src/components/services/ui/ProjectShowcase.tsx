@@ -42,7 +42,7 @@ export function ProjectShowcase() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <span className="text-coral font-bold tracking-widest text-base uppercase mb-4 block">Our Portfolio</span>
-          <SectionHeading className="mb-6 text-4xl md:text-5xl lg:text-6xl">Digital Landmarks</SectionHeading>
+          <SectionHeading className="mb-6   text-[36px]">Digital Landmarks</SectionHeading>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             A curated selection of engineering challenges we've solved for forward-thinking enterprises.
           </p>

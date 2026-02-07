@@ -4,7 +4,6 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { SectionHeading } from '../shared/SectionHeading';
-import { Check } from 'lucide-react';
 
 interface Step {
   title: string;
@@ -100,7 +99,7 @@ export function ProcessMap({ steps, className }: ProcessMapProps) {
   return (
     <section ref={containerRef} className={cn("py-24 bg-cream relative overflow-hidden", className)}>
         <div className="container mx-auto px-6 text-center mb-16">
-            <SectionHeading className="mb-6 text-4xl bg-clip-text text-transparent bg-gradient-to-r from-coral to-orange-500 pb-2">Our Engineering Process</SectionHeading>
+            <SectionHeading className="mb-6 text-[36px] bg-clip-text text-transparent bg-gradient-to-r from-coral to-orange-500 pb-2">Our Engineering Process</SectionHeading>
              <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
                 A seamless journey from blueprint to deployment.
             </p>

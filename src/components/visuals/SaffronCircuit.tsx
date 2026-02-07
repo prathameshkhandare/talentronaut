@@ -47,7 +47,7 @@ export function SaffronCircuit() {
     duration: 5 + Math.random() * 8, // Variable speeds
     delay: Math.random() * 5,
     color: i % 2 === 0 ? "#FF4D00" : "#FFFFFF", // Mix of Orange and White particles
-    size: i % 3 === 0 ? 3 : 2,
+    size: i % 3 === 0 ? 4 : 3, // Increased size for mobile
   }));
 
   // Static Nodes (Junctions)
@@ -94,9 +94,9 @@ export function SaffronCircuit() {
             key={`base-${i}`}
             d={d}
             stroke="#D44531"
-            strokeWidth="1.5"
+            strokeWidth="2"
             fill="none"
-            opacity="0.08" // very faint structure
+            opacity="0.2" // Increased for mobile visibility
           />
         ))}
 
@@ -106,7 +106,7 @@ export function SaffronCircuit() {
             key={`pulse-${i}`}
             d={d}
             stroke="url(#traceGradient)"
-            strokeWidth="2.5"
+            strokeWidth="4" // Increased for mobile visibility
             fill="none"
             strokeLinecap="round"
             initial={{ pathLength: 0, pathOffset: 0 }}
@@ -141,14 +141,14 @@ export function SaffronCircuit() {
 
         {/* 4. Junction Nodes (Blinking) */}
         {nodes.map((node, i) => (
-          <motion.g  key={`node-${i}`} opacity={0.6}>
-              <circle cx={node.cx} cy={node.cy} r="3" fill="#FFE5D9" />
+          <motion.g  key={`node-${i}`} opacity={0.8}>
+              <circle cx={node.cx} cy={node.cy} r="4" fill="#FFE5D9" />
               <motion.circle
                 cx={node.cx}
                 cy={node.cy}
-                r="4"
+                r="6"
                 stroke="#FF4D00"
-                strokeWidth="1.5"
+                strokeWidth="2"
                 fill="none"
                 animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
                 transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
@@ -158,8 +158,8 @@ export function SaffronCircuit() {
 
       </svg>
       
-      {/* Soft Vignette to focus center */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,white_100%)] opacity-60" />
+      {/* Soft Vignette to focus center - reduced opacity for better line visibility */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,white_100%)] opacity-40" />
     </div>
   );
 }

@@ -7,7 +7,7 @@ import { SectionHeading } from '@/components/services/shared/SectionHeading';
 import { CTA } from '@/components/services/shared/CTA';
 import { FAQ } from '@/components/services/shared/FAQ';
 import { TestimonialSlider } from '@/components/services/shared/TestimonialSlider';
-import { ProcessMap } from '@/components/services/ui/ProcessMap';
+import { BlueprintProcessMap } from '@/components/services/ui/BlueprintProcessMap';
 import { TechMarquee } from '@/components/services/ui/TechMarquee';
 import { ArchitecturalGrid } from '@/components/services/ui/ArchitecturalGrid';
 import { ProjectShowcase } from '@/components/services/ui/ProjectShowcase';
@@ -74,7 +74,7 @@ export default function TechnicalSolutionsPage() {
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-b from-coral/5 to-transparent rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
           <div className="absolute top-20 left-0 w-[600px] h-[600px] bg-gradient-to-r from-orange-100/20 to-transparent rounded-full blur-[100px] -translate-x-1/2 pointer-events-none" />
 
-          <div className="container mx-auto px-6 relative z-10 w-full">
+          <div className="container mx-auto px-[90px] relative z-10 w-full">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
           <div className="w-full lg:w-1/2">
             <span className="text-coral font-black tracking-[0.3em] text-[10px] uppercase mb-6 block border-l-2 border-coral pl-4">The Architect</span>
@@ -82,7 +82,7 @@ export default function TechnicalSolutionsPage() {
               <span className="block mb-4">Engineering</span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B4513] via-coral to-orange-400">Digital Mastery.</span>
             </SectionHeading>
-            <p className="text-sm text-gray-500 mb-10 leading-relaxed max-w-xl">
+            <p className="text-[16px] text-gray-500 mb-10 leading-relaxed max-w-xl">
               We build more than software; we construct the digital nervous systems that power market leaders. Precision, scalability, and aesthetic elegance in every line of code.
             </p>
             <CTA text="Book a Technical Audit" onClick={() => setIsContactModalOpen(true)} />
@@ -115,7 +115,7 @@ export default function TechnicalSolutionsPage() {
       <TechnicalServiceGrid />
 
       {/* Process Map Timeline */}
-      <ProcessMap steps={PROCESS_STEPS} />
+      <BlueprintProcessMap steps={PROCESS_STEPS} />
 
       {/* Project Showcase */}
       <ProjectShowcase />
