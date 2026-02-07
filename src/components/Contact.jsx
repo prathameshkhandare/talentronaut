@@ -110,8 +110,8 @@ export default function Contact() {
               <p className={styles.footerTagline}>Navigate Your Career Journey</p>
             </div>
             <div className={styles.footerLinks}>
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
+              <a href="/legal/privacy">Privacy Policy</a>
+              <a href="/legal/terms">Terms of Service</a>
               <a href="#">Careers</a>
             </div>
           </div>

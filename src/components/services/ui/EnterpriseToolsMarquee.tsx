@@ -71,7 +71,7 @@ export function EnterpriseToolsMarquee() {
     <section className="py-20 bg-white overflow-hidden">
       <div className="container mx-auto px-6 mb-12">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-[36px] font-heading font-bold text-charcoal mb-4">
+          <h2 className="text-[36px] font-heading font-bold text-coral mb-4">
             Mastery Over Every Enterprise Tool.
           </h2>
           <p className="text-gray-600 leading-relaxed">
@@ -113,9 +113,9 @@ export function EnterpriseToolsMarquee() {
      const [altImageError, setAltImageError] = React.useState(false);
      const toolInfo = ENTERPRISE_TOOLS[name] || { slug: "javascript", url: "#" };
      
-     // Primary: Logo.dev (Original Brand Logos from Website)
+     // Primary: Clearbit Logo API (Reliable for major tech brands)
      // Fallback: Simple Icons (Vector Brand Colors)
-     const primaryLogoUrl = `https://img.logo.dev/${toolInfo.url.replace('https://', '').replace('http://', '').split('/')[0]}?token=pk_X-HrUfUPRyuMi5f8KNzL1Q`;
+     const primaryLogoUrl = `https://logo.clearbit.com/${toolInfo.url.replace('https://', '').replace('http://', '').split('/')[0]}`;
      const fallbackLogoUrl = `https://cdn.simpleicons.org/${toolInfo.slug}`;
      
      return (
@@ -123,7 +123,7 @@ export function EnterpriseToolsMarquee() {
              href={toolInfo.url} 
              target="_blank" 
              rel="noopener noreferrer"
-             className="inline-flex items-center gap-6 px-10 py-6 bg-white rounded-[2rem] border border-gray-100 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] min-w-[280px] hover:border-coral/50 hover:shadow-[0_20px_60px_-15px_rgba(232,92,74,0.2)] hover:-translate-y-2 hover:scale-105 transition-all duration-500 group/item cursor-pointer mx-2"
+             className="inline-flex items-center gap-6 px-10 py-6 bg-white rounded-[2rem] border border-gray-100 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] min-w-[280px] hover:border-coral/50 hover:shadow-[0_20px_60px_-15px_rgba(232,92,74,0.2)] hover:-translate-y-2 hover:scale-105 transition-all duration-500 group/item cursor-pointer mx-2 my-8" 
          >
              <div className="w-16 h-16 rounded-2xl bg-gray-50 flex items-center justify-center p-3 group-hover/item:bg-coral/10 transition-colors duration-500 shrink-0 relative overflow-visible">
                  {!imageError ? (

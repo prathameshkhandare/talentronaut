@@ -32,7 +32,7 @@ export function About() {
   }
 
   return (
-    <section className="relative py-24 md:py-32 bg-[#FFFBF8] overflow-hidden" id="about">
+    <section className="relative py-24 md:py-32 bg-white overflow-hidden" id="about">
       
       {/* Editorial Grid Lines */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03]" 
@@ -42,7 +42,7 @@ export function About() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* 1. Header - Center Focused */}
-        <div className="flex flex-col items-center text-center mb-20 border-b border-gray-200 pb-12">
+        <div className="flex flex-col items-center text-center mb-20">
             <div className="max-w-4xl mx-auto">
                 {/* Premium Badge Component for 'About Talentronaut' */}
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#D44531]/10 border border-[#D44531]/20 mb-6">

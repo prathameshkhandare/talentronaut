@@ -56,7 +56,7 @@ const recognitions = [
 
 export default function AboutPage() {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen px-[90px]">
       {/* Hero Section */}
       {/* Core About Section (Mission, Vision, Values) */}
       <About />
@@ -108,7 +108,7 @@ export default function AboutPage() {
       </section>
 
       {/* Recognitions Section */}
-      <section className="py-20 bg-[#FCD2AD]/20">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

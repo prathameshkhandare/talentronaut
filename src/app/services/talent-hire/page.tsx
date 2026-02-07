@@ -11,7 +11,7 @@ import { FloatingTags } from '@/components/services/ui/FloatingTags';
 import { ArchitecturalGrid } from '@/components/services/ui/ArchitecturalGrid';
 import { ProcessMap } from '@/components/services/ui/ProcessMap';
 import { ContactModal } from '@/components/ui/ContactModal';
-import { MapPin, Globe, Users, Target } from "lucide-react";
+import { MapPin, Globe, Users, Target, CheckCircle, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
 
 const PROCESS_STEPS = [
@@ -84,7 +84,7 @@ export default function TalentDiscoveryPage() {
     <ServiceLayout>
       <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
       
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-[90px] overflow-hidden">
  
         {/* Premium Split Hero */}
         <section className="flex flex-col lg:flex-row items-center justify-between -mt-[10px] md:-mt-[18px] mb-20 md:mb-28 gap-12 relative">
@@ -102,21 +102,18 @@ export default function TalentDiscoveryPage() {
           </div>
           
           <div className="w-full lg:w-1/2 relative flex justify-center lg:justify-end">
-             {/* Globe Visualization - Final High-Fidelity Asset */}
-             <div className="relative w-full max-w-[650px] aspect-square flex items-center justify-center">
+             {/* Globe Visualization - Centered Crop - Increased Size */}
+             <div className="relative w-[450px] h-[450px] mt-12 rounded-full overflow-hidden flex items-center justify-center border-4 border-coral/10 shadow-2xl shadow-coral/20">
                 <motion.img 
                   src="/images/final_globe.png" 
                   alt="Global Human Infrastructure" 
-                  className="w-full h-full object-contain scale-[1.75] mix-blend-multiply drop-shadow-[0_0_20px_rgba(212,69,49,0.2)]" 
+                  className="w-full h-full object-cover scale-[1.3] mix-blend-multiply" 
                   animate={{ rotate: 360 }}
                   transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
                 />
                 
                 {/* System Status Pill */}
-                <div className="absolute bottom-10 left-10 md:bottom-20 md:left-20 bg-cream/80 backdrop-blur-md border border-coral/20 px-4 py-2 rounded-full shadow-lg flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    <span className="text-[10px] font-black tracking-widest text-gray-800 uppercase">System Status: Optimal</span>
-                </div>
+                
              </div>
           </div>
         </section>
@@ -136,7 +133,7 @@ export default function TalentDiscoveryPage() {
               <div className="flex gap-4 animate-infinite-scroll whitespace-nowrap w-max">
                   {/* Duplicate list for seamless loop */}
                   {[...DOMAINS, ...DOMAINS].map((domain, i) => (
-                      <div key={i} className="px-8 py-4 bg-white rounded-2xl border border-gray-100 shadow-sm text-sm font-bold text-gray-800 hover:border-coral transition-colors flex items-center">
+                      <div key={i} className="px-8 py-4 bg-coral rounded-2xl border border-coral shadow-sm text-sm font-bold text-white hover:brightness-110 transition-colors flex items-center">
                           {domain}
                       </div>
                   ))}
@@ -178,18 +175,51 @@ export default function TalentDiscoveryPage() {
                       </div>
                   </div>
                   
-                  <div className="bg-gray-50 rounded-[3rem] p-12 border border-gray-100 relative overflow-hidden group">
-                      <div className="absolute top-0 right-0 w-64 h-64 bg-coral/5 rounded-full blur-[100px] pointer-events-none" />
-                      <div className="grid grid-cols-2 gap-10 relative z-10">
-                          {REACH_STATS.map((stat, i) => (
-                              <div key={i} className="space-y-2">
-                                  <div className="text-4xl font-black text-gray-900 group-hover:text-coral transition-colors">{stat.value}</div>
-                                  <div className="text-[10px] font-mono font-black text-gray-400 uppercase tracking-widest">{stat.label}</div>
+                  {/* Enhanced Stats Card */}
+                  <div className="bg-gradient-to-br from-gray-50 to-white rounded-[3rem] p-12 border border-coral relative overflow-hidden group hover:shadow-2xl hover:shadow-coral/10 transition-all duration-500 hover:-translate-y-2">
+                       {/* Decorative elements */}
+                      <div className="absolute top-0 right-0 w-64 h-64 bg-coral/5 rounded-full blur-[80px] group-hover:bg-coral/10 transition-colors duration-500 pointer-events-none" />
+                      <div className="absolute bottom-0 left-0 w-48 h-48 bg-orange-100/30 rounded-full blur-[60px] pointer-events-none" />
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-12 gap-x-8 relative z-10">
+                          <div className="space-y-2">
+                              <div className="flex items-center gap-3">
+                                  <CheckCircle className="text-coral opacity-80" size={24} strokeWidth={2.5}/>
+                                  <div className="text-5xl font-black text-gray-900 group-hover:text-coral transition-colors duration-300">96%</div>
                               </div>
-                          ))}
+                              <div className="text-[11px] font-mono font-black text-gray-400 uppercase tracking-widest pl-9">Success Rate</div>
+                          </div>
+
+                          <div className="space-y-2">
+                               <div className="flex items-center gap-3">
+                                  <Globe className="text-coral opacity-80" size={24} strokeWidth={2.5}/>
+                                  <div className="text-5xl font-black text-gray-900 group-hover:text-coral transition-colors duration-300">25+</div>
+                              </div>
+                              <div className="text-[11px] font-mono font-black text-gray-400 uppercase tracking-widest pl-9">EMEA Countries</div>
+                          </div>
+
+                          <div className="space-y-2">
+                               <div className="flex items-center gap-3">
+                                  <Users className="text-coral opacity-80" size={24} strokeWidth={2.5}/>
+                                  <div className="text-5xl font-black text-gray-900 group-hover:text-coral transition-colors duration-300">10k+</div>
+                              </div>
+                              <div className="text-[11px] font-mono font-black text-gray-400 uppercase tracking-widest pl-9">Candidate Pipeline</div>
+                          </div>
+
+                          <div className="space-y-2">
+                               <div className="flex items-center gap-3">
+                                  <Target className="text-coral opacity-80" size={24} strokeWidth={2.5}/>
+                                  <div className="text-5xl font-black text-gray-900 group-hover:text-coral transition-colors duration-300">98%</div>
+                              </div>
+                              <div className="text-[11px] font-mono font-black text-gray-400 uppercase tracking-widest pl-9">Retention Rate</div>
+                          </div>
                       </div>
-                      <div className="mt-12 pt-12 border-t border-gray-200/50">
-                          <p className="italic text-gray-400 text-sm leading-relaxed">
+
+                      <div className="mt-14 pt-10 border-t border-gray-200/60 relative">
+                          <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white px-4 text-gray-300">
+                             <TrendingUp size={20} />
+                          </div>
+                          <p className="italic text-gray-500 text-sm leading-relaxed text-center font-medium">
                             "Our global network isn't just a map; it's a living database of the world's most talented builders, verified through years of local partnerships."
                           </p>
                       </div>

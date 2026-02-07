@@ -84,7 +84,7 @@ export function Hero({ startAnimation = true }: { startAnimation?: boolean }) {
             <motion.h1
             variants={itemVariants}
             style={{ skewX }} // Applied skew effect
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight text-[#2D1810] leading-[1.1] mb-6 drop-shadow-sm select-none flex flex-wrap justify-center gap-x-3 gap-y-1" 
+            className="text-xl sm:text-xl md:text-2xl lg:text-3xl font-heading font-black tracking-tight text-[#2D1810] leading-[1.1] mb-6 drop-shadow-sm select-none flex flex-wrap justify-center gap-x-3 gap-y-1" 
             >
                 <span className="inline-block min-h-[1.1em]">
                     {headlinePart1}

@@ -12,50 +12,59 @@ export function SaffronCircuit() {
 
   if (!mounted) return null;
 
-  // Complex Circuit Paths (The "City" Map)
+  // Complex Circuit Paths (The "City" Map) - Sparse & Premium
   // M = Move, V = Vertical, H = Horizontal, L = Line (Diagonal)
   const traces = [
-    // Left Flank - Dense Network
-    "M 10 0 V 150 L 40 180 V 400 L 20 420 V 900",
-    "M 30 0 V 100 L 60 130 H 100 V 300",
-    "M 60 0 V 80 L 90 110 V 250 L 120 280 V 500",
-    "M 0 300 H 50 L 80 330 V 600",
-    "M 150 900 V 700 L 120 670 H 80 V 550",
+    // Left Flank
+    "M 40 0 V 150 L 70 180 V 400 L 50 420 V 900",
 
-    // Left-Center - Vertical Highways
-    "M 200 0 V 200 L 230 230 V 800",
-    "M 250 0 V 150 L 280 180 V 400 L 310 430 V 900",
-    "M 220 900 V 600 L 250 570 V 300",
+    // Left-Center
     "M 350 0 V 100 L 320 130 V 500 L 350 530 V 900",
     
-    // Right-Center - Data Hubs
-    "M 900 900 V 700 L 950 650 V 200 L 920 170 V 0",
-    "M 1000 900 V 500 L 1050 450 V 100",
-    "M 1100 900 V 600 L 1080 580 V 0",
-    "M 950 0 V 150 L 980 180 V 400",
+    // CENTER
+    "M 720 900 V 700 L 750 670 V 300 L 720 270 V 0",
+    
+    // Right-Center
+    "M 1050 900 V 600 L 1030 580 V 0",
 
-    // Right Flank - Complexity
-    "M 1200 0 V 250 L 1250 300 V 700",
-    "M 1300 0 V 150 L 1270 180 V 600 L 1300 630 V 900",
-    "M 1350 900 V 200 L 1380 170 V 0",
-    "M 1400 500 H 1350 L 1320 470 V 100",
+    // Right Flank
+    "M 1350 0 V 150 L 1320 180 V 600 L 1350 630 V 900",
   ];
 
   // Particle Configuration (Moving Data)
-  const particles = traces.map((path, i) => ({
-    path,
-    duration: 5 + Math.random() * 8, // Variable speeds
-    delay: Math.random() * 5,
-    color: i % 2 === 0 ? "#FF4D00" : "#FFFFFF", // Mix of Orange and White particles
-    size: i % 3 === 0 ? 4 : 3, // Increased size for mobile
-  }));
+  // Particle Configuration (Moving Data) - Increased Density
+  const particles = [
+    // Primary Wave
+    ...traces.map((path, i) => ({
+      path,
+      duration: 10 + Math.random() * 10,
+      delay: Math.random() * 5,
+      color: "#FF4D00",
+      size: 2.5,
+    })),
+    // Secondary Wave (Delayed)
+    ...traces.map((path, i) => ({
+      path,
+      duration: 12 + Math.random() * 8, 
+      delay: 5 + Math.random() * 8, // Offset start
+      color: "#FFFFFF",
+      size: 2,
+    })),
+    // Third Wave (Sparks - Faster & Smaller) - Added for slightly more density
+    ...traces.map((path, i) => ({
+      path,
+      duration: 8 + Math.random() * 6, // Faster 
+      delay: 2 + Math.random() * 10,
+      color: "#FF8C69", // Lighter Orange
+      size: 1.5,
+    }))
+  ];
 
   // Static Nodes (Junctions)
   const nodes = [
-    { cx: 40, cy: 180 }, { cx: 60, cy: 130 }, { cx: 90, cy: 110 }, 
-    { cx: 230, cy: 230 }, { cx: 280, cy: 180 }, { cx: 320, cy: 130 },
-    { cx: 950, cy: 650 }, { cx: 1050, cy: 450 }, { cx: 1250, cy: 300 },
-    { cx: 1270, cy: 180 }, { cx: 1320, cy: 470 }
+    { cx: 70, cy: 180 }, { cx: 320, cy: 130 }, 
+    { cx: 750, cy: 670 }, { cx: 1030, cy: 580 }, 
+    { cx: 1320, cy: 180 }
   ];
 
   return (
@@ -94,9 +103,9 @@ export function SaffronCircuit() {
             key={`base-${i}`}
             d={d}
             stroke="#D44531"
-            strokeWidth="2"
+            strokeWidth="1"
             fill="none"
-            opacity="0.2" // Increased for mobile visibility
+            opacity="0.08" // Slightly visible to show path essence
           />
         ))}
 
@@ -106,13 +115,13 @@ export function SaffronCircuit() {
             key={`pulse-${i}`}
             d={d}
             stroke="url(#traceGradient)"
-            strokeWidth="4" // Increased for mobile visibility
+            strokeWidth="2" // Increased for mobile visibility
             fill="none"
             strokeLinecap="round"
             initial={{ pathLength: 0, pathOffset: 0 }}
             animate={{ pathLength: [0, 0.4, 0], pathOffset: [0, 1, 1] }}
             transition={{
-              duration: 4 + Math.random() * 4,
+              duration: 8 + Math.random() * 8, // Slower (8-16s)
               repeat: Infinity,
               ease: "linear",
               delay: Math.random() * 2,

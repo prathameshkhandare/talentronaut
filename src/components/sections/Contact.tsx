@@ -64,7 +64,7 @@ export function Contact() {
                         </div>
                         <div>
                             <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Visit Us</p>
-                            <p className="text-base font-bold text-[#1a1a1a] max-w-sm">Fab Lab, SRM, Bharathi Salai, Ramapuram, Chennai, Tamil Nadu 600089</p>
+                            <p className="text-base font-bold text-[#1a1a1a] max-w-sm"> 5-49, Maharaja Garden, Bajanai Kovil St, Andavar Nagar, Ramapuram, Chennai, Tamil Nadu 600089</p>
                         </div>
                     </div>
                 </div>

@@ -161,15 +161,17 @@ export default function Header() {
             {/* CTA Button & WhatsApp */}
             <div className="hidden md:flex items-center gap-4">
 
-              <Link
-                href="/#contact"
+              <a
+                href="https://api.whatsapp.com/send/?phone=918220324802&text&type=phone_number&app_absent=0"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative px-6 py-2.5 bg-[#D44531] text-white text-sm font-semibold rounded-full overflow-hidden shadow-lg shadow-[#D44531]/20 hover:shadow-[#D44531]/40 hover:-translate-y-0.5 transition-all duration-300"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Let's Connect <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-[#E65A45] to-[#D44531] opacity-0 group-hover:opacity-100 transition-opacity" />
-              </Link>
+              </a>
             </div>
 
             {/* Mobile Menu Toggle */}

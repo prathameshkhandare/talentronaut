@@ -82,6 +82,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100000] backdrop-blur-sm bg-black/5 overflow-y-auto overscroll-contain"
+            onClick={onClose}
           >
             {/* Flex wrapper to center content if short, or allow scroll if tall */}
             <div className="min-h-full w-full flex items-center justify-center p-4 md:p-8">
@@ -90,7 +91,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95, y: 10 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                    exit={{ opacity: 0, scale: 0.95, y: 10, transition: { duration: 0.2 } }}
                     onClick={(e) => e.stopPropagation()}
                     className="w-full max-w-lg bg-white rounded-[32px] p-8 md:p-10 shadow-2xl border border-gray-100 relative"
                 >

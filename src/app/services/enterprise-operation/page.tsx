@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 import { ServiceLayout } from '@/components/services/shared/ServiceLayout';
 import { SectionHeading } from '@/components/services/shared/SectionHeading';
@@ -75,7 +76,7 @@ export default function EnterpriseOperationPage() {
              <div className="w-full lg:w-[45%] flex flex-col gap-8">
                 <div>
                     <span className="text-primary font-bold tracking-widest text-sm uppercase mb-6 block">The Command Center</span>
-                    <SectionHeading as="h1" className="text-[36px] leading-[1.3] mb-8">
+                    <SectionHeading as="h1" className="text-[64px] leading-[1.3] mb-8">
                         Operational <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-500">Precision.</span>
                     </SectionHeading>
                     <p className="text-xl text-gray-700 leading-loose font-medium opacity-90">
@@ -138,13 +139,80 @@ export default function EnterpriseOperationPage() {
             </div>
         </section>
 
-        {/* Operational Workflow */}
-        <section className="py-8">
-            <div className="text-center mb-16">
-                <h2 className="text-[36px] font-heading font-bold text-charcoal mb-4">The Talentronaut Blueprint</h2>
-                <p className="text-gray-500 max-w-2xl mx-auto">Our proven methodology for transforming complex enterprises.</p>
-            </div>
-            <ProcessMap steps={PROCESS_STEPS} />
+        {/* Unique Process Stream - Integrated & Compact */}
+        <section className="py-2 mb-20"> {/* drastically reduced py-8 to py-2 to decrease space */}
+             <div className="container mx-auto px-6">
+                <div className="text-center mb-12">
+                     <span className="text-coral font-bold tracking-widest text-xs uppercase mb-3 block">Methodology</span>
+                     <h2 className="text-[36px] font-heading font-black text-charcoal">The Talentronaut Blueprint</h2>
+                </div>
+
+                {/* Horizontal Process Stream - Refactored for Visible Line */}
+                <div className="relative w-full mx-auto">
+                    
+                    {/* 1. The Timeline Layer (Line & Circles) */}
+                    <div className="relative mb-12"> {/* Increased margin for better separation */}
+                        
+                        {/* Gray Background Line - Thicker & Darker */}
+                        <div className="absolute top-1/2 left-0 w-full h-[4px] bg-gray-200 -translate-y-1/2 rounded-full" />
+
+                        {/* Animated Coral Progress Line - Thicker & Z-Idx Fix */}
+                        <div className="absolute top-1/2 left-0 w-full h-[4px] -translate-y-1/2 overflow-hidden rounded-full">
+                            <motion.div 
+                                className="h-full bg-coral origin-left"
+                                initial={{ scaleX: 0 }}
+                                whileInView={{ scaleX: 1 }}
+                                viewport={{ once: true, amount: 0.1 }}
+                                transition={{ duration: 2.5, ease: "linear" }}
+                            />
+                        </div>
+
+                        {/* Step Nodes Row */}
+                        <div className="grid grid-cols-5 gap-6 relative z-10">
+                            {PROCESS_STEPS.map((step, i) => (
+                                <div key={i} className="flex justify-center">
+                                    <motion.div
+                                        initial={{ scale: 0, opacity: 0 }}
+                                        whileInView={{ scale: 1, opacity: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.3, delay: i * 0.5 }} // Sync with line (2.5s / 5 = 0.5s)
+                                        className="w-14 h-14 rounded-full bg-white border-[4px] border-gray-100 flex items-center justify-center relative shadow-sm"
+                                    >
+                                        <motion.div 
+                                            initial={{ scale: 0 }}
+                                            whileInView={{ scale: 1 }}
+                                            transition={{ duration: 0.3, delay: (i * 0.5) + 0.2 }}
+                                            className="w-5 h-5 bg-coral rounded-full"
+                                        />
+                                        <div className="absolute -bottom-8 font-bold text-coral/80 text-lg">
+                                            0{i + 1}
+                                        </div>
+                                    </motion.div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* 2. The Content Cards Layer */}
+                    <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-6">
+                        {PROCESS_STEPS.map((step, i) => (
+                            <motion.div 
+                                key={i} 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ duration: 0.5, delay: (i * 0.5) + 0.1 }} // Appear just after line hits node
+                                className="group relative bg-white rounded-2xl p-5 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center h-full min-h-[200px] justify-center"
+                            >
+                                <h3 className="text-[20px] font-bold text-charcoal mb-2 group-hover:text-coral transition-colors">{step.title}</h3>
+                                <p className="text-base text-gray-500 leading-relaxed">
+                                    {step.description}
+                                </p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+             </div>
         </section>
 
         {/* Testimonials */}

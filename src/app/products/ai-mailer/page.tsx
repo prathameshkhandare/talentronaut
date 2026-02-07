@@ -16,7 +16,7 @@ export default function AIMailerPage() {
             <span className="text-coral font-bold tracking-widest text-sm uppercase mb-6 block">Intelligent Marketing</span>
             <SectionHeading as="h1" className="text-4xl md:text-6xl mb-8 leading-tight tracking-tight">
                 Supercharge Outreach with <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-500">AI Mailer.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-coral to-[#E65A45]">AI Mailer.</span>
             </SectionHeading>
             <p className="text-lg text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto">
                 The next generation of email marketing. Use AI to personalize content, optimize send times, and 10x your conversion rates.
@@ -46,7 +46,7 @@ export default function AIMailerPage() {
                 { icon: Mail, title: "Automated Drip", desc: "Set up complex sequences that nurture leads while you sleep." }
             ].map((feature, i) => (
                 <div key={i} className="bg-white p-8 rounded-[32px] border border-gray-100 shadow-lg hover:shadow-xl transition-shadow">
-                    <div className="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center text-green-600 mb-6">
+                    <div className="w-14 h-14 rounded-2xl bg-coral/10 flex items-center justify-center text-coral mb-6">
                         <feature.icon size={28} />
                     </div>
                     <h3 className="text-xl font-bold font-heading text-charcoal mb-3">{feature.title}</h3>

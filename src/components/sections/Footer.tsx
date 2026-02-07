@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Linkedin, Instagram, Facebook } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -137,7 +138,7 @@ export function Footer() {
       {/* Design Element: Background Aura - reduced */}
       <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-[#D44531]/5 blur-[150px] rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 relative z-30">
         
         {/* Informational Matrix */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-24">
@@ -217,12 +218,16 @@ export function Footer() {
                     <h4 className="text-[10px] font-black uppercase tracking-[0.5em] text-[#D44531]">System Logs</h4>
                 </div>
                 <ul className="grid grid-cols-1 gap-5">
-                    {['Terms of Service', 'Privacy Policy', 'Cookie Guidelines'].map((item) => (
-                        <li key={item}>
-                            <a href="#" className="text-sm text-gray-400 hover:text-[#D44531] font-bold transition-all flex items-center justify-between group py-1.5 border-b border-transparent hover:border-white/10">
-                                {item}
+                    {[
+                        { label: 'Terms of Service', href: '/legal/terms' },
+                        { label: 'Privacy Policy', href: '/legal/privacy' },
+                        { label: 'Cookie Policy', href: '/legal/cookies' }
+                    ].map((item) => (
+                        <li key={item.label}>
+                            <Link href={item.href} className="text-sm text-gray-400 hover:text-[#D44531] font-bold transition-all flex items-center justify-between group py-1.5 border-b border-transparent hover:border-white/10">
+                                {item.label}
                                 <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-all -translate-y-1 translate-x-1" />
-                            </a>
+                            </Link>
                         </li>
                     ))}
                 </ul>

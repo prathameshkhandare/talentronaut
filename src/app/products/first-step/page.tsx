@@ -16,7 +16,7 @@ export default function FirstStepPage() {
             <span className="text-coral font-bold tracking-widest text-sm uppercase mb-6 block">Startup Acceleration</span>
             <SectionHeading as="h1" className="text-4xl md:text-6xl mb-8 leading-tight tracking-tight">
                 Turn Ideas into Reality with <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">First Step.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-coral to-[#E65A45]">First Step.</span>
             </SectionHeading>
             <p className="text-lg text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto">
                 A comprehensive MVP builder and startup incubation toolkit. We validate, prototype, and launch your vision in record time.
@@ -46,7 +46,7 @@ export default function FirstStepPage() {
                 { icon: Rocket, title: "Growth Toolkit", desc: "Integrated launch checklists and growth hacking templates." }
             ].map((feature, i) => (
                 <div key={i} className="bg-white p-8 rounded-[32px] border border-gray-100 shadow-lg hover:shadow-xl transition-shadow">
-                    <div className="w-14 h-14 rounded-2xl bg-purple-50 flex items-center justify-center text-purple-600 mb-6">
+                    <div className="w-14 h-14 rounded-2xl bg-coral/10 flex items-center justify-center text-coral mb-6">
                         <feature.icon size={28} />
                     </div>
                     <h3 className="text-xl font-bold font-heading text-charcoal mb-3">{feature.title}</h3>

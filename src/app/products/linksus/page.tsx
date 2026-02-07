@@ -16,7 +16,7 @@ export default function LinksUsPage() {
             <span className="text-coral font-bold tracking-widest text-sm uppercase mb-6 block">Networking Simplified</span>
             <SectionHeading as="h1" className="text-4xl md:text-6xl mb-8 leading-tight tracking-tight">
                 Connect Smarter with <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">LinksUs.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-coral to-[#E65A45]">LinksUs.</span>
             </SectionHeading>
             <p className="text-lg text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto">
                 The ultimate digital business card and link management platform. Consolidate your digital identity into one powerful, shareable link.
@@ -47,7 +47,7 @@ export default function LinksUsPage() {
                 { icon: BarChart3, title: "Deep Analytics", desc: "Track clicks, views, and audience demographics to optimize your reach." }
             ].map((feature, i) => (
                 <div key={i} className="bg-white p-8 rounded-[32px] border border-gray-100 shadow-lg hover:shadow-xl transition-shadow">
-                    <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 mb-6">
+                    <div className="w-14 h-14 rounded-2xl bg-coral/10 flex items-center justify-center text-coral mb-6">
                         <feature.icon size={28} />
                     </div>
                     <h3 className="text-xl font-bold font-heading text-charcoal mb-3">{feature.title}</h3>
